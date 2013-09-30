@@ -74,12 +74,78 @@
 
 	\section building Building
 
-	In order to Build the program
+	In order to generate build files for the program, issue the following command:
+
+		cmake <directory where code resides>
+
+	Or, to use the graphical editor:
+
+		ccmake <directorys where the code resides>
 	
+	If configuring cmake and generating build files 
+
+	\subsection nix_build Unix-Like Systems
+
+	This includes MacOSX (Darwin).
+	The commands to issue at this point are:
+
+		make
+		make install
+
+	Make sure to set `LD_LIBRARY_PATH` or, on Darwin, `DYLD_LIBRARY_PATH` to the location of the libraries
+
+	\subsection windows_build Windows
+
+	Open the build solution in windows by either clicking on `NeuFlux.vcproj`, or opening 'Visual Studio' and open the solution 'NeuFlux'.
+
+	Once Visual Studio has ompleted parsing the documents, navigate `Solution->Build->Release` or hit the green arrow.
+
 	---
 	\section running Running
 
-	In order to run
+	In order to run the program, make sure that the environmental variable, `$PATH` is set to the directory where the execution binary resides, and run
+
+		NeuFlux <optional path to macro>
+
+	The source code for the main executable is found at NeuFlux.cc
 	
 	---
+
+	\section code_hierarchy Code Hierarchy
+
+	All necessary headers are included in the top-down file, NeuFlux.hh .
+
+	---
+
+	\section contact Contact
+
+	Please contact Kevin Wierman at kwierman@email.unc.edu with issues, flaws or questions
 */
+
+#include "NeuCosmicGenerator.hh"
+#include "NeuPrimaryGeneratorAction.hh"
+
+#include "NeuDetector.hh"
+#include "NeuPrimaryGeneratorMessenger.hh"
+
+#include "NeuDetectorHit.hh"
+#include "NeuRunAction.hh"
+
+#include "NeuDetectorMessenger.hh"
+#include "NeuSteppingAction.hh"
+
+#include "NeuEarthFields.hh"
+#include "NeuTrackingAction.hh"
+
+#include "NeuEventAction.hh"
+#include "NeuVisManager.hh"
+
+#include "NeuWorldGeometry.hh"
+
+#include "NeuPhysicsList.hh"
+
+
+namespace NeuFlux
+{
+
+}

@@ -31,18 +31,24 @@
 	The URL for the repository is: https://github.com/kwierman/NeuFlux .
 
 	Pulling from the repository can be accomplished by downloading <a href="https://github.com/">Git</a>
-
-		git clone https://github.com/kwierman/NeuFlux.git
+	
+	~~~~~~~~~~~~~~~~~~~~~
+	git clone https://github.com/kwierman/NeuFlux.git
+	~~~~~~~~~~~~~~~~~~~~~
 
 	It is advisable that if the software is being worked on to create a separate branch. 
 	This can be accomplished with the following line:
 
-		git checkout -b <your_branch_name>
+	~~~~~~~~~~~~~~~~~~~~~
+	git checkout -b <your_branch_name>
+	~~~~~~~~~~~~~~~~~~~~~
 
 	Pushing to the repository can be accomplished with the following command:
 
-		git push -u origin <your_branch_name>
-	
+	~~~~~~~~~~~~~~~~~~~~~
+	git push -u origin <your_branch_name>
+	~~~~~~~~~~~~~~~~~~~~~
+
 	---
 
 	\section dep Dependencies
@@ -76,11 +82,15 @@
 
 	In order to generate build files for the program, issue the following command:
 
-		cmake <directory where code resides>
+	~~~~~~~~~~~~~~~~~~~~~
+	cmake <directory where code resides>
+	~~~~~~~~~~~~~~~~~~~~~
 
 	Or, to use the graphical editor:
 
-		ccmake <directorys where the code resides>
+	~~~~~~~~~~~~~~~~~~~~~
+	ccmake <directorys where the code resides>
+	~~~~~~~~~~~~~~~~~~~~~
 	
 	If configuring cmake and generating build files 
 
@@ -89,8 +99,10 @@
 	This includes MacOSX (Darwin).
 	The commands to issue at this point are:
 
-		make
-		make install
+	~~~~~~~~~~~~~~~~~~~~~
+	make
+	make install
+	~~~~~~~~~~~~~~~~~~~~~
 
 	Make sure to set `LD_LIBRARY_PATH` or, on Darwin, `DYLD_LIBRARY_PATH` to the location of the libraries
 
@@ -105,7 +117,9 @@
 
 	In order to run the program, make sure that the environmental variable, `$PATH` is set to the directory where the execution binary resides, and run
 
-		NeuFlux <optional path to macro>
+	~~~~~~~~~~~~~~~~~~~~~
+	NeuFlux <optional path to macro>
+	~~~~~~~~~~~~~~~~~~~~~
 
 	The source code for the main executable is found at NeuFlux.cc
 	

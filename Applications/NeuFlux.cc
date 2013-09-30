@@ -8,7 +8,8 @@
 
     \fn int main(int argc, char **argv)
     \brief The main execution point for the program.
-    \param The name of a valid macro file, or nothing
+    \param argv The name of a valid macro file, or nothing
+    \param argc The usual c++ shenanigans
 
 */
 

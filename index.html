@@ -109,13 +109,13 @@ Introduction</h1>
 <h1><a class="anchor" id="downloading"></a>
 Downloading Software</h1>
 <p>This software is hosted on <a href="https://github.com/">GitHub</a>. The URL for the repository is: <a href="https://github.com/kwierman/NeuFlux">https://github.com/kwierman/NeuFlux</a> .</p>
-<p>Pulling from the repository can be accomplished by downloading <a href="https://github.com/">Git</a> </p>
-<pre class="fragment">git clone https://github.com/kwierman/NeuFlux.git
-</pre><p>It is advisable that if the software is being worked on to create a separate branch. This can be accomplished with the following line: </p>
-<pre class="fragment">git checkout -b &lt;your_branch_name&gt;
-</pre><p>Pushing to the repository can be accomplished with the following command: </p>
-<pre class="fragment">git push -u origin &lt;your_branch_name&gt;
-</pre><hr/>
+<p>Pulling from the repository can be accomplished by downloading <a href="https://github.com/">Git</a></p>
+<div class="fragment"><div class="line">git clone https:<span class="comment">//github.com/kwierman/NeuFlux.git</span></div>
+</div><!-- fragment --><p>It is advisable that if the software is being worked on to create a separate branch. This can be accomplished with the following line:</p>
+<div class="fragment"><div class="line">git checkout -b &lt;your_branch_name&gt;</div>
+</div><!-- fragment --><p>Pushing to the repository can be accomplished with the following command:</p>
+<div class="fragment"><div class="line">git push -u origin &lt;your_branch_name&gt;</div>
+</div><!-- fragment --> <hr/>
 <h1><a class="anchor" id="dep"></a>
 Dependencies</h1>
 <p>The following libraries must be built and in the paths in order to build properly:</p>
@@ -151,17 +151,17 @@ Dependencies</h1>
 <hr/>
 <h1><a class="anchor" id="building"></a>
 Building</h1>
-<p>In order to generate build files for the program, issue the following command: </p>
-<pre class="fragment">cmake &lt;directory where code resides&gt;
-</pre><p>Or, to use the graphical editor: </p>
-<pre class="fragment">ccmake &lt;directorys where the code resides&gt;
-</pre><p>If configuring cmake and generating build files</p>
+<p>In order to generate build files for the program, issue the following command:</p>
+<div class="fragment"><div class="line">cmake &lt;directory where code resides&gt;</div>
+</div><!-- fragment --><p>Or, to use the graphical editor:</p>
+<div class="fragment"><div class="line">ccmake &lt;directorys where the code resides&gt;</div>
+</div><!-- fragment --><p>If configuring cmake and generating build files</p>
 <h2><a class="anchor" id="nix_build"></a>
 Unix-Like Systems</h2>
-<p>This includes MacOSX (Darwin). The commands to issue at this point are: </p>
-<pre class="fragment">make
-make install
-</pre><p>Make sure to set <code>LD_LIBRARY_PATH</code> or, on Darwin, <code>DYLD_LIBRARY_PATH</code> to the location of the libraries</p>
+<p>This includes MacOSX (Darwin). The commands to issue at this point are:</p>
+<div class="fragment"><div class="line">make</div>
+<div class="line">make install</div>
+</div><!-- fragment --><p>Make sure to set <code>LD_LIBRARY_PATH</code> or, on Darwin, <code>DYLD_LIBRARY_PATH</code> to the location of the libraries</p>
 <h2><a class="anchor" id="windows_build"></a>
 Windows</h2>
 <p>Open the build solution in windows by either clicking on <code>NeuFlux.vcproj</code>, or opening 'Visual Studio' and open the solution 'NeuFlux'.</p>
@@ -169,9 +169,9 @@ Windows</h2>
 <hr/>
  <h1><a class="anchor" id="running"></a>
 Running</h1>
-<p>In order to run the program, make sure that the environmental variable, <code>$PATH</code> is set to the directory where the execution binary resides, and run </p>
-<pre class="fragment">NeuFlux &lt;optional path to macro&gt;
-</pre><p>The source code for the main executable is found at <a class="el" href="NeuFlux_8cc.html" title="The Main Executable for the NeuFlux. ">NeuFlux.cc</a> </p>
+<p>In order to run the program, make sure that the environmental variable, <code>$PATH</code> is set to the directory where the execution binary resides, and run</p>
+<div class="fragment"><div class="line">NeuFlux &lt;optional path to macro&gt;</div>
+</div><!-- fragment --><p>The source code for the main executable is found at <a class="el" href="NeuFlux_8cc.html" title="The Main Executable for the NeuFlux. ">NeuFlux.cc</a> </p>
 <hr/>
 <h1><a class="anchor" id="code_hierarchy"></a>
 Code Hierarchy</h1>
@@ -183,7 +183,7 @@ Contact</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 30 2013 07:32:25 for NeutronFlux by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 30 2013 18:01:01 for NeutronFlux by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

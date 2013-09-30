@@ -8,7 +8,8 @@
 
     \fn int main(int argc, char **argv)
     \brief The main execution point for the program.
-    \param The name of a valid macro file, or nothing
+    \param argv The name of a valid macro file, or nothing
+    \param argc The usual c++ shenanigans
 
 */
 
@@ -29,11 +30,8 @@
 
 #include "TRandom3.h"
 
-
-//#include "TROOT.h"
-
-///     CLHEP includes
-// #include "Randomize.hh"
+namespace NeuFlux
+{
 
 int main(int argc, char **argv)
 {
@@ -48,15 +46,15 @@ int main(int argc, char **argv)
    std::cout<<"  Setting up Run Manager"<<std::endl;
    ///  Run manager initialization
    G4RunManager *runManager = new G4RunManager;
-   //KDSDetectorConstruction *KDSDetector =
-   //    new KDSDetectorConstruction;
-   //runManager->SetUserInitialization(KDSDetector);
-   //runManager->SetUserInitialization(new KDSPhysicsList);
+   NeuDetector *NeuDetector =
+   //    new NeuDetectorConstruction;
+   //runManager->SetUserInitialization(NeuDetector);
+   //runManager->SetUserInitialization(new NeuPhysicsList);
 
    /// Construct and initialize the Visualization Manager
 #ifdef G4VIS_USE
    std::cout<<"  Setting up Visualization Manager"<<std::endl;
-   //G4VisManager *visManager = new KDSVisManager;
+   //G4VisManager *visManager = new NeuVisManager;
    //visManager->SetVerboseLevel(0);
    //visManager->Initialize();
 #endif
@@ -64,21 +62,21 @@ int main(int argc, char **argv)
 
    std::cout<<"  Setting up User Action Classes"<<std::endl;
    ///  UserAction classes
-   //KDSRunAction *KDSRun = new KDSRunAction(rSeed);
-   //runManager->SetUserAction(KDSRun);
+   //NeuRunAction *NeuRun = new NeuRunAction(rSeed);
+   //runManager->SetUserAction(NeuRun);
    std::cout<<"    done setting run action"<<std::endl;
-   //KDSEventAction *KDSEvent =
-   //    new KDSEventAction(KDSRun);
-   //runManager->SetUserAction(KDSEvent);
-   //runManager->SetUserAction( new KDSPrimaryGeneratorAction(
-   //                    KDSEvent) );
-   //KDSTrackingAction *KDSTracking =
-   //    new KDSTrackingAction;
-   //runManager->SetUserAction(KDSTracking);
+   //NeuEventAction *NeuEvent =
+   //    new NeuEventAction(NeuRun);
+   //runManager->SetUserAction(NeuEvent);
+   //runManager->SetUserAction( new NeuPrimaryGeneratorAction(
+   //                    NeuEvent) );
+   //NeuTrackingAction *NeuTracking =
+   //    new NeuTrackingAction;
+   //runManager->SetUserAction(NeuTracking);
    /*runManager->
        SetUserAction(new
-                     KDSSteppingAction(KDSEvent,
-					     KDSTracking, KDSDetector));
+                     NeuSteppingAction(NeuEvent,
+					     NeuTracking, NeuDetector));
     */
 
    std::cout<<"  Initializing the G4 kernel"<<std::endl;
@@ -92,7 +90,7 @@ int main(int argc, char **argv)
    //CLHEP::HepRandom::setTheSeed(rSeed);
  
    /// run the DAWNfile creation
-//   UI->ApplyCommand("/control/execute KDSVis.macro");
+//   UI->ApplyCommand("/control/execute NeuVis.macro");
 
    if (argc == 1) 
    {
@@ -127,4 +125,5 @@ int main(int argc, char **argv)
 #endif
 
    return 0;
+}
 }

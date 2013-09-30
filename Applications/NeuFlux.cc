@@ -35,90 +35,67 @@ namespace NeuFlux
 
 int main(int argc, char **argv)
 {
-
-   ///  Set the random seed using TRandom3, with
    TRandom3 r3(0);
-   // CLHEP::HepRandom::setTheSeed() accepts long, not unsigned
-   //Using the full UInt by utilizing the 8th Mersenne Prime.
+
    UInt_t rSeed   = static_cast<UInt_t> (2147483647.*r3.Rndm());
    std::cout << "Randomization Seed: " << rSeed << std::endl;
 
    std::cout<<"  Setting up Run Manager"<<std::endl;
-   ///  Run manager initialization
-   G4RunManager *runManager = new G4RunManager;
-   NeuDetector *NeuDetector =
-   //    new NeuDetectorConstruction;
-   //runManager->SetUserInitialization(NeuDetector);
-   //runManager->SetUserInitialization(new NeuPhysicsList);
+   
+   G4RunManager* runManager = new G4RunManager;
+   NeuWorldGeometry* geometry = new NeuWorldGeometry;
 
-   /// Construct and initialize the Visualization Manager
+   runManager->SetUserInitialization(geometry);
+   runManager->SetUserInitialization(new NeuPhysicsList);
+
 #ifdef G4VIS_USE
    std::cout<<"  Setting up Visualization Manager"<<std::endl;
-   //G4VisManager *visManager = new NeuVisManager;
-   //visManager->SetVerboseLevel(0);
-   //visManager->Initialize();
+   G4VisManager *visManager = new NeuVisManager;
+   visManager->SetVerboseLevel(0);
+   visManager->Initialize();
 #endif
 
-
    std::cout<<"  Setting up User Action Classes"<<std::endl;
-   ///  UserAction classes
-   //NeuRunAction *NeuRun = new NeuRunAction(rSeed);
-   //runManager->SetUserAction(NeuRun);
+   NeuRunAction* runAction = new NeuRunAction(rSeed);
+   runManager->SetUserAction(runAction);
    std::cout<<"    done setting run action"<<std::endl;
-   //NeuEventAction *NeuEvent =
-   //    new NeuEventAction(NeuRun);
-   //runManager->SetUserAction(NeuEvent);
-   //runManager->SetUserAction( new NeuPrimaryGeneratorAction(
-   //                    NeuEvent) );
-   //NeuTrackingAction *NeuTracking =
-   //    new NeuTrackingAction;
-   //runManager->SetUserAction(NeuTracking);
-   /*runManager->
+   NeuEventAction* eventAction =
+       new NeuEventAction(runAction);
+   runManager->SetUserAction(NeuEvent);
+   runManager->SetUserAction( new NeuPrimaryGeneratorAction(
+                       eventAction) );
+   NeuTrackingAction* trackingAction =
+       new NeuTrackingAction;
+   runManager->SetUserAction(trackingAction);
+   *runManager->
        SetUserAction(new
-                     NeuSteppingAction(NeuEvent,
-					     NeuTracking, NeuDetector));
-    */
+                     NeuSteppingAction(eventAction,
+					     trackingAction, geometry));
 
    std::cout<<"  Initializing the G4 kernel"<<std::endl;
-   ///  Initialize G4 kernel
-   //runManager->Initialize();
 
-   ///  Get the pointer to the User Interface manager 
+   runManager->Initialize();
+
    G4UImanager *UI = G4UImanager::GetUIpointer();
-
-   ///  Default generator is the HepJamesRandom, based on RANMAR
-   //CLHEP::HepRandom::setTheSeed(rSeed);
- 
-   /// run the DAWNfile creation
-//   UI->ApplyCommand("/control/execute NeuVis.macro");
 
    if (argc == 1) 
    {
-      ///       Define (G)UI terminal for interactive mode  
-      ///       G4UIterminal is a (dumb) terminal.
-
-
       G4UIsession *session = new G4UIterminal(
       #ifdef G4UI_USE_TCSH
     		  new G4UItcsh
       #endif
     		);
 
-      /// run the OGLIX file creation
-//      UI->ApplyCommand("/control/execute vis.macro");
-
       session->SessionStart();
       delete session;
    } 
    else 
    {
-      ///       Batch mode
       G4String command = "/control/execute ";
       G4String fileName = argv[1];
       UI->ApplyCommand(command + fileName);
    }
 
-   ///  Cleanup
    delete runManager;
 #ifdef G4VIS_USE
    delete visManager;

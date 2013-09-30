@@ -136,26 +136,13 @@
 	Please contact Kevin Wierman at kwierman@email.unc.edu with issues, flaws or questions
 */
 
-#include "NeuCosmicGenerator.hh"
 #include "NeuPrimaryGeneratorAction.hh"
-
-#include "NeuDetector.hh"
-#include "NeuPrimaryGeneratorMessenger.hh"
-
-#include "NeuDetectorHit.hh"
 #include "NeuRunAction.hh"
-
-#include "NeuDetectorMessenger.hh"
-#include "NeuSteppingAction.hh"
-
-#include "NeuEarthFields.hh"
 #include "NeuTrackingAction.hh"
-
 #include "NeuEventAction.hh"
+#include "NeuSteppingAction.hh"
 #include "NeuVisManager.hh"
-
 #include "NeuWorldGeometry.hh"
-
 #include "NeuPhysicsList.hh"
 
 

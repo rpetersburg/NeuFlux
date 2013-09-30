@@ -19,3 +19,7 @@ link_directories(${ROOT_LIBRARY_DIR})
 #----------------------------------------------------------------------------
 include(${Geant4_USE_FILE})
 #include_directories(${PROJECT_SOURCE_DIR}/include)
+
+
+add_subdirectory(Documentation)
+

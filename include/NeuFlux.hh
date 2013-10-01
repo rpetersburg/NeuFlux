@@ -145,7 +145,13 @@
 #include "NeuWorldGeometry.hh"
 #include "NeuPhysicsList.hh"
 
+/*!
+	\namespace NeuFlux
+	\brief The namespace for user created classes for the neuflux simulation
 
+		Contains all of the user classes for the neuflux simulation
+
+*/
 namespace NeuFlux
 {
 

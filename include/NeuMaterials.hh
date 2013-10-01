@@ -2,6 +2,8 @@
 #define NeuMaterials_hh_
 
 #include "G4Material.hh"
+#include "G4Isotope.hh"
+#include "G4Element.hh"
 
 /*!
 	\file NeuMaterials.hh

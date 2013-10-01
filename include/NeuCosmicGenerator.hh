@@ -1,29 +1,29 @@
-/**
- * \class NeuCosmicGenerator
- *
- * \ingroup NeuFlux
- *
- * \brief Code for defining the primary vertex of cosmic rays in the KDS Monte Carlo.
- *
- *     Energy and zenith angle defined for muons, neutrons, and nucleons.
- *     To save time, first pick a position on the x equals 0 plane near
- *     the detector plane_position, then use the zenith angle to pick a
- *     position outside the detector global_position aimed in to the
- *     plane_position.
- *
- * \note Defaults to Muon spectrum.
- *
- * \author Kevin Wierman
- * \author Michelle Leber
- *
- * \version $Revision: 1.5 $
- *
- * \date $Date: Tue Nov 20 12::33:51 2012 $
- *
- * Contact: kwierman@email.unc.edu
- *
- * Created on: Wed Apr 1 18:39:37 2005
- *
+/*!
+  \class NeuCosmicGenerator
+ 
+  \ingroup NeuFlux
+ 
+  \brief Code for defining the primary vertex of cosmic rays in the KDS Monte Carlo.
+ 
+      Energy and zenith angle defined for muons, neutrons, and nucleons.
+      To save time, first pick a position on the x equals 0 plane near
+      the detector plane_position, then use the zenith angle to pick a
+      position outside the detector global_position aimed in to the
+      plane_position.
+ 
+  \note Defaults to Muon spectrum.
+ 
+  \author Kevin Wierman
+  \author Michelle Leber
+ 
+  \version $Revision: 1.5 $
+ 
+  \date $Date: Tue Nov 20 12::33:51 2012 $
+ 
+  Contact: kwierman@email.unc.edu
+ 
+  Created on: Wed Apr 1 18:39:37 2005
+ 
  */
 
 #ifndef NeuCosmicGenerator_hh_

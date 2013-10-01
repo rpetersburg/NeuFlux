@@ -104,10 +104,23 @@ namespace NeuFlux
 	 
 	  \brief Chemical and isotopic definitions of the composition of rocks in South Dakota
 	 
-			The chemical composition is as follows:
+	    The chemical composition is as follows:
+
+				87.05 	SiO3
+				6.560 	Al203
+				0.840	Fe203
+				1.243	MgO
+				0.950	CaO
+				3.008	Na2O
+
+		Given this, the Natural isotopic abuundances are
 
 
-		\note Source: <iframe frameborder="0" scrolling="no" style="border:0px" src="http://books.google.com/books?id=Qx0lAQAAIAAJ&lpg=PA1&ots=hKt1Z21ubV&dq=chemical%20composition%20of%20rocks%20in%20south%20dakota&pg=PA10&output=embed" width=500 height=500></iframe>
+	  \note Source: Geological Survey Professional Paper, Volume 561, "Chemical Composition of Sedimentary Rocks in Colorado, Kansas, Montana, Nebraska, North Dakota, South Dakota, Wyoming"
+	  
+	  http://books.google.com/books?id=Gk_wAAAAMAAJ&lpg=PA1&ots=ejVIkWh5AQ&dq=chemical%20composition%20of%20rocks%20in%20south%20dakota&pg=PA12#v=onepage&q=chemical%20composition%20of%20rocks%20in%20south%20dakota&f=false
+	  	
+	  http://www.chem.ualberta.ca/~massspec/atomic_mass_abund.pdf
 
 	  \warning High variances in rock composition make this an approximation
 	 
@@ -131,7 +144,7 @@ namespace NeuFlux
 				This data came from an unknown source
 
 			*/
-			NeuConcrete()
+			NeuRock()
 			{
 
 				O16 = new G4Isotope( "O16", 8, 16, 15.99491463*g/mole );
@@ -158,7 +171,7 @@ namespace NeuFlux
 		   		this->AddElement( natSi, 1 );
    				this->AddElement( natO, 2 );
 			}
-			virtual ~NeuConcrete()
+			virtual ~NeuRock()
 			{
 				delete O16;
 				delete O17;

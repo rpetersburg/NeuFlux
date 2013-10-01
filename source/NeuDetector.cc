@@ -1,6 +1,8 @@
-#include "NeuDetector.hh"
-#include "NeuRunAction.hh"
-#include "NeuTrackingAction.hh"
+#include <map>
+#include <utility>
+
+#include "TROOT.h"
+#include "TRandom3.h"
 
 #include "G4RunManager.hh"
 #include "G4VTouchable.hh"
@@ -13,56 +15,68 @@
 #include "G4SDManager.hh"
 #include "G4ios.hh"
 
-#include <map>
-#include <utility>
+#include "NeuDetector.hh"
+#include "NeuRunAction.hh"
+#include "NeuTrackingAction.hh"
 
-//root includes
-#include "TROOT.h"
-#include "TRandom3.h"
-
-using namespace std;
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-NeuDetector::NeuDetector(G4String name)
-:  G4VSensitiveDetector(name), theNav(0)
+NeuFlux::NeuDetector::NeuDetector() : G4VSensitiveDetector("NeuDetector")
 {
-   G4String HCname;
-   collectionName.insert(HCname = "scintillatorCollection");
+  fNHitsAll=0;
+  fEtotalAll=0;
+  fNEventsTotal=0;
+  fPDGCode=0;
+  fEnergy=0;
+  fGlobalTime=0;
+  hitsCollection=0;
+  theNav=0;
+  collectionName.insert( G4String("NeuDetectorCollection") );
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+NeuFlux::NeuDetector::NeuDetector(G4String name) : G4VSensitiveDetector(name), theNav(0)
+{
+  fNHitsAll=0;
+  fEtotalAll=0;
+  fNEventsTotal=0;
+  fPDGCode=0;
+  fEnergy=0;
+  fGlobalTime=0;
+  hitsCollection=0;
+  theNav=0;
+  collectionName.insert( G4String("NeuDetectorCollection") );
+}
 
-NeuDetector::~NeuDetector()
+NeuFlux::NeuDetector::~NeuDetector()
 {
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-void NeuDetector::Initialize(G4HCofThisEvent* HCE)
+void NeuFlux::NeuDetector::Initialize(G4HCofThisEvent* HCE)
 {
-   scintillatorCollection = new NeuScintHitsCollection
-       (SensitiveDetectorName, collectionName[0]);
+   hitsCollection = new NeuDetectorHitsCollection(SensitiveDetectorName, collectionName[0]);
+
    static G4int HCID = -1;//hit collection ID
    if (HCID < 0) {
       HCID =
           G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
    }
-   HCE->AddHitsCollection(HCID, scintillatorCollection);
-   SetRootBranches();
-   fNHitsAll = 0;
-   fEtotalAll =  0;
-   fNEventsTotal =  0;
-	for (G4int i = 0; i < kScintMax; i++) {
-		fEdep[i] = fGlobalTime[i] = fNonIonE[i]= 0;
-		fPanelID[i] = fPDGCode[i] = 0;
-	}
-}
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+   HCE->AddHitsCollection(HCID, hitsCollection);
+
+   //SetRootBranches();
+  fNHitsAll=0;
+  fEtotalAll=0;
+  fNEventsTotal=0;
+  fPDGCode=0;
+  fEnergy=0;
+  fGlobalTime=0;
+  hitsCollection=0;
+  theNav=0;
+}
 
 G4bool NeuDetector::ProcessHits(G4Step * aStep,
                                          G4TouchableHistory *)
 {
+  /*
 	G4double edep = aStep->GetTotalEnergyDeposit();
 
    if ( edep < 0.0000001 )
@@ -93,13 +107,14 @@ G4bool NeuDetector::ProcessHits(G4Step * aStep,
 
   scintillatorCollection->insert(newHit);
    return true;
+   */
+   return true;
 
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
 void NeuDetector::EndOfEvent(G4HCofThisEvent *)
 {
+  /*
 	
    fNHitsAll = scintillatorCollection->entries();//total number of hits in any panel
 	
@@ -157,11 +172,12 @@ void NeuDetector::EndOfEvent(G4HCofThisEvent *)
       G4cout << G4endl << " *** error: ScintSD arrays too small! *** " << G4endl;
       G4cout << "Number of particles "<< fNEventsTotal << G4endl;
     }
-
+  */
 
 }
 
 void NeuDetector::SetRootBranches(){
+  /*
    G4RunManager *runManager = G4RunManager::GetRunManager();
    NeuRunAction *theRun =
        (NeuRunAction *) runManager->GetUserRunAction();
@@ -192,5 +208,5 @@ void NeuDetector::SetRootBranches(){
                                 "ScintSDPDGCode[ScintSDNEventsTotal]/I");
 
   }
+  */
 }
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

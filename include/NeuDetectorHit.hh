@@ -6,11 +6,10 @@
   \brief Container class for Detector Hits
   
   Contains this information:
-    G4int fPanelID;
-    G4double edep;
-    G4double globaltime;
-    G4int pdg;
-    G4double nonionenergy;
+    Energy of the particle
+    Global time
+    Particle ID
+    Track ID
   
   \author Kevin Wierman
   
@@ -31,95 +30,70 @@
 #include "G4Allocator.hh"
 #include "G4ThreeVector.hh"
 
-class NeuDetectorHit:public G4VHit {
- public:
-
-   NeuDetectorHit();
-   ~NeuDetectorHit();
-   NeuDetectorHit(const NeuDetectorHit &);
-   const NeuDetectorHit & operator=(const NeuDetectorHit &);
-   G4int operator==(const NeuDetectorHit &) const;
-
-   inline void *operator  new(size_t);
-   inline void operator  delete(void *);
-
-   void Draw();
-   void Print();
-
- public:
-
-   void SetPanelID(G4int panel) {
-      fPanelID = panel;
-   };
-   void SetEdep( G4double de) {
-       edep = de;
-  };
-   void SetGlobalTime(G4double t) {
-       globaltime = t;
-  };
-   void SetPDGCode(G4int id) {
-      pdg = id;
-   };
-	void SetNonIonEnergy(G4double ke) {
-      nonionenergy = ke;
-   };
-	void SetTrackID(G4int i){
-		trackID=i;
-	}
-   
-   G4int GetPanelID() {
-      return fPanelID;
-   };
-   G4double GetEdep() {
-      return edep;
-   };
-   G4double GetGlobalTime() {
-      return globaltime;
-   };
-   G4int GetPDGCode() {
-      return pdg;
-   };
-	G4double GetNonIonEnergy() {
-      return nonionenergy;
-   };
-	G4int GetTrackID(){
-		return trackID;
-	}
-   
- private:
-   G4int fPanelID;
-   G4double edep;
-   G4double globaltime;
-   G4int pdg;
-   G4double nonionenergy;
-   G4int trackID;
-   
-};
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-typedef G4THitsCollection < NeuDetectorHit >
-    NeuDetectorHitsCollection;
-
-extern G4Allocator < NeuDetectorHit >
-    NeuDetectorHitAllocator;
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-inline void *NeuDetectorHit::operator  new(size_t)
+namespace NeuFlux
 {
-   void *aHit;
-   aHit = (void *) NeuDetectorHitAllocator.MallocSingle();
-   return aHit;
+
+  class NeuDetectorHit : public G4VHit {
+  private:
+    G4double fEnergy;
+    G4double fGlobalTime;
+    G4int fPDG;
+    G4int fTrackID;
+
+  public:
+
+    NeuDetectorHit();
+    ~NeuDetectorHit();
+    NeuDetectorHit(const NeuDetectorHit &);
+    const NeuDetectorHit & operator=(const NeuDetectorHit &);
+    G4int operator==(const NeuDetectorHit &) const;
+
+    inline void* operator  new(size_t);
+    inline void operator  delete(void *);
+
+    void Draw();
+    void Print();
+
+  public:
+    void SetEnergy( G4double de) 
+      {fEnergy = de;}
+    void SetGlobalTime(G4double t) 
+      {fGlobalTime = t;}
+    void SetPDGCode(G4int id)
+      {fPDG = id;}
+	  void SetTrackID(G4int i)
+      {fTrackID=i;}
+   
+    G4double GetEnergy()
+      {return fEnergy;}
+    G4double GetGlobalTime() 
+      {return fGlobalTime;}
+    G4int GetPDGCode() 
+      {return fPDG;}
+  	G4int GetTrackID()
+    {return fTrackID;}    
+  };
+
+  typedef G4THitsCollection < NeuDetectorHit >
+      NeuDetectorHitsCollection;
+
+  extern G4Allocator < NeuDetectorHit >
+      NeuDetectorHitAllocator;
+
+  inline void* NeuDetectorHit::operator  new(size_t)
+  {
+     void *aHit;
+     aHit = (void *) NeuDetectorHitAllocator.MallocSingle();
+     return aHit;
+  }
+
+
+  inline void NeuDetectorHit::operator  delete(void *aHit)
+  {
+     NeuDetectorHitAllocator.
+         FreeSingle((NeuDetectorHit *) aHit);
+  }
+
 }
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-inline void NeuDetectorHit::operator  delete(void *aHit)
-{
-   NeuDetectorHitAllocator.
-       FreeSingle((NeuDetectorHit *) aHit);
-}
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 #endif

@@ -7,60 +7,45 @@
 
 G4Allocator < NeuDetectorHit > NeuDetectorHitAllocator;
 
-NeuDetectorHit::NeuDetectorHit()
+NeuFlux::NeuDetectorHit::NeuDetectorHit()
 {
 }
 
-NeuDetectorHit::~NeuDetectorHit()
+NeuFlux::NeuDetectorHit::~NeuDetectorHit()
 {
 }
 
-NeuDetectorHit::
-NeuDetectorHit(const NeuDetectorHit & right)
-:G4VHit()
+NeuDetectorHit::NeuDetectorHit(const NeuDetectorHit & right) : G4VHit(), fEnergy(right.fEnergy), fGlobalTime(right.fGlobalTime), fPDG(right.fPDG), fTrackID(right.fPDG)
 {
-   fPanelID = right.fPanelID;
-   edep = right.edep;
-   globaltime = right.globaltime;
-   pdg = right.pdg;
-   nonionenergy = right.nonionenergy;
-
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-const NeuDetectorHit & NeuDetectorHit::
-operator=(const NeuDetectorHit & right)
+const NeuFlux::NeuDetectorHit & NeuFlux::NeuDetectorHit::operator=(const NeuFlux::NeuDetectorHit & right)
 {
-   fPanelID = right.fPanelID;
-   edep = right.edep;
-   globaltime = right.globaltime;
-   pdg = right.pdg;
-   nonionenergy = right.nonionenergy;
-
+   fEnergy = right.fEnergy;
+   fGlobalTime = right.fGlobalTime;
+   fPDG = right.fPDG;
+   fTrackID = right.fPDG;
    return *this;
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-G4int NeuDetectorHit::
-operator==(const NeuDetectorHit & right) const
+G4int NeuFlux::NeuDetectorHit::operator==(const NeuDetectorHit & right) const
 {
-   return (this == &right) ? 1 : 0;
-}
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-void NeuDetectorHit::Draw()
-{
-}
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-void NeuDetectorHit::Print()
-{
-   G4cout << "  time: " << globaltime
-       << "  energy deposit: " << G4BestUnit(edep, "Energy") << G4endl;
+   if(fTrackID == right.fTrackID)
+      if(fEnergy == right.fEnergy)
+         if(fGlobalTime == right.fGlobalTime)
+            if(fPDG == right.fPDG)
+               return 1;
+   return 0;
 
 }
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+void NeuFlux::NeuDetectorHit::Draw()
+{
+}
+
+
+void NeuFlux::NeuDetectorHit::Print()
+{
+   G4cout << "  time: " << fGlobalTime
+       << "  energy deposit: " << G4BestUnit(fEnergy, "Energy") << G4endl;
+}

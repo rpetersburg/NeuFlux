@@ -49,6 +49,19 @@ class NeuWorldGeometry : public G4UserDetectorConstruction
    G4bool StoreEnteringParticleInfo(G4VPhysicalVolume * postVolume);
    /// See .cc file for details.
    G4int FindPhysicalVolumeIndex(G4VPhysicalVolume * whichVolume);
+
+private:
+	G4double fWorldX;
+	G4double fWorldY;
+	G4double fWorldZ;
+
+	G4double fRockX;
+	G4double fRockY;
+	G4double fRockZ;
+
+	G4double fCementX;
+	G4double fCementY;
+	G4double fCementZ;
 };
 
 }

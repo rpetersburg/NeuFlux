@@ -201,12 +201,7 @@ namespace NeuFlux
 
 			G4Element* natSi;
 	};
+
 }
-
-
-
-
-
-
 
 #endif

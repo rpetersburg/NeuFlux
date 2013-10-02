@@ -38,9 +38,9 @@ int main(int argc, char **argv)
    TRandom3 r3(0);
 
    UInt_t rSeed   = static_cast<UInt_t> (2147483647.*r3.Rndm());
-   std::cout << "Randomization Seed: " << rSeed << std::endl;
+   G4cout << "Randomization Seed: " << rSeed << std::endl;
 
-   std::cout<<"  Setting up Run Manager"<<std::endl;
+   G4cout<<"  Setting up Run Manager"<<std::endl;
    
    G4RunManager* runManager = new G4RunManager;
    NeuWorldGeometry* geometry = new NeuWorldGeometry;
@@ -49,16 +49,16 @@ int main(int argc, char **argv)
    runManager->SetUserInitialization(new NeuPhysicsList);
 
 #ifdef G4VIS_USE
-   std::cout<<"  Setting up Visualization Manager"<<std::endl;
+   G4cout<<"  Setting up Visualization Manager"<<std::endl;
    G4VisManager *visManager = new NeuVisManager;
    visManager->SetVerboseLevel(0);
    visManager->Initialize();
 #endif
 
-   std::cout<<"  Setting up User Action Classes"<<std::endl;
+   G4cout<<"  Setting up User Action Classes"<<std::endl;
    NeuRunAction* runAction = new NeuRunAction(rSeed);
    runManager->SetUserAction(runAction);
-   std::cout<<"    done setting run action"<<std::endl;
+   G4cout<<"    done setting run action"<<std::endl;
    NeuEventAction* eventAction =
        new NeuEventAction(runAction);
    runManager->SetUserAction(NeuEvent);
@@ -72,7 +72,7 @@ int main(int argc, char **argv)
                      NeuSteppingAction(eventAction,
 					     trackingAction, geometry));
 
-   std::cout<<"  Initializing the G4 kernel"<<std::endl;
+   G4cout<<"  Initializing the G4 kernel"<<std::endl;
 
    runManager->Initialize();
 

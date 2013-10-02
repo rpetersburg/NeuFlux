@@ -1,77 +1,53 @@
-/**
- * \class KDSSteppingAction
- *
- * \ingroup KDS
- *
- * \brief Defines information to be updated during stepping.
- *
- * At each step, this is called to update the information on the event and
- * the track.
- *
- * \note See KDSEventAction for which information is available to access.
- *
- * \author Kevin Wierman
- * \author Michelle Leber
- *
- * \version $Revision: 1.5 $
- *
- * \date $Date: Tue Nov 20 12::33:51 2012 $
- *
- * Contact: kwierman@email.unc.edu
- *
- * Created on: Wed Apr 1 18:39:37 2005
- *
- */
+/*!
+   \class NeuSteppingAction
+   
+   \ingroup NeuFlux
+   
+   \brief Defines information to be updated during stepping.
+   
+   \note See NeuEventAction for which information is available to access.
+   
+   \author Kevin Wierman
+   
+   \version 1.0
+   
+   \date Oct 1, 2013
+   
+   \contact kwierman@email.unc.edu
 
-#ifndef KDSSteppingAction_h
-#define KDSSteppingAction_h 1
+   
+*/
 
+#ifndef NeuSteppingAction_hh_
+#define NeuSteppingAction_hh_ 
 
-///     Geant4 package includes
 #include "G4UserSteppingAction.hh"
 #include "G4UserEventAction.hh"
 #include "G4Track.hh"
 #include "globals.hh"
 
+namespace NeuFlux
+{
+   class NeuSteppingAction : public G4UserSteppingAction 
+   {
 
-class KDSEventAction;
-class KDSTrackingAction;
-class KDSDetectorConstruction;
+    public:
+      NeuSteppingAction(NeuEventAction *,
+                                  NeuTrackingAction *,
+                                  NeuDetectorConstruction *);
+      ~NeuSteppingAction();
 
-class KDSSteppingAction:public G4UserSteppingAction {
+      void UserSteppingAction(const G4Step * theStep);
 
- public:
-   KDSSteppingAction(KDSEventAction *,
-                               KDSTrackingAction *,
-                               KDSDetectorConstruction *);
-   ~KDSSteppingAction();
+    private:
+      NeuEventAction * theEventAct;
+      NeuTrackingAction *theTrackAct;
+      NeuDetectorConstruction *theDet;
 
-   void UserSteppingAction(const G4Step * theStep);
+      void SetEnteringParticleInfo();
 
- private:
-   KDSEventAction * theEventAct;
-   KDSTrackingAction *theTrackAct;
-   KDSDetectorConstruction *theDet;
+   };
 
-   const G4Track *theTrack;
-   G4VPhysicalVolume *preVolume;
-   G4VPhysicalVolume *postVolume;
-   const G4LogicalVolume *vertexLogicalVolume;
-   G4double edep;
-   G4int processType;
-   G4int trackID;
-   G4int parentID;
-   G4int PDG;
-   G4double KE;
-   G4double time;
-   G4ThreeVector incidentPosition;
-   G4ThreeVector incidentMomentum;
-
-   KDSEventAction::IncidentParticleType incidentParticle;
-   G4int volumeIndex;
-
-   void SetEnteringParticleInfo();
-
-};
+}
 
 #endif

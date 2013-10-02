@@ -5,7 +5,7 @@
    
    \brief Defines behavior at beginning and end of Run.
    
-      Mostly is an input/output manager. Just deals with the output root file.
+      At the beginning of each run, 
    
    \note The default root file name is: <Katrin_<spectrum>_<timeSeed><runNumber>.root>
    
@@ -25,55 +25,50 @@
 #ifndef NeuRunAction_hh_
 #define NeuRunAction_hh_ 
 
-///     Geant4 package includes
 #include "G4UserRunAction.hh"
 #include "globals.hh"
 #include "G4Run.hh"
 
-
-///     ROOT includes
 #include "TROOT.h"
 #include "TFile.h"
 #include "TTree.h"
 
 namespace NeuFlux
 {
-class NeuRunAction:public G4UserRunAction {
+   class NeuRunAction : public G4UserRunAction {
 
- public:
-   NeuRunAction(G4int);
-   ~NeuRunAction();
+   public:
+      NeuRunAction(G4int);
+      ~NeuRunAction();
 
- public:
-   void BeginOfRunAction(const G4Run *);
-   void EndOfRunAction(const G4Run *);
-   G4int GetRunInt() {
-      return id;
+   public:
+      void BeginOfRunAction(const G4Run *);
+      void EndOfRunAction(const G4Run *);
+
+      G4int GetRunInt() {
+         return fID;
+      };
+
+      TFile * GetRootFile() {
+         return fOutput;
+      };
+      TTree *GetTree() {
+         return fTree;
+      };
+
+      void SetRootFile(TFile * file) {
+         fOutput = file;
+      };
+      void SetTree(TTree * newTree) {
+         fTree = newTree;
+      };
+
+   private:
+      G4int fID;
+      TFile * fOutput;
+      TTree * fTree;
+      G4int fTimeSeed;
    };
-   void NameRootFile();
-   void SetRootBranches();
-
-   TFile * GetRootFile() {
-      return rootFile;
-   };
-   TTree *GetTree() {
-      return tree;
-   };
-
-   void SetRootFile(TFile * file) {
-      rootFile = file;
-   };
-   void SetTree(TTree * newTree) {
-      tree = newTree;
-   };
-
- private:
-   G4int id;
-   TFile * rootFile;
-   TTree *tree;
-   G4int timeSeed;
-
-};
 }
 
 #endif

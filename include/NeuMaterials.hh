@@ -43,7 +43,7 @@ namespace NeuFlux
 				This data came from an unknown source
 
 			*/
-			NeuConcrete()
+			NeuConcrete() : G4Material( "concrete Approximation", 2.4*g/cm3, 2)
 			{
 
 				O16 = new G4Isotope( "O16", 8, 16, 15.99491463*g/mole );
@@ -65,7 +65,7 @@ namespace NeuFlux
    				natSi->AddIsotope( Si30, 3.092*perCent );
 	
 	
-				G4Material( "concrete Approximation", 2.4*g/cm3, 2);
+
  
 		   		this->AddElement( natSi, 1 );
    				this->AddElement( natO, 2 );
@@ -146,7 +146,7 @@ namespace NeuFlux
 				This data came from an unknown source
 
 			*/
-			NeuRock()
+			NeuRock() : G4Material( "rock Approximation", 2.4*g/cm3, 2)
 			{
 
 				O16 = new G4Isotope( "O16", 8, 16, 15.99491463*g/mole );
@@ -166,9 +166,6 @@ namespace NeuFlux
    				natSi->AddIsotope( Si28, 92.223*perCent );
    				natSi->AddIsotope( Si29, 4.685*perCent );
    				natSi->AddIsotope( Si30, 3.092*perCent );
-	
-	
-				G4Material( "concrete Approximation", 2.4*g/cm3, 2);
  
 		   		this->AddElement( natSi, 1 );
    				this->AddElement( natO, 2 );

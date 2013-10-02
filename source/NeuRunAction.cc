@@ -33,7 +33,7 @@ void NeuFlux::NeuRunAction::BeginOfRunAction(const G4Run * aRun)
        G4RunManager::GetRunManager()->GetUserEventAction();
    
    std::stringstream ss;
-   ss<<"NeuFlux_"<<fTimeSeed<<"_"<<fID<<eventAction->GetEventOption()<<".root";
+   ss<<"NeuFlux_"<<fTimeSeed<<"_"<<fID<<".root";
   
   
    G4cout<<"Output Title: "<<ss.str()<<std::endl;

@@ -10,7 +10,6 @@
 
 #include "NeuDetector.hh"
 #include "NeuEarthFields.hh"
-#include "NeuDetectorMessenger.hh"
 
 namespace NeuFlux
 {
@@ -37,8 +36,9 @@ namespace NeuFlux
 	 
 	 */
 
-	class NeuWorldGeometry : public G4UserDetectorConstruction
+	class NeuWorldGeometry : public G4VUserDetectorConstruction
 	{
+	public:
 	   NeuWorldGeometry();
 	   ~NeuWorldGeometry();
 
@@ -75,17 +75,19 @@ namespace NeuFlux
 		G4LogicalVolume* fLogicWorld;						/*!< an integer value */
    		G4VPhysicalVolume* fPhysiWorld;						/*!< an integer value */
 
-   		G4LogicalVolume* fLogicRock						/*!< an integer value */
-   		G4VPhysicalVolume* fPhysiRock						/*!< an integer value */
+   		G4LogicalVolume* fLogicRock;						/*!< an integer value */
+   		G4VPhysicalVolume* fPhysiRock;						/*!< an integer value */
 
-   		G4LogicalVolume* fLogicConcrete						/*!< an integer value */
-   		G4VPhysicalVolume* fPhysiConcrete						/*!< an integer value */
+   		G4LogicalVolume* fLogicConcrete;						/*!< an integer value */
+   		G4VPhysicalVolume* fPhysiConcrete;						/*!< an integer value */
 
-   		G4LogicalVolume* fLogicDetector						/*!< an integer value */
-   		G4VPhysicalVolume* fPhysiDetector						/*!< an integer value */
+   		G4LogicalVolume* fLogicDetector;						/*!< an integer value */
+   		G4VPhysicalVolume* fPhysiDetector;						/*!< an integer value */
 
 		NeuDetector* fDetector;
 	};
 
 }
 #endif     //NeuWorldGeometry_hh
+
+

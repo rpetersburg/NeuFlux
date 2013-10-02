@@ -1,4 +1,4 @@
-#include "NeuFlux::NeuPhysicsList.hh"
+#include "NeuPhysicsList.hh"
 
 #include "globals.hh"
 #include "G4ProcessManager.hh"
@@ -154,8 +154,8 @@ void NeuFlux::NeuPhysicsList::ConstructProcess()
 
 
 // Transportation ///////////////////////////////////////////////////////////
-#include "NeuFlux::NeuMaxTimeCuts.hh"
-#include "NeuFlux::NeuMinEkineCuts.hh"
+#include "NeuMaxTimeCuts.hh"
+#include "NeuMinEkineCuts.hh"
 #include "G4StepLimiter.hh"
 
 void NeuFlux::NeuPhysicsList::AddTransportation() {

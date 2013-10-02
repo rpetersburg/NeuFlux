@@ -5,7 +5,7 @@
 #include "G4EnergyLossTables.hh"
 
 
-NeuFluc::NeuMaxTimeCuts::NeuMaxTimeCuts(const G4String & aName) : NeuFlux::NeuCuts(aName)
+NeuFlux::NeuMaxTimeCuts::NeuMaxTimeCuts(const G4String & aName) : NeuFlux::NeuCuts(aName)
 {
    if (verboseLevel > 1) {
       G4cout << GetProcessName() << " is created " << G4endl;
@@ -22,7 +22,7 @@ NeuFlux::NeuMaxTimeCuts::NeuMaxTimeCuts(NeuFlux::NeuMaxTimeCuts &) : NeuFlux::Ne
 }
 
 
-G4double Neuflux::NeuMaxTimeCuts::PostStepGetPhysicalInteractionLength(const G4Track & aTrack, G4double,
+G4double NeuFlux::NeuMaxTimeCuts::PostStepGetPhysicalInteractionLength(const G4Track & aTrack, G4double,
                                      G4ForceCondition * condition)
 {
    // condition is set to "Not Forced"

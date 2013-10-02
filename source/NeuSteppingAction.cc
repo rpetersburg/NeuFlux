@@ -1,8 +1,7 @@
+#include "NeuSteppingAction.hh"
 
 #include "NeuEventAction.hh"
-#include "NeuSteppingAction.hh"
 #include "NeuTrackingAction.hh"
-#include "NeuDetectorConstruction.hh"
 
 #include "G4SteppingManager.hh"
 #include "G4Step.hh"
@@ -11,9 +10,9 @@
 #include "G4ios.hh"
 
 
-NeuSteppingAction::NeuSteppingAction(NeuEventAction * theEA,
+NeuFlux::NeuSteppingAction::NeuSteppingAction(NeuEventAction * theEA,
                             NeuTrackingAction * theTA,
-                            NeuDetectorConstruction * det)
+                            NeuWorldGeometry * det)
 :  theEventAct(theEA), theTrackAct(theTA), theDet(det)
 {
 
@@ -21,12 +20,12 @@ NeuSteppingAction::NeuSteppingAction(NeuEventAction * theEA,
 }
 
 
-NeuSteppingAction::~NeuSteppingAction()
+NeuFlux::NeuSteppingAction::~NeuSteppingAction()
 {
 
 }
 
-void NeuSteppingAction::UserSteppingAction(const G4Step *
+void NeuFlux::NeuSteppingAction::UserSteppingAction(const G4Step *
                                                      theStep)
 {
 }

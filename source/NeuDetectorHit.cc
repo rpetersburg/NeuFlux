@@ -5,7 +5,7 @@
 #include "G4Colour.hh"
 #include "G4VisAttributes.hh"
 
-G4Allocator < NeuDetectorHit > NeuDetectorHitAllocator;
+G4Allocator < NeuFlux::NeuDetectorHit > NeuFlux::NeuDetectorHitAllocator;
 
 NeuFlux::NeuDetectorHit::NeuDetectorHit()
 {
@@ -15,7 +15,7 @@ NeuFlux::NeuDetectorHit::~NeuDetectorHit()
 {
 }
 
-NeuDetectorHit::NeuDetectorHit(const NeuDetectorHit & right) : G4VHit(), fEnergy(right.fEnergy), fGlobalTime(right.fGlobalTime), fPDG(right.fPDG), fTrackID(right.fPDG)
+NeuFlux::NeuDetectorHit::NeuDetectorHit(const NeuDetectorHit & right) : G4VHit(), fEnergy(right.fEnergy), fGlobalTime(right.fGlobalTime), fPDG(right.fPDG), fTrackID(right.fPDG)
 {
 }
 

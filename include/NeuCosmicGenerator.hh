@@ -36,15 +36,19 @@
 #include "G4PrimaryVertex.hh"
 #include "G4ParticleMomentum.hh"
 
+#include "G4ParticleGun.hh"
+
 #include "TF2.h"
 #include "TF1.h"
 #include "TMath.h"
 
+class TRandom3;
+class G4Event;
+
 namespace NeuFlux
 {
 
-class TRandom3;
-class G4Event;
+
 
 class NeuCosmicGenerator:public G4ParticleGun {
   
@@ -114,7 +118,7 @@ protected:
   virtual void SetInitialValues();
   virtual void InitializeEnergySpectra();
   ///Pointer to Randomizer function. Select Neutron, Nucleon, Muon or Gamma
-  void (CosmicRayGun::*CosmicRandomizer)();
+  void (NeuCosmicGenerator::*CosmicRandomizer)();
  
   G4ThreeVector particle_position_on_X_plane; ///< Points to the initial position on the plane the particle lies at.
   

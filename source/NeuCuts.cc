@@ -3,7 +3,7 @@
 #include "G4Track.hh"
 #include "G4Step.hh"
 
-NeuFlux:NeuCuts::NeuCuts(const G4String & aName)
+NeuFlux::NeuCuts::NeuCuts(const G4String & aName)
 :G4VProcess(aName)
 {
    if (verboseLevel > 1) {
@@ -11,12 +11,11 @@ NeuFlux:NeuCuts::NeuCuts(const G4String & aName)
    }
 }
 
-NeuFlux:NeuCuts::~NeuCuts()
+NeuFlux::NeuCuts::~NeuCuts()
 {
 }
 
-G4VParticleChange* NeuFlux::NeuCuts::
-PostStepDoIt(const G4Track & aTrack, const G4Step &)                                                                          
+G4VParticleChange* NeuFlux::NeuCuts::PostStepDoIt(const G4Track & aTrack, const G4Step &)                                                                          
 {
    aParticleChange.Initialize(aTrack);
    aParticleChange.ProposeEnergy(0.);
@@ -25,8 +24,7 @@ PostStepDoIt(const G4Track & aTrack, const G4Step &)
    return &aParticleChange;
 }
 
-G4double NeuFlux::NeuCuts::
-PostStepGetPhysicalInteractionLength(const G4Track &, G4double,
+G4double NeuFlux::NeuCuts::PostStepGetPhysicalInteractionLength(const G4Track &, G4double,
                                      G4ForceCondition *)
 {
    return DBL_MAX;

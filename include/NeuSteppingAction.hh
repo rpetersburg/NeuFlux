@@ -26,6 +26,10 @@
 #include "G4Track.hh"
 #include "globals.hh"
 
+#include "NeuWorldGeometry.hh"
+#include "NeuEventAction.hh"
+#include "NeuTrackingAction.hh"
+
 namespace NeuFlux
 {
    class NeuSteppingAction : public G4UserSteppingAction 
@@ -34,7 +38,7 @@ namespace NeuFlux
     public:
       NeuSteppingAction(NeuEventAction *,
                                   NeuTrackingAction *,
-                                  NeuDetectorConstruction *);
+                                  NeuWorldGeometry *);
       ~NeuSteppingAction();
 
       void UserSteppingAction(const G4Step * theStep);
@@ -42,7 +46,7 @@ namespace NeuFlux
     private:
       NeuEventAction * theEventAct;
       NeuTrackingAction *theTrackAct;
-      NeuDetectorConstruction *theDet;
+      NeuWorldGeometry *theDet;
 
       void SetEnteringParticleInfo();
 

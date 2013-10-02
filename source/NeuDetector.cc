@@ -73,7 +73,7 @@ void NeuFlux::NeuDetector::Initialize(G4HCofThisEvent* HCE)
   theNav=0;
 }
 
-G4bool NeuDetector::ProcessHits(G4Step * aStep,
+G4bool NeuFlux::NeuDetector::ProcessHits(G4Step * aStep,
                                          G4TouchableHistory *)
 {
   /*
@@ -112,7 +112,7 @@ G4bool NeuDetector::ProcessHits(G4Step * aStep,
 
 }
 
-void NeuDetector::EndOfEvent(G4HCofThisEvent *)
+void NeuFlux::NeuDetector::EndOfEvent(G4HCofThisEvent *)
 {
   /*
 	
@@ -176,7 +176,7 @@ void NeuDetector::EndOfEvent(G4HCofThisEvent *)
 
 }
 
-void NeuDetector::SetRootBranches(){
+void NeuFlux::NeuDetector::SetRootBranches(){
   /*
    G4RunManager *runManager = G4RunManager::GetRunManager();
    NeuRunAction *theRun =

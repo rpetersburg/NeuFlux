@@ -37,6 +37,7 @@
 #include "G4VUserPrimaryGeneratorAction.hh"
 #include "G4GeneralParticleSource.hh"
 #include "NeuCosmicGenerator.hh"
+#include "NeuEventAction.hh"
 
 //forward declarations
 class G4ParticleGun;
@@ -52,40 +53,26 @@ namespace NeuFlux
 
 	public:
 	   NeuPrimaryGeneratorAction(NeuFlux::NeuEventAction *);
-	   ~NeuPrimaryGeneratorAction();
+	   virtual ~NeuPrimaryGeneratorAction();
 
-	public:
-	   void GeneratePrimaries(G4Event *);
+	   void GeneratePrimaries(G4Event *){}
+
 	   void CurrentGenerator(G4Event *);
-	   void GPSGenerator(G4Event *);
-	   void CalGenerator(G4Event *);
 	   void DecayFlux(G4Event *);
 	   void (NeuPrimaryGeneratorAction::*Flux) (G4Event *);
 	   G4ThreeVector (NeuPrimaryGeneratorAction::*PlanePos) ();
-	   void SetNuclide();
 	   void IdentifyParticle(G4int, G4int);
 	   void SetSpectrumFlag(G4String);
-	   void SetCalIsotope(G4String);
 	   void SetEnergyRangeFlag(G4String);
 	   void PrintGunParameters();
-		CosmicRayGun *GetCosmicRayGun(){
-			return theCosmicRayGun;
-		}
 
 	private:
 		G4ThreeVector CosmicPlanePosition();
-	   	DecayChain * uchain;
-	   	NeuEventAction *theEvent;
+	   	NeuFlux::NeuEventAction *theEvent;
 
-	   G4String spctrmFlag;
-	   G4String isoFlag;
-	   G4String energyFlag;
 	   TRandom3 *r3;
 	protected:
-	   G4ParticleGun * theCurrentGun;
-	   G4GeneralParticleSource *theGPSGun;
-	   G4ParticleGun *theParticleGun;
-	   CosmicRayGun *theCosmicRayGun;
+	   NeuFlux::NeuCosmicGenerator *theCosmicRayGun;
 	};
 }
 

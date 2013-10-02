@@ -146,10 +146,6 @@ void NeuFlux::NeuCosmicGenerator::InitializeEnergySpectra() {
 
 }
 
-//      ------++++++------++++++------++++++------++++++------
-//                     GeneratePrimaryVertex()
-//      ------++++++------++++++------++++++------++++++------
-
 void NeuFlux::NeuCosmicGenerator::GeneratePrimaryVertex(G4Event * evt) {
 	if (particle_definition == 0)
 		return;

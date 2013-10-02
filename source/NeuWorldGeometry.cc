@@ -1,4 +1,19 @@
-NeuFlux::NeuWorldGeometry::NeuWorldGeometry() : G4UserDetectorConstruction(), 
+#include "NeuWorldGeometry.hh"
+
+#include "G4GeometryManager.hh"
+#include "G4PhysicalVolumeStore.hh"
+#include "G4LogicalVolumeStore.hh"
+#include "G4SolidStore.hh"
+#include "G4Box.hh"
+#include "G4NistManager.hh"
+#include "G4PVPlacement.hh"
+
+#include "NeuMaterials.hh"
+
+#include "G4SDManager.hh"
+
+
+NeuFlux::NeuWorldGeometry::NeuWorldGeometry() : G4VUserDetectorConstruction(), 
 												fWorldX(10.0),fWorldY(10.0),fWorldZ(10.0),
 												fRockX(10.0),fRockY(10.0),fRockZ(9.0),
 												fConcreteX(0.5),fConcreteY(0.5),fConcreteZ(0.5),
@@ -16,7 +31,7 @@ NeuFlux::NeuWorldGeometry::~NeuWorldGeometry()
 G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::Construct()
 {
 	//Clean old geometry, if any
-	if (physiWorld) {
+	if (fPhysiWorld) {
 	  G4GeometryManager::GetInstance()->OpenGeometry();
 	  G4PhysicalVolumeStore::GetInstance()->Clean();
 	  G4LogicalVolumeStore::GetInstance()->Clean();
@@ -27,19 +42,20 @@ G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::Construct()
 }
 G4int FindVertexVolumeIndex(const G4LogicalVolume * vertexLogicalVolume)
 {
-
+	return 0;
 }
 G4bool NeuFlux::NeuWorldGeometry::StoreEnteringParticleInfo(G4VPhysicalVolume * postVolume)
 {
-
+	return false;
 }
 G4int NeuFlux::NeuWorldGeometry::FindPhysicalVolumeIndex(G4VPhysicalVolume * whichVolume)
 {
-
+	return 0;
 }
 
 G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructWorld()
 {
+	G4NistManager* man = G4NistManager::Instance();
 	fLogicWorld = new G4LogicalVolume(
 						new G4Box("World",
 	                    fWorldX,
@@ -91,6 +107,8 @@ G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructConcrete()
 }
 G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructDetector()
 {
+	G4NistManager* man = G4NistManager::Instance();
+
 	fLogicDetector = new G4LogicalVolume(
 						new G4Box("Detector",
 	                    fDetectorX,

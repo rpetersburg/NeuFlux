@@ -32,7 +32,7 @@
 namespace NeuFlux
 {
 
-  class NeuEventAction:public G4UserEventAction {
+  class NeuEventAction : public G4UserEventAction {
 
   public:
     NeuEventAction();

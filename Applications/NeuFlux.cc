@@ -25,13 +25,11 @@
 #include "NeuFlux.hh"
 
 #ifdef G4VIS_USE
-#include "NeuFluxVisManager.hh"
+#include "NeuVisManager.hh"
 #endif
 
 #include "TRandom3.h"
 
-namespace NeuFlux
-{
 
 int main(int argc, char **argv)
 {
@@ -43,33 +41,32 @@ int main(int argc, char **argv)
    G4cout<<"  Setting up Run Manager"<<std::endl;
    
    G4RunManager* runManager = new G4RunManager;
-   NeuWorldGeometry* geometry = new NeuWorldGeometry;
+   NeuFlux::NeuWorldGeometry* geometry = new NeuFlux::NeuWorldGeometry;
 
    runManager->SetUserInitialization(geometry);
-   runManager->SetUserInitialization(new NeuPhysicsList);
+   runManager->SetUserInitialization(new NeuFlux::NeuPhysicsList);
 
 #ifdef G4VIS_USE
    G4cout<<"  Setting up Visualization Manager"<<std::endl;
-   G4VisManager *visManager = new NeuVisManager;
+   G4VisManager *visManager = new NeuFlux::NeuVisManager;
    visManager->SetVerboseLevel(0);
    visManager->Initialize();
 #endif
 
    G4cout<<"  Setting up User Action Classes"<<std::endl;
-   NeuRunAction* runAction = new NeuRunAction(rSeed);
+   NeuFlux::NeuRunAction* runAction = new NeuFlux::NeuRunAction(rSeed);
    runManager->SetUserAction(runAction);
    G4cout<<"    done setting run action"<<std::endl;
-   NeuEventAction* eventAction =
-       new NeuEventAction(runAction);
-   runManager->SetUserAction(NeuEvent);
-   runManager->SetUserAction( new NeuPrimaryGeneratorAction(
-                       eventAction) );
-   NeuTrackingAction* trackingAction =
-       new NeuTrackingAction;
+   NeuFlux::NeuEventAction* eventAction =
+       new NeuFlux::NeuEventAction();
+   runManager->SetUserAction(eventAction);
+   //runManager->SetUserAction( new NeuFlux::NeuPrimaryGeneratorAction(eventAction));
+   NeuFlux::NeuTrackingAction* trackingAction =
+       new NeuFlux::NeuTrackingAction;
    runManager->SetUserAction(trackingAction);
-   *runManager->
+   runManager->
        SetUserAction(new
-                     NeuSteppingAction(eventAction,
+                     NeuFlux::NeuSteppingAction(eventAction,
 					     trackingAction, geometry));
 
    G4cout<<"  Initializing the G4 kernel"<<std::endl;
@@ -102,5 +99,4 @@ int main(int argc, char **argv)
 #endif
 
    return 0;
-}
 }

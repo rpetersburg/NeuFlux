@@ -58,7 +58,7 @@ namespace NeuFlux {
 	   
 	   G4int fPDGCode;
 	   G4double fEnergy;
-	   G4Double fGlobalTime;
+	   G4double fGlobalTime;
 
 
 	   NeuDetectorHitsCollection* hitsCollection;
@@ -67,3 +67,5 @@ namespace NeuFlux {
 }
 
 #endif
+
+

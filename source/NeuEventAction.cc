@@ -26,15 +26,10 @@ void NeuFlux::NeuEventAction::BeginOfEventAction(const G4Event *event)
 	G4cout<<"---------------------------------------"<<std::endl;
 	G4cout<<"Beginning Event: "<<event->GetEventID()<<std::endl;
 	
-	fEventID = event->GetEventID();
-	fPrimaryX = 	event->GetPrimaryVertex()->GetX0();
-	fPrimaryY = 	event->GetPrimaryVertex()->GetY0();
-	fPrimaryZ = 	event->GetPrimaryVertex()->GetZ0();
-	fPrimaryT = 	event->GetPrimaryVertex()->GetT0();
-	fPrimaryN = 	event->GetPrimaryVertex()->GetNumberOfParticle();
 
-	NeuFlux::NeuRootOutput* output = NeuFlux::NeuRootOutput::GetInstance();
-	output->FillTree("NeuEventAction");
+
+	//NeuFlux::NeuRootOutput* output = NeuFlux::NeuRootOutput::GetInstance();
+	//output->FillTree("NeuEventAction");
 }
 
 void NeuFlux::NeuEventAction::EndOfEventAction(const G4Event * evt)
@@ -44,7 +39,14 @@ void NeuFlux::NeuEventAction::EndOfEventAction(const G4Event * evt)
 	G4cout<<"---------------------------------------"<<std::endl;
 	
 	fEventID = evt->GetEventID();
+	/*
+	fPrimaryX = 	evt->GetPrimaryVertex()->GetX0();
+	fPrimaryY = 	evt->GetPrimaryVertex()->GetY0();
+	fPrimaryZ = 	evt->GetPrimaryVertex()->GetZ0();
+	fPrimaryT = 	evt->GetPrimaryVertex()->GetT0();
 	
+	fPrimaryN = 	evt->GetPrimaryVertex()->GetNumberOfParticle();	
 	NeuFlux::NeuRootOutput* output = NeuFlux::NeuRootOutput::GetInstance();
 	output->FillTree("NeuEventAction");
+	*/
 }

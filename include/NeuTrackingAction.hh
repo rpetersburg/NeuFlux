@@ -38,15 +38,18 @@ namespace NeuFlux
       void PreUserTrackingAction(const G4Track *);
       //void PostUserTrackingAction(const G4Track*);//Not Used.
 
-      void SetPrimaryParentPDG(G4int pdg) {
-         fParentPDG = pdg;
-      };
-      G4int GetPrimaryParentPDG() {
-         return fParentPDG;
-      };
-
     private:
-      G4int fParentPDG;
+      double fTrackID ;
+      double fParentID ;
+      double fX ;
+      double fY ;
+      double fZ ;
+      double fLT ;
+      double fGT ;
+      double fPT ;
+
+      double fVolume;
+      double fNextVolume;
    };
 
 }

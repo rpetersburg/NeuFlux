@@ -41,6 +41,7 @@ int main(int argc, char **argv)
    G4cout<<"  Setting up Run Manager"<<std::endl;
    
    G4RunManager* runManager = new G4RunManager;
+   
    NeuFlux::NeuWorldGeometry* geometry = new NeuFlux::NeuWorldGeometry;
 
    runManager->SetUserInitialization(geometry);

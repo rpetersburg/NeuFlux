@@ -62,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -85,7 +86,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">NeuFlux.cc File Reference</div>  </div>
@@ -98,37 +98,67 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;G4UImanager.hh&quot;</code><br/>
 <code>#include &quot;G4UIterminal.hh&quot;</code><br/>
 <code>#include &quot;G4UItcsh.hh&quot;</code><br/>
-<code>#include &quot;NeuFlux.hh&quot;</code><br/>
+<code>#include &quot;<a class="el" href="NeuFlux_8hh_source.html">NeuFlux.hh</a>&quot;</code><br/>
 <code>#include &quot;TRandom3.h&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for NeuFlux.cc:</div>
 <div class="dyncontent">
 <div class="center"><img src="NeuFlux_8cc__incl.png" border="0" usemap="#NeuFlux_8cc" alt=""/></div>
 <map name="NeuFlux_8cc" id="NeuFlux_8cc">
-<area shape="rect" id="node6" href="NeuFlux_8hh_source.html" title="NeuFlux.hh" alt="" coords="1641,80,1732,107"/><area shape="rect" id="node7" href="NeuPrimaryGeneratorAction_8hh_source.html" title="NeuPrimaryGeneratorAction.hh" alt="" coords="2579,155,2787,181"/><area shape="rect" id="node20" href="NeuRunAction_8hh_source.html" title="NeuRunAction.hh" alt="" coords="301,229,427,256"/><area shape="rect" id="node26" href="NeuTrackingAction_8hh_source.html" title="NeuTrackingAction.hh" alt="" coords="1407,155,1560,181"/><area shape="rect" id="node28" href="NeuEventAction_8hh_source.html" title="NeuEventAction.hh" alt="" coords="565,155,701,181"/><area shape="rect" id="node31" href="NeuSteppingAction_8hh_source.html" title="NeuSteppingAction.hh" alt="" coords="1031,155,1185,181"/><area shape="rect" id="node34" href="NeuVisManager_8hh_source.html" title="NeuVisManager.hh" alt="" coords="3069,155,3205,181"/><area shape="rect" id="node35" href="NeuWorldGeometry_8hh_source.html" title="NeuWorldGeometry.hh" alt="" coords="1809,155,1967,181"/><area shape="rect" id="node48" href="NeuPhysicsList_8hh_source.html" title="NeuPhysicsList.hh" alt="" coords="2913,155,3044,181"/><area shape="rect" id="node11" href="NeuCosmicGenerator_8hh_source.html" title="NeuCosmicGenerator.hh" alt="" coords="3433,229,3601,256"/><area shape="rect" id="node39" href="NeuDetector_8hh_source.html" title="NeuDetector.hh" alt="" coords="3118,229,3233,256"/><area shape="rect" id="node46" href="NeuEarthFields_8hh_source.html" title="NeuEarthFields.hh" alt="" coords="2379,229,2511,256"/><area shape="rect" id="node47" href="NeuDetectorMessenger_8hh_source.html" title="NeuDetectorMessenger.hh" alt="" coords="1521,229,1703,256"/><area shape="rect" id="node44" href="NeuDetectorHit_8hh_source.html" title="NeuDetectorHit.hh" alt="" coords="2857,304,2988,331"/></map>
+<area shape="rect" id="node6" href="NeuFlux_8hh.html" title="NeuFlux.hh" alt="" coords="1819,80,1909,107"/><area shape="rect" id="node7" href="NeuPrimaryGeneratorAction_8hh_source.html" title="NeuPrimaryGeneratorAction.hh" alt="" coords="871,155,1079,181"/><area shape="rect" id="node20" href="NeuRunAction_8hh_source.html" title="NeuRunAction.hh" alt="" coords="1245,155,1371,181"/><area shape="rect" id="node23" href="NeuTrackingAction_8hh_source.html" title="NeuTrackingAction.hh" alt="" coords="1538,155,1691,181"/><area shape="rect" id="node25" href="NeuEventAction_8hh_source.html" title="NeuEventAction.hh" alt="" coords="1828,229,1964,256"/><area shape="rect" id="node28" href="NeuSteppingAction_8hh_source.html" title="NeuSteppingAction.hh" alt="" coords="2991,229,3145,256"/><area shape="rect" id="node31" href="NeuVisManager_8hh_source.html" title="NeuVisManager.hh" alt="" coords="2007,155,2143,181"/><area shape="rect" id="node32" href="NeuWorldGeometry_8hh_source.html" title="NeuWorldGeometry.hh" alt="" coords="2527,155,2685,181"/><area shape="rect" id="node48" href="NeuPhysicsList_8hh_source.html" title="NeuPhysicsList.hh" alt="" coords="1850,155,1981,181"/><area shape="rect" id="node11" href="NeuCosmicGenerator_8hh_source.html" title="NeuCosmicGenerator.hh" alt="" coords="422,229,591,256"/><area shape="rect" id="node36" href="NeuDetector_8hh_source.html" title="NeuDetector.hh" alt="" coords="3170,229,3285,256"/><area shape="rect" id="node43" href="NeuEarthFields_8hh_source.html" title="NeuEarthFields.hh" alt="" coords="3695,229,3827,256"/><area shape="rect" id="node46" href="NeuGeometryMessenger_8hh_source.html" title="NeuGeometryMessenger.hh" alt="" coords="2175,229,2364,256"/><area shape="rect" id="node41" href="NeuDetectorHit_8hh_source.html" title="NeuDetectorHit.hh" alt="" coords="2825,304,2956,331"/></map>
 </div>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespaceNeuFlux"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceNeuFlux.html">NeuFlux</a></td></tr>
-<tr class="memdesc:namespaceNeuFlux"><td class="mdescLeft">&#160;</td><td class="mdescRight">The namespace for user created classes for the neuflux simulation. <br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa998c6b0d3734620b483146e55d656b6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa998c6b0d3734620b483146e55d656b6"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>NeuFlux::main</b> (int argc, char **argv)</td></tr>
-<tr class="separator:aa998c6b0d3734620b483146e55d656b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="NeuFlux_8cc.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
+<tr class="memdesc:a3c04138a5bfe5d72780bb7e82a18e627"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main execution point for the program.  <a href="#a3c04138a5bfe5d72780bb7e82a18e627">More...</a><br/></td></tr>
+<tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The Main Executable for the <a class="el" href="namespaceNeuFlux.html" title="The namespace for user created classes for the neuflux simulation. ">NeuFlux</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Kevin Wierman</dd></dl>
 <p>This is a copied example of the standard Geant4 main executable. This is to be used for main simulation execution only. </p>
 <dl class="section warning"><dt>Warning</dt><dd>For testing and debugging purposes, other executables should be used. </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a3c04138a5bfe5d72780bb7e82a18e627"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The main execution point for the program. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argv</td><td>The name of a valid macro file, or nothing </td></tr>
+    <tr><td class="paramname">argc</td><td>The usual c++ shenanigans </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 2 2013 12:10:09 for NeutronFlux by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 4 2013 13:49:04 for NeutronFlux by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

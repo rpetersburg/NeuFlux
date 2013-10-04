@@ -62,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -100,60 +101,98 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;NeuDetector.hh&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;NeuEarthFields.hh&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;NeuDetectorMessenger.hh&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;NeuGeometryMessenger.hh&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>NeuFlux</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classNeuFlux_1_1NeuWorldGeometry.html">   40</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classNeuFlux_1_1NeuWorldGeometry.html">NeuWorldGeometry</a> : <span class="keyword">public</span> G4UserDetectorConstruction</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classNeuFlux_1_1NeuWorldGeometry.html">   40</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classNeuFlux_1_1NeuWorldGeometry.html">NeuWorldGeometry</a> : <span class="keyword">public</span> G4VUserDetectorConstruction</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;       <a class="code" href="classNeuFlux_1_1NeuWorldGeometry.html">NeuWorldGeometry</a>();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;       ~<a class="code" href="classNeuFlux_1_1NeuWorldGeometry.html">NeuWorldGeometry</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;     <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;       G4VPhysicalVolume * Construct();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;       G4int FindVertexVolumeIndex(<span class="keyword">const</span> G4LogicalVolume * vertexLogicalVolume);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;       G4bool StoreEnteringParticleInfo(G4VPhysicalVolume * postVolume);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;       G4int FindPhysicalVolumeIndex(G4VPhysicalVolume * whichVolume);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        G4VPhysicalVolume* ConstructWorld();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        G4VPhysicalVolume* ConstructRock();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        G4VPhysicalVolume* ConstructConcrete();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        G4VPhysicalVolume* ConstructDetector();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;       <a class="code" href="classNeuFlux_1_1NeuWorldGeometry.html">NeuWorldGeometry</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;       ~<a class="code" href="classNeuFlux_1_1NeuWorldGeometry.html">NeuWorldGeometry</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;     <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;       G4VPhysicalVolume * Construct();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;       G4int FindVertexVolumeIndex(<span class="keyword">const</span> G4LogicalVolume * vertexLogicalVolume);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;       G4bool StoreEnteringParticleInfo(G4VPhysicalVolume * postVolume);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;       G4int FindPhysicalVolumeIndex(G4VPhysicalVolume * whichVolume);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;       <span class="keywordtype">void</span> PrintGeometry();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        G4VPhysicalVolume* ConstructWorld();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        G4VPhysicalVolume* ConstructRock();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        G4VPhysicalVolume* ConstructConcrete();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        G4VPhysicalVolume* ConstructDetector();</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        G4double fWorldX;                       </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        G4double fWorldY;                       </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        G4double fWorldZ;                       </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        G4double fRockX;                        </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        G4double fRockY;                        </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        G4double fRockZ;                        </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        G4double fConcreteX;                    </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        G4double fConcreteY;                    </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        G4double fConcreteZ;                    </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        G4double fDetectorX;                    </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        G4double fDetectorY;                    </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        G4double fDetectorZ;                    </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        G4LogicalVolume* fLogicWorld;                       </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        G4VPhysicalVolume* fPhysiWorld;                     </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        G4LogicalVolume* fLogicRock                     </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        G4VPhysicalVolume* fPhysiRock                       </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        G4LogicalVolume* fLogicConcrete                     </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        G4VPhysicalVolume* fPhysiConcrete                       </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        G4LogicalVolume* fLogicDetector                     </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        G4VPhysicalVolume* fPhysiDetector                       </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        NeuDetector* fDetector;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    };</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif     //NeuWorldGeometry_hh</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <a class="code" href="classNeuFlux_1_1NeuDetector.html">NeuFlux::NeuDetector</a>* fDetector;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <a class="code" href="classNeuFlux_1_1NeuGeometryMessenger.html">NeuFlux::NeuGeometryMessenger</a>* fMessenger;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        G4double fWorldX;                       </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        G4double fWorldY;                       </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        G4double fWorldZ;                       </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        G4double fRockX;                        </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        G4double fRockY;                        </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        G4double fRockZ;                        </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        G4double fConcreteX;                    </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        G4double fConcreteY;                    </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        G4double fConcreteZ;                    </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        G4double fDetectorX;                    </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        G4double fDetectorY;                    </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        G4double fDetectorZ;                    </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        G4LogicalVolume* fLogicWorld;                       </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        G4VPhysicalVolume* fPhysiWorld;                     </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        G4LogicalVolume* fLogicRock;                        </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        G4VPhysicalVolume* fPhysiRock;                      </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        G4LogicalVolume* fLogicConcrete;                        </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        G4VPhysicalVolume* fPhysiConcrete;                      </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        G4LogicalVolume* fLogicDetector;                        </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        G4VPhysicalVolume* fPhysiDetector;                      </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordtype">void</span> SetWorldX(G4double X)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            {fWorldX = X;}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordtype">void</span> SetWorldY(G4double Y)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            {fWorldY = Y;}</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordtype">void</span> SetWorldZ(G4double Z)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            {fWorldZ = Z;}</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordtype">void</span> SetRockX(G4double X)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            {fRockX = X;}</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordtype">void</span> SetRockY(G4double Y)</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            {fRockY = Y;}</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordtype">void</span> SetRockZ(G4double Z)</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            {fRockZ = Z;}</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">void</span> SetConcreteX(G4double X)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            {fConcreteX = X;}</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">void</span> SetConcreteY(G4double Y)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            {fConcreteY = Y;}</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordtype">void</span> SetConcreteZ(G4double Z)</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            {fWorldZ = Z;}</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordtype">void</span> SetDetectorX(G4double X)</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            {fDetectorX = X;}</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordtype">void</span> SetDetectorY(G4double Y)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            {fDetectorY = Y;}</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordtype">void</span> SetDetectorZ(G4double Z)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            {fDetectorZ = Z;}</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    };</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="preprocessor">#endif     //NeuWorldGeometry_hh</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
 <div class="ttc" id="classNeuFlux_1_1NeuWorldGeometry_html"><div class="ttname"><a href="classNeuFlux_1_1NeuWorldGeometry.html">NeuFlux::NeuWorldGeometry</a></div><div class="ttdoc">Code for defining the world geometry for the neutron flux at depth. </div><div class="ttdef"><b>Definition:</b> NeuWorldGeometry.hh:40</div></div>
+<div class="ttc" id="classNeuFlux_1_1NeuGeometryMessenger_html"><div class="ttname"><a href="classNeuFlux_1_1NeuGeometryMessenger.html">NeuFlux::NeuGeometryMessenger</a></div><div class="ttdoc">Messenger Class for the geometry. </div><div class="ttdef"><b>Definition:</b> NeuGeometryMessenger.hh:36</div></div>
+<div class="ttc" id="classNeuFlux_1_1NeuDetector_html"><div class="ttname"><a href="classNeuFlux_1_1NeuDetector.html">NeuFlux::NeuDetector</a></div><div class="ttdoc">Sensitive Detector Definition for an arbitrary air-based detector. </div><div class="ttdef"><b>Definition:</b> NeuDetector.hh:37</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 2 2013 12:10:09 for NeutronFlux by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 4 2013 13:49:03 for NeutronFlux by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

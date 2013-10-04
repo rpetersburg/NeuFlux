@@ -63,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -71,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -99,7 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p><code>#include &lt;<a class="el" href="NeuWorldGeometry_8hh_source.html">NeuWorldGeometry.hh</a>&gt;</code></p>
 
-<p>Inherits G4UserDetectorConstruction.</p>
+<p>Inherits G4VUserDetectorConstruction.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -112,6 +113,45 @@ G4int&#160;</td><td class="memItemRight" valign="bottom"><b>FindPhysicalVolumeIn
 <tr class="memitem:a1f37928064dbf3b2234aa394a7f06ae3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1f37928064dbf3b2234aa394a7f06ae3"></a>
 G4int&#160;</td><td class="memItemRight" valign="bottom"><b>FindVertexVolumeIndex</b> (const G4LogicalVolume *vertexLogicalVolume)</td></tr>
 <tr class="separator:a1f37928064dbf3b2234aa394a7f06ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab338b40132afa67d18c44bfeccaa7da4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab338b40132afa67d18c44bfeccaa7da4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PrintGeometry</b> ()</td></tr>
+<tr class="separator:ab338b40132afa67d18c44bfeccaa7da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0558a3cf903ca79e8c8952d31e76d3e3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0558a3cf903ca79e8c8952d31e76d3e3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetConcreteX</b> (G4double X)</td></tr>
+<tr class="separator:a0558a3cf903ca79e8c8952d31e76d3e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3edddd82342dea9114ea6dc1befa5fee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3edddd82342dea9114ea6dc1befa5fee"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetConcreteY</b> (G4double Y)</td></tr>
+<tr class="separator:a3edddd82342dea9114ea6dc1befa5fee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a979a012af97f98b911606835841780"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a979a012af97f98b911606835841780"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetConcreteZ</b> (G4double Z)</td></tr>
+<tr class="separator:a9a979a012af97f98b911606835841780"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba58c3f178536330230e1aba8ad4f103"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba58c3f178536330230e1aba8ad4f103"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetDetectorX</b> (G4double X)</td></tr>
+<tr class="separator:aba58c3f178536330230e1aba8ad4f103"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dd40168f4470ba1cbb3f7ebf6b91403"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0dd40168f4470ba1cbb3f7ebf6b91403"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetDetectorY</b> (G4double Y)</td></tr>
+<tr class="separator:a0dd40168f4470ba1cbb3f7ebf6b91403"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaeb75cf7eb8042fdec899faf7c37064"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abaeb75cf7eb8042fdec899faf7c37064"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetDetectorZ</b> (G4double Z)</td></tr>
+<tr class="separator:abaeb75cf7eb8042fdec899faf7c37064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48993411b4b8935754979cac3e39b410"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a48993411b4b8935754979cac3e39b410"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetRockX</b> (G4double X)</td></tr>
+<tr class="separator:a48993411b4b8935754979cac3e39b410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae71996c1feb6a7f85cd8c673071b6b86"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae71996c1feb6a7f85cd8c673071b6b86"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetRockY</b> (G4double Y)</td></tr>
+<tr class="separator:ae71996c1feb6a7f85cd8c673071b6b86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee541cd6bf561c44583c78f71a46df44"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee541cd6bf561c44583c78f71a46df44"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetRockZ</b> (G4double Z)</td></tr>
+<tr class="separator:aee541cd6bf561c44583c78f71a46df44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6a4f7d2bf79a6ddce206cf8fd7c5eea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6a4f7d2bf79a6ddce206cf8fd7c5eea"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetWorldX</b> (G4double X)</td></tr>
+<tr class="separator:ae6a4f7d2bf79a6ddce206cf8fd7c5eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa148dd7fcd4bcb234b7deb35193e6afa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa148dd7fcd4bcb234b7deb35193e6afa"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetWorldY</b> (G4double Y)</td></tr>
+<tr class="separator:aa148dd7fcd4bcb234b7deb35193e6afa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0abd9d36c47d9f29434454964edc73a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0abd9d36c47d9f29434454964edc73a3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetWorldZ</b> (G4double Z)</td></tr>
+<tr class="separator:a0abd9d36c47d9f29434454964edc73a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56f891e2df90f5038d0319a727373d3d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a56f891e2df90f5038d0319a727373d3d"></a>
 G4bool&#160;</td><td class="memItemRight" valign="bottom"><b>StoreEnteringParticleInfo</b> (G4VPhysicalVolume *postVolume)</td></tr>
 <tr class="separator:a56f891e2df90f5038d0319a727373d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,7 +167,7 @@ G4bool&#160;</td><td class="memItemRight" valign="bottom"><b>StoreEnteringPartic
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 2 2013 12:10:09 for NeutronFlux by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 4 2013 13:49:04 for NeutronFlux by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

@@ -7,12 +7,13 @@
 
 var indexSectionsWithContent =
 {
-  0: "n",
+  0: "acfgmnpsw",
   1: "n",
   2: "n",
   3: "n",
-  4: "n",
-  5: "n"
+  4: "acfgmnsw",
+  5: "cp",
+  6: "n"
 };
 
 var indexSectionNames =
@@ -22,7 +23,8 @@ var indexSectionNames =
   2: "namespaces",
   3: "files",
   4: "functions",
-  5: "pages"
+  5: "variables",
+  6: "pages"
 };
 
 function convertToId(search)

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['neuconcrete',['NeuConcrete',['../classNeuFlux_1_1NeuConcrete.html#a3a4c2c05c485c5625cb94eac4bc59250',1,'NeuFlux::NeuConcrete']]],
-  ['neurock',['NeuRock',['../classNeuFlux_1_1NeuRock.html#af9a13cb3b79e5bce22c76162c019d026',1,'NeuFlux::NeuRock']]]
+  ['addbranch',['AddBranch',['../classNeuFlux_1_1NeuRootOutput.html#a11c68b892a50976a91895107ed4c3bdf',1,'NeuFlux::NeuRootOutput']]],
+  ['addtree',['AddTree',['../classNeuFlux_1_1NeuRootOutput.html#ad1e316b5c35d688501578344d3506a89',1,'NeuFlux::NeuRootOutput']]]
 ];

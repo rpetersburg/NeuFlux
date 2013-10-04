@@ -1,16 +1,16 @@
 <map id="NeuFlux.cc" name="NeuFlux.cc">
-<area shape="rect" id="node6" href="$NeuFlux_8hh_source.html" title="NeuFlux.hh" alt="" coords="1641,80,1732,107"/>
-<area shape="rect" id="node7" href="$NeuPrimaryGeneratorAction_8hh_source.html" title="NeuPrimaryGeneratorAction.hh" alt="" coords="2579,155,2787,181"/>
-<area shape="rect" id="node20" href="$NeuRunAction_8hh_source.html" title="NeuRunAction.hh" alt="" coords="301,229,427,256"/>
-<area shape="rect" id="node26" href="$NeuTrackingAction_8hh_source.html" title="NeuTrackingAction.hh" alt="" coords="1407,155,1560,181"/>
-<area shape="rect" id="node28" href="$NeuEventAction_8hh_source.html" title="NeuEventAction.hh" alt="" coords="565,155,701,181"/>
-<area shape="rect" id="node31" href="$NeuSteppingAction_8hh_source.html" title="NeuSteppingAction.hh" alt="" coords="1031,155,1185,181"/>
-<area shape="rect" id="node34" href="$NeuVisManager_8hh_source.html" title="NeuVisManager.hh" alt="" coords="3069,155,3205,181"/>
-<area shape="rect" id="node35" href="$NeuWorldGeometry_8hh_source.html" title="NeuWorldGeometry.hh" alt="" coords="1809,155,1967,181"/>
-<area shape="rect" id="node48" href="$NeuPhysicsList_8hh_source.html" title="NeuPhysicsList.hh" alt="" coords="2913,155,3044,181"/>
-<area shape="rect" id="node11" href="$NeuCosmicGenerator_8hh_source.html" title="NeuCosmicGenerator.hh" alt="" coords="3433,229,3601,256"/>
-<area shape="rect" id="node39" href="$NeuDetector_8hh_source.html" title="NeuDetector.hh" alt="" coords="3118,229,3233,256"/>
-<area shape="rect" id="node46" href="$NeuEarthFields_8hh_source.html" title="NeuEarthFields.hh" alt="" coords="2379,229,2511,256"/>
-<area shape="rect" id="node47" href="$NeuDetectorMessenger_8hh_source.html" title="NeuDetectorMessenger.hh" alt="" coords="1521,229,1703,256"/>
-<area shape="rect" id="node44" href="$NeuDetectorHit_8hh_source.html" title="NeuDetectorHit.hh" alt="" coords="2857,304,2988,331"/>
+<area shape="rect" id="node6" href="$NeuFlux_8hh.html" title="NeuFlux.hh" alt="" coords="1819,80,1909,107"/>
+<area shape="rect" id="node7" href="$NeuPrimaryGeneratorAction_8hh_source.html" title="NeuPrimaryGeneratorAction.hh" alt="" coords="871,155,1079,181"/>
+<area shape="rect" id="node20" href="$NeuRunAction_8hh_source.html" title="NeuRunAction.hh" alt="" coords="1245,155,1371,181"/>
+<area shape="rect" id="node23" href="$NeuTrackingAction_8hh_source.html" title="NeuTrackingAction.hh" alt="" coords="1538,155,1691,181"/>
+<area shape="rect" id="node25" href="$NeuEventAction_8hh_source.html" title="NeuEventAction.hh" alt="" coords="1828,229,1964,256"/>
+<area shape="rect" id="node28" href="$NeuSteppingAction_8hh_source.html" title="NeuSteppingAction.hh" alt="" coords="2991,229,3145,256"/>
+<area shape="rect" id="node31" href="$NeuVisManager_8hh_source.html" title="NeuVisManager.hh" alt="" coords="2007,155,2143,181"/>
+<area shape="rect" id="node32" href="$NeuWorldGeometry_8hh_source.html" title="NeuWorldGeometry.hh" alt="" coords="2527,155,2685,181"/>
+<area shape="rect" id="node48" href="$NeuPhysicsList_8hh_source.html" title="NeuPhysicsList.hh" alt="" coords="1850,155,1981,181"/>
+<area shape="rect" id="node11" href="$NeuCosmicGenerator_8hh_source.html" title="NeuCosmicGenerator.hh" alt="" coords="422,229,591,256"/>
+<area shape="rect" id="node36" href="$NeuDetector_8hh_source.html" title="NeuDetector.hh" alt="" coords="3170,229,3285,256"/>
+<area shape="rect" id="node43" href="$NeuEarthFields_8hh_source.html" title="NeuEarthFields.hh" alt="" coords="3695,229,3827,256"/>
+<area shape="rect" id="node46" href="$NeuGeometryMessenger_8hh_source.html" title="NeuGeometryMessenger.hh" alt="" coords="2175,229,2364,256"/>
+<area shape="rect" id="node41" href="$NeuDetectorHit_8hh_source.html" title="NeuDetectorHit.hh" alt="" coords="2825,304,2956,331"/>
 </map>

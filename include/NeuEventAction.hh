@@ -10,7 +10,7 @@
 namespace NeuFlux
 {
   /*!
-    \class NeuEventActions
+    \class NeuEventAction
     
     \ingroup NeuFlux
     

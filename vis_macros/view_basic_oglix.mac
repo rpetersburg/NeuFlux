@@ -6,3 +6,4 @@
 /vis/scene/add/hits
 /vis/scene/endOfRunAction accumulate
 /particle/select mu-
+/run/beamOn 1000

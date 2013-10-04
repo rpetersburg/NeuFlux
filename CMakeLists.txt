@@ -40,7 +40,7 @@ file(GLOB applications ${PROJECT_SOURCE_DIR}/Applications/*.cc)
 foreach(_app ${applications})
 	get_filename_component (name_without_extension ${_app} NAME_WE)
 	add_executable(${name_without_extension} ${_app} ${sources} ${headers})
-	target_link_libraries(${name_without_extension} ${Geant4_LIBRARIES} ${ROOT_LIBRARIES})
+	target_link_libraries(${name_without_extension} ${Geant4_LIBRARIES} ${ROOT_LIBRARIES} ${NeutronFlux})
 	install(TARGETS ${name_without_extension} DESTINATION bin)
 endforeach()
 #----------------------------------------------------------------------------

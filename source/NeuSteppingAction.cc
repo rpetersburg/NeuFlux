@@ -16,8 +16,7 @@ NeuFlux::NeuSteppingAction::NeuSteppingAction() : fPreX(0), fPreY(0), fPreZ(0), 
 {
 	NeuFlux::NeuRootOutput* output =  NeuFlux::NeuRootOutput::GetInstance();
 	output->AddTree("NeuSteppingAction");
-	//output->AddBranch("NeuSteppingAction");
-	      output->AddBranch<double>("NeuSteppingAction", "fPreX", &fPreX);
+	  output->AddBranch<double>("NeuSteppingAction", "fPreX", &fPreX);
       output->AddBranch<double>("NeuSteppingAction", "fPreY", &fPreY);
       output->AddBranch<double>("NeuSteppingAction", "fPreZ", &fPreZ);
       output->AddBranch<double>("NeuSteppingAction", "fPreLocalT", &fPreLocalT);

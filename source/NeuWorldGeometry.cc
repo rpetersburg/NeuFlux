@@ -116,7 +116,7 @@ G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructDetector()
 						new G4Box("Detector",
 	                    fDetectorX*2.0,
 	                    fDetectorY*2.0, fDetectorZ*2.0),
-	                man->FindOrBuildMaterial("G4_AIR"),
+	                man->FindOrBuildMaterial("G4_POLYTRIFLUOROCHLOROETHYLENE"),
 	                "Detector");
 
 	fPhysiDetector = new G4PVPlacement(0,

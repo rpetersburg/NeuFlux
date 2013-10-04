@@ -1,7 +1,5 @@
-///     Geant4 user includes
 #include "NeuCosmicGenerator.hh"
 
-///     Geant4 package includes
 #include "G4Event.hh"
 #include "G4PrimaryParticle.hh"
 #include "G4ParticleTable.hh"
@@ -10,28 +8,21 @@
 #include "G4ios.hh"
 #include "G4MuonMinus.hh"
 #include "G4Neutron.hh"
-///     ROOT package includes
+
 #include "TRandom3.h"
 #include "TMath.h"
 #include "TF1.h"
 #include "TF2.h"
 
-///     ------++++++------++++++------++++++------++++++------
-///                             NeuCosmicGenerator()
-///     ------++++++------++++++------++++++------++++++------
 NeuFlux::NeuCosmicGenerator::NeuCosmicGenerator() :
 		spctrmFlag("Muon") {
 
 	SetInitialValues();
 	InitializeEnergySpectra();
-	//set default function to MuonRandomizer
 	CosmicRandomizer = &NeuCosmicGenerator::MuonRandomizer;
 
 }
 
-//      ------++++++------++++++------++++++------++++++------
-//                              ~NeuCosmicGenerator()
-//      ------++++++------++++++------++++++------++++++------
 NeuFlux::NeuCosmicGenerator::~NeuCosmicGenerator() {
 	delete fMuonE;
 	delete fNeutronE;
@@ -44,9 +35,9 @@ void NeuFlux::NeuCosmicGenerator::SetInitialValues() {
 	//global radius, distance from origin of world to starting position.
 	//make sure this is larger than any object you want cosmic rays to interact with.
 	//smaller objects
-	fGlobalRadius2 = 70 * 70 * cm2;
-	fPlaneHalfLengthZ = 30 * cm;
-	fPlaneHalfLengthY = 30 * cm;
+	fGlobalRadius2 = 100 * 100 * m2;
+	fPlaneHalfLengthZ = 10 * m;
+	fPlaneHalfLengthY = 10 * m;
 	fPlaneOffsetZ = 0 * cm;
 	fPlaneOffsetY = 0 * cm;
 

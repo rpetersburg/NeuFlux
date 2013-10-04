@@ -10,34 +10,33 @@
 
 #include "NeuMaterials.hh"
 
+
 #include "G4SDManager.hh"
 
 
 NeuFlux::NeuWorldGeometry::NeuWorldGeometry() : G4VUserDetectorConstruction(), 
-												fWorldX(10.0),fWorldY(10.0),fWorldZ(10.0),
-												fRockX(10.0),fRockY(10.0),fRockZ(9.0),
-												fConcreteX(0.5),fConcreteY(0.5),fConcreteZ(0.5),
-												fDetectorX(1.0),fDetectorY(1.0),fDetectorZ(1.0)
+												fWorldX(1000.0),fWorldY(1000.0),fWorldZ(1000.0),
+												fRockX(1000.0),fRockY(1000.0),fRockZ(900.0),
+												fConcreteX(150.0),fConcreteY(150.0),fConcreteZ(150.0),
+												fDetectorX(100),fDetectorY(100.0),fDetectorZ(100.0), fDetector(NULL)
 {
-
-	//setup the messenger here... if you dare.
+	fMessenger = new NeuFlux::NeuGeometryMessenger(this);	
 }
+
 NeuFlux::NeuWorldGeometry::~NeuWorldGeometry()
 {
-
-	if(fDetector)
-		delete fDetector;
+	delete fMessenger;
 }
+
 G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::Construct()
 {
-	//Clean old geometry, if any
-	if (fPhysiWorld) {
+	if (fPhysiWorld) 
+	{
 	  G4GeometryManager::GetInstance()->OpenGeometry();
 	  G4PhysicalVolumeStore::GetInstance()->Clean();
 	  G4LogicalVolumeStore::GetInstance()->Clean();
 	  G4SolidStore::GetInstance()->Clean();
 	}
-
 	return ConstructWorld();
 }
 G4int FindVertexVolumeIndex(const G4LogicalVolume * vertexLogicalVolume)
@@ -58,8 +57,8 @@ G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructWorld()
 	G4NistManager* man = G4NistManager::Instance();
 	fLogicWorld = new G4LogicalVolume(
 						new G4Box("World",
-	                    fWorldX,
-	                    fWorldY, fWorldZ),
+	                    fWorldX*2.0,
+	                    fWorldY*2.0, fWorldZ*2.0),
 	                man->FindOrBuildMaterial("G4_AIR"),
 	                "World");
 
@@ -75,16 +74,18 @@ G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructRock()
 {
 	fLogicRock = new G4LogicalVolume(
 						new G4Box("Rock",
-	                    fRockX,
-	                    fRockY, fRockZ),
+	                    fRockX*2.0,
+	                    fRockY*2.0, fRockZ*2.0),
 	                new NeuRock(),
 	                "Rock");
 
 	fPhysiRock = new G4PVPlacement(0,
-					G4ThreeVector( (fWorldX-fRockX)/2.0, (fWorldY-fRockY)/2.0,  0),
+					G4ThreeVector( 0.0, 0.0,  (fRockZ-fWorldZ)*2.0 ),
 					fLogicRock, 
 					"Rock", 
-					fLogicWorld, false, 0);
+					fLogicWorld, 
+					false, 
+					0);
 	ConstructConcrete();
 	return fPhysiRock;
 }
@@ -92,16 +93,18 @@ G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructConcrete()
 {
 	fLogicConcrete = new G4LogicalVolume(
 						new G4Box("Concrete",
-	                    fConcreteX,
-	                    fConcreteY, fConcreteZ),
+	                    fConcreteX*2.0,
+	                    fConcreteY*2.0, fConcreteZ*2.0),
 	                new NeuConcrete(),
 	                "Concrete");
 
 	fPhysiConcrete = new G4PVPlacement(0,
-					G4ThreeVector( (fRockX-fConcreteX)/2.0, (fRockY-fConcreteY)/2.0,  0),
+					G4ThreeVector( 0.0, 0.0, (fConcreteZ-fRockZ)*2.0 ),
 					fLogicConcrete, 
 					"Concrete", 
-					fLogicRock, false, 0);
+					fLogicRock, 
+					false, 
+					0);
 	ConstructDetector();
 	return fPhysiConcrete;
 }
@@ -111,16 +114,18 @@ G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructDetector()
 
 	fLogicDetector = new G4LogicalVolume(
 						new G4Box("Detector",
-	                    fDetectorX,
-	                    fDetectorY, fDetectorZ),
+	                    fDetectorX*2.0,
+	                    fDetectorY*2.0, fDetectorZ*2.0),
 	                man->FindOrBuildMaterial("G4_AIR"),
 	                "Detector");
 
 	fPhysiDetector = new G4PVPlacement(0,
-					G4ThreeVector(),
+					G4ThreeVector(0.0,0.0, (fDetectorZ-fConcreteZ)*2.0  ),
 					fLogicDetector, 
 					"Detector", 
-					0, false, 0);
+					fLogicConcrete, 
+					false, 
+					0);
 
 
 
@@ -129,9 +134,30 @@ G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructDetector()
 	{
 		fDetector = new NeuFlux::NeuDetector();	
 		SDman->AddNewDetector(fDetector);	
+		fLogicDetector->SetSensitiveDetector(fDetector);
 	}
-	fLogicDetector->SetSensitiveDetector(fDetector);
 	return fPhysiDetector;
 }
 
+void NeuFlux::NeuWorldGeometry::PrintGeometry()
+{
+	G4cout<<"World Geometry: "
+		 <<fWorldX<<" , "		
+		 <<fWorldY<<" , "			
+		 <<fWorldZ<<std::endl;			
+
+	G4cout<<"Rock Geometry: "
+		 <<fRockX<<" , "			
+		 <<fRockY<<" , "			
+		 <<fRockZ<<std::endl;		
+
+	G4cout<<"Concrete Geometry: "
+		 <<fConcreteX<<" , "		
+		 <<fConcreteY<<" , "		
+		 <<fConcreteZ<<std::endl;	
+	G4cout<<"Detector Geometry: "
+		 <<fDetectorX<<" , "		
+		 <<fDetectorY<<" , "		
+		 <<fDetectorZ<<std::endl;		
+}
 

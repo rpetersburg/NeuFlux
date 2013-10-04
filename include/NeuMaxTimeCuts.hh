@@ -1,22 +1,3 @@
-/*!
-  \class NeuMaxTimeCuts
- 
-  \ingroup NeuFlux
- 
-  \brief Physics Process to cut on maximum amount of time.
- 
-  \author Kevin Wierman
- 
-  \version 1.0
- 
-  \date $Date: Tue Nov 20 12::33:51 2012 $
- 
-  Contact: kwierman@email.unc.edu
- 
-  Created on: Wed Apr 1 18:39:37 2005
- 
-*/
-
 #ifndef NeuMaxTimeCuts_hh_
 #define NeuMaxTimeCuts_hh_
 
@@ -26,6 +7,24 @@
 
 namespace NeuFlux
 {
+  /*!
+    \class NeuMaxTimeCuts
+   
+    \ingroup NeuFlux
+   
+    \brief Physics Process to cut on maximum amount of time.
+
+    \note This is defined for neutrons only
+   
+    \author Kevin Wierman
+   
+    \version 1.0
+   
+    \date Oct 1, 2013
+
+    \contact kwierman@email.unc.edu
+   
+  */
 
   class NeuMaxTimeCuts:public NeuCuts {
    public:

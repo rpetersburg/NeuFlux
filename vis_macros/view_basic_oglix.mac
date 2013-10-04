@@ -1,0 +1,5 @@
+/vis/open OGLIX
+/vis/drawVolume World
+/vis/viewer/set/viewpointThetaPhi 45 135
+
+

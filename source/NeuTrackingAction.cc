@@ -1,5 +1,4 @@
 #include "NeuTrackingAction.hh"
-#include "NeuEventAction.hh"
 
 
 #include "G4RunManager.hh"
@@ -18,6 +17,12 @@ NeuFlux::NeuTrackingAction::~NeuTrackingAction()
 
 void NeuFlux::NeuTrackingAction::PreUserTrackingAction(const G4Track* theTrack)
 {
-   NeuFlux::NeuEventAction* theEvent = (NeuEventAction*)
-       G4RunManager::GetRunManager()->GetUserEventAction();
+	theTrack->GetTrackID();
+	theTrack->GetParentID();
+	theTrack->GetPosition().x();
+	theTrack->GetPosition().y();
+	theTrack->GetPosition().z();
+	theTrack->GetLocalTime()
+	theTrack->GetGlobalTime();
+
 }

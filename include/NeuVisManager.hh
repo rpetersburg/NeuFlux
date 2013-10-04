@@ -1,21 +1,4 @@
-/*!
-	\class NeuVisManager
-	
-	\ingroup NeuFlux
-	
-	\brief Sets up all of the visualizers.
-	
-	  Sets up the visualizers.
-	
-	\author Kevin Wierman
-	
-	\version 1.0
-	
-	\date Oct 1, 2013
-	
-	Contact: kwierman@email.unc.edu
-	
- */
+
 #ifndef NeuVisManager_hh_
 #define NeuVisManager_hh_
 
@@ -25,6 +8,24 @@
 
 namespace NeuFlux
 {
+	/*!
+		\class NeuVisManager
+		
+		\ingroup NeuFlux
+		
+		\brief Sets up all of the visualizers.
+		
+		  Sets up the visualizers.
+		
+		\author Kevin Wierman
+		
+		\version 1.0
+		
+		\date Oct 1, 2013
+		
+		\constact kwierman@email.unc.edu
+		
+	*/
 	class NeuVisManager : public G4VisManager 
 	{
 

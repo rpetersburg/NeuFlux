@@ -1,4 +1,4 @@
-/*! \file NeuFlux.cc
+/*! \file NeuFluxVis.cc
     \brief The Main Executable for the NeuFlux
     \author Kevin Wierman
 
@@ -28,23 +28,15 @@
 #include "NeuVisManager.hh"
 #endif
 
-#include "TRandom3.h"
-
 
 int main(int argc, char **argv)
 {
-   TRandom3 r3(0);
 
-   UInt_t rSeed   = static_cast<UInt_t> (2147483647.*r3.Rndm());
-   G4cout << "Randomization Seed: " << rSeed << std::endl;
 
-   G4cout<<"  Setting up Run Manager"<<std::endl;
-   
    G4RunManager* runManager = new G4RunManager;
    NeuFlux::NeuWorldGeometry* geometry = new NeuFlux::NeuWorldGeometry;
 
    runManager->SetUserInitialization(geometry);
-   runManager->SetUserInitialization(new NeuFlux::NeuPhysicsList);
 
 #ifdef G4VIS_USE
    G4cout<<"  Setting up Visualization Manager"<<std::endl;
@@ -52,23 +44,6 @@ int main(int argc, char **argv)
    visManager->SetVerboseLevel(0);
    visManager->Initialize();
 #endif
-
-   G4cout<<"  Setting up User Action Classes"<<std::endl;
-   NeuFlux::NeuRunAction* runAction = new NeuFlux::NeuRunAction(rSeed);
-   runManager->SetUserAction(runAction);
-   G4cout<<"    done setting run action"<<std::endl;
-   NeuFlux::NeuEventAction* eventAction =
-       new NeuFlux::NeuEventAction();
-   runManager->SetUserAction(eventAction);
-   runManager->SetUserAction( new NeuFlux::NeuPrimaryGeneratorAction());
-   NeuFlux::NeuTrackingAction* trackingAction =
-       new NeuFlux::NeuTrackingAction;
-   runManager->SetUserAction(trackingAction);
-   runManager->
-       SetUserAction(new
-                     NeuFlux::NeuSteppingAction() ) ;
-
-   G4cout<<"  Initializing the G4 kernel"<<std::endl;
 
    runManager->Initialize();
 

@@ -22,17 +22,18 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 #----------------------------------------------------------------------------
 # Locate sources and headers for this project
 file(GLOB sources ${PROJECT_SOURCE_DIR}/source/*.cc)
-foreach(_file ${sources})
-	message(STATUS ${_file})
-endforeach()
+#foreach(_file ${sources})
+#	message(STATUS ${_file})
+#endforeach()
 file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
-foreach(_file ${headers})
-	message(STATUS ${_file})
-endforeach()
+#foreach(_file ${headers})
+#	message(STATUS ${_file})
+#endforeach()
 #----------------------------------------------------------------------------
 # Build Libraries
 add_library(NeutronFlux SHARED ${sources} ${headers}  ${ROOT_})
 target_link_libraries(NeutronFlux ${ROOT_LIBRARIES} ${Geant4_LIBRARIES})
+install(TARGETS NeutronFlux DESTINATION lib)
 #----------------------------------------------------------------------------
 # Locate Executables, and link against all libraries
 file(GLOB applications ${PROJECT_SOURCE_DIR}/Applications/*.cc)

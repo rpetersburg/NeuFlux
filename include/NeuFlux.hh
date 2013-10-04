@@ -136,6 +136,10 @@
 	Please contact Kevin Wierman at kwierman@email.unc.edu with issues, flaws or questions
 */
 
+/*!
+	\file NeuFlux.hh Primary Include File for the entire Neuflux simulation
+*/
+
 #include "NeuPrimaryGeneratorAction.hh"
 #include "NeuRunAction.hh"
 #include "NeuTrackingAction.hh"

@@ -1,22 +1,4 @@
-/*!
-  \class NeuCuts
- 
-  \ingroup NeuFlux
- 
-  \brief Base Class for making cuts on data.
- 
- 
-  \author Kevin Wierman
- 
-  \version 1.0
- 
-  \date Oct 1, 2013
- 
-  Contact: kwierman@email.unc.edu
- 
-  Created on: Wed Apr 1 18:39:37 2005
- 
- */
+
 #ifndef NeuCuts_hh_
 #define NeuCuts_hh_
 
@@ -26,6 +8,21 @@
 
 namespace NeuFlux
 {
+    /*!
+    \class NeuCuts
+   
+    \ingroup NeuFlux
+   
+    \brief Base Class for making cuts on data.
+   
+    \author Kevin Wierman
+   
+    \version 1.0
+   
+    \date Oct 1, 2013
+   
+    \contact kwierman@email.unc.edu 
+   */
 
   class NeuCuts:public G4VProcess {
    public:
@@ -83,3 +80,4 @@ namespace NeuFlux
   };
 }
 #endif
+

@@ -10,6 +10,7 @@
 
 #include "NeuDetector.hh"
 #include "NeuEarthFields.hh"
+#include "NeuGeometryMessenger.hh"
 
 namespace NeuFlux
 {
@@ -47,6 +48,7 @@ namespace NeuFlux
 	   G4int FindVertexVolumeIndex(const G4LogicalVolume * vertexLogicalVolume);
 	   G4bool StoreEnteringParticleInfo(G4VPhysicalVolume * postVolume);
 	   G4int FindPhysicalVolumeIndex(G4VPhysicalVolume * whichVolume);
+	   void PrintGeometry();
 
 	private:
 		G4VPhysicalVolume* ConstructWorld();
@@ -55,6 +57,8 @@ namespace NeuFlux
 		G4VPhysicalVolume* ConstructDetector();
 
 	private:
+		NeuFlux::NeuDetector* fDetector;
+		NeuFlux::NeuGeometryMessenger* fMessenger;
 
 		G4double fWorldX;						/*!<World X-dimension Value*/
 		G4double fWorldY;						/*!<World X-dimension Value*/
@@ -84,8 +88,38 @@ namespace NeuFlux
    		G4LogicalVolume* fLogicDetector;						/*!< an integer value */
    		G4VPhysicalVolume* fPhysiDetector;						/*!< an integer value */
 
-		NeuDetector* fDetector;
+public:
+   		void SetWorldX(G4double X)
+   			{fWorldX = X;}
+   		void SetWorldY(G4double Y)
+   			{fWorldY = Y;}
+   		void SetWorldZ(G4double Z)
+   			{fWorldZ = Z;}
+
+   		void SetRockX(G4double X)
+   			{fRockX = X;}
+   		void SetRockY(G4double Y)
+   			{fRockY = Y;}
+   		void SetRockZ(G4double Z)
+   			{fRockZ = Z;}
+
+   		void SetConcreteX(G4double X)
+   			{fConcreteX = X;}
+   		void SetConcreteY(G4double Y)
+   			{fConcreteY = Y;}
+   		void SetConcreteZ(G4double Z)
+   			{fWorldZ = Z;}
+
+   		void SetDetectorX(G4double X)
+   			{fDetectorX = X;}
+   		void SetDetectorY(G4double Y)
+   			{fDetectorY = Y;}
+   		void SetDetectorZ(G4double Z)
+   			{fDetectorZ = Z;}
+
 	};
+
+	
 
 }
 #endif     //NeuWorldGeometry_hh

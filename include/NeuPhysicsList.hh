@@ -1,45 +1,4 @@
-/*!
-  \class NeuPhysicsList
-  
-  \ingroup NeuFlux
-  
-  \brief Defines and adds all physics processes used in the simulation.
-  
-  	Bosons:
-  	 G4Geantino
-      G4ChargedGeantino
-      G4Gamma
-      G4OpticalPhoton
-  
-   Leptons:
-       G4Electron
-       G4Positron
-       G4MuonPlus
-       G4MuonMinus
-       G4NeutrinoE
-       G4AntiNeutrinoE
-       G4NeutrinoMu
-       G4AntiNeutrinoMu
-  
-   Hadrons:
-   	    Standard Constructor for Meson
-   	    Standard Constructor for baryon
-   	    Standard Constructor for ion
-  
-   Short Lived's:
-   	    So Short, they didn't make it on here.
-  
-  \author Kevin Wierman
-  
-  \version 1.0
-  
-  \date Oct 1, 2013
-  
-  Contact: kwierman@email.unc.edu
-  
-  Created on: Wed Apr 1 18:39:37 2005
-  
- */
+
 
 
 #ifndef NeuPhysicsList_hh_
@@ -50,6 +9,48 @@
 
 namespace NeuFlux
 {
+  /*!
+    \class NeuPhysicsList
+    
+    \ingroup NeuFlux
+    
+    \brief Defines and adds all physics processes used in the simulation.
+    
+      Bosons:
+       G4Geantino
+        G4ChargedGeantino
+        G4Gamma
+        G4OpticalPhoton
+    
+     Leptons:
+         G4Electron
+         G4Positron
+         G4MuonPlus
+         G4MuonMinus
+         G4NeutrinoE
+         G4AntiNeutrinoE
+         G4NeutrinoMu
+         G4AntiNeutrinoMu
+    
+     Hadrons:
+          Standard Constructor for Meson
+          Standard Constructor for baryon
+          Standard Constructor for ion
+    
+     Short Lived's:
+          So Short, they didn't make it on here.
+    
+    \author Kevin Wierman
+    
+    \version 1.0
+    
+    \date Oct 1, 2013
+    
+    Contact: kwierman@email.unc.edu
+    
+    Created on: Wed Apr 1 18:39:37 2005
+  
+ */
   class NeuPhysicsList: public G4VUserPhysicsList
   {
   public:

@@ -97,34 +97,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;G4ThreeVector.hh&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;G4Event.hh&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>NeuFlux</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">class </span>NeuEventAction : <span class="keyword">public</span> G4UserEventAction {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    NeuEventAction();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    ~NeuEventAction();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;   <span class="keywordtype">void</span> BeginOfEventAction(<span class="keyword">const</span> G4Event *);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;   <span class="keywordtype">void</span> EndOfEventAction(<span class="keyword">const</span> G4Event *);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  G4int fEventID;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  G4double fPrimaryX;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  G4double fPrimaryY;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  G4double fPrimaryZ;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  G4double fPrimaryT;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  G4int fPrimaryN;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;NeuRootOutput.hh&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>NeuFlux</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classNeuFlux_1_1NeuEventAction.html">   31</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classNeuFlux_1_1NeuEventAction.html">NeuEventAction</a> : <span class="keyword">public</span> G4UserEventAction, <span class="keyword">public</span>  <a class="code" href="classNeuFlux_1_1NeuOutputtingComponent.html">NeuOutputtingComponent</a> </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <a class="code" href="classNeuFlux_1_1NeuEventAction.html">NeuEventAction</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      ~<a class="code" href="classNeuFlux_1_1NeuEventAction.html">NeuEventAction</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;     <span class="keywordtype">void</span> BeginOfEventAction(<span class="keyword">const</span> G4Event *);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;     <span class="keywordtype">void</span> EndOfEventAction(<span class="keyword">const</span> G4Event *);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;     <span class="keywordtype">void</span> OnNewFileCreate();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    G4int fEventID;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    G4double fPrimaryX;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    G4double fPrimaryY;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    G4double fPrimaryZ;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    G4double fPrimaryT;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    G4int fPrimaryN;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  };</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="classNeuFlux_1_1NeuOutputtingComponent_html"><div class="ttname"><a href="classNeuFlux_1_1NeuOutputtingComponent.html">NeuFlux::NeuOutputtingComponent</a></div><div class="ttdoc">Virtual Class for defining methods to be called on new output file creation. </div><div class="ttdef"><b>Definition:</b> NeuRootOutput.hh:21</div></div>
+<div class="ttc" id="classNeuFlux_1_1NeuEventAction_html"><div class="ttname"><a href="classNeuFlux_1_1NeuEventAction.html">NeuFlux::NeuEventAction</a></div><div class="ttdoc">Defines User Beginning of Event and End of Event actions. </div><div class="ttdef"><b>Definition:</b> NeuEventAction.hh:31</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 4 2013 13:49:03 for NeutronFlux by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 6 2013 10:15:40 for NeutronFlux by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

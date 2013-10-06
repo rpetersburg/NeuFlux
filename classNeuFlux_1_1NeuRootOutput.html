@@ -90,6 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classNeuFlux_1_1NeuRootOutput-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">NeuFlux::NeuRootOutput Class Reference</div>  </div>
@@ -120,6 +121,10 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuFlux_1_1NeuRootOutput.html#a51b49566f13faba99cf5a3d19068a14a">Finish</a> ()</td></tr>
 <tr class="memdesc:a51b49566f13faba99cf5a3d19068a14a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the output. <br/></td></tr>
 <tr class="separator:a51b49566f13faba99cf5a3d19068a14a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0464cb72cb96527a8826215afcf8ce05"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0464cb72cb96527a8826215afcf8ce05"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuFlux_1_1NeuRootOutput.html#a0464cb72cb96527a8826215afcf8ce05">RegisterNewFileComponent</a> (<a class="el" href="classNeuFlux_1_1NeuOutputtingComponent.html">NeuFlux::NeuOutputtingComponent</a> *component)</td></tr>
+<tr class="memdesc:a0464cb72cb96527a8826215afcf8ce05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a new file component. <br/></td></tr>
+<tr class="separator:a0464cb72cb96527a8826215afcf8ce05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc0575f8f8ec3ee35c77c873b7743f2d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuFlux_1_1NeuRootOutput.html#abc0575f8f8ec3ee35c77c873b7743f2d">WriteAllTrees</a> ()</td></tr>
 <tr class="memdesc:abc0575f8f8ec3ee35c77c873b7743f2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes all trees.  <a href="#abc0575f8f8ec3ee35c77c873b7743f2d">More...</a><br/></td></tr>
 <tr class="separator:abc0575f8f8ec3ee35c77c873b7743f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,6 +134,13 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ad7c3ba8cd231f1d6b1849a9085813f72"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classNeuFlux_1_1NeuRootOutput.html">NeuRootOutput</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuFlux_1_1NeuRootOutput.html#ad7c3ba8cd231f1d6b1849a9085813f72">GetInstance</a> ()</td></tr>
 <tr class="memdesc:ad7c3ba8cd231f1d6b1849a9085813f72"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Singleton creation/get method for this class.  <a href="#ad7c3ba8cd231f1d6b1849a9085813f72">More...</a><br/></td></tr>
 <tr class="separator:ad7c3ba8cd231f1d6b1849a9085813f72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:abb1e496dbbaab312fbf0b0f789b06591"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb1e496dbbaab312fbf0b0f789b06591"></a>
+std::vector<br class="typebreak"/>
+&lt; <a class="el" href="classNeuFlux_1_1NeuOutputtingComponent.html">NeuFlux::NeuOutputtingComponent</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>fComponents</b></td></tr>
+<tr class="separator:abb1e496dbbaab312fbf0b0f789b06591"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Singleton Root Output Manager  <a class="el" href="namespaceNeuFlux.html" title="The namespace for user created classes for the neuflux simulation. ">NeuFlux</a>. </p>
@@ -341,7 +353,7 @@ template&lt;typename XType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 4 2013 13:49:04 for NeutronFlux by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 6 2013 10:15:41 for NeutronFlux by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

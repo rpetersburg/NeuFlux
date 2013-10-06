@@ -1,21 +1,4 @@
-/*!
-  \class NeuMinEkineCuts
- 
-  \ingroup Neu
- 
-  \brief Physics Process to cut on minimum kinetic energy.
- 
-  \author Kevin Wierman
- 
-  \version $Revision: 1.5 $
- 
-  \date $Date: Tue Nov 20 12::33:51 2012 $
- 
-  Contact: kwierman@email.unc.edu
- 
-  Created on: Wed Apr 1 18:39:37 2005
- 
- */
+
 #ifndef NeuMinEkineCuts_hh_
 #define NeuMinEkineCuts_hh_
 
@@ -25,6 +8,24 @@
 
 namespace NeuFlux
 {
+  /*!
+    \class NeuMinEkineCuts
+   
+    \ingroup Neu
+   
+    \brief Physics Process to cut on minimum kinetic energy.
+   
+    \author Kevin Wierman
+   
+    \version $Revision: 1.5 $
+   
+    \date $Date: Tue Nov 20 12::33:51 2012 $
+   
+    Contact: kwierman@email.unc.edu
+   
+    Created on: Wed Apr 1 18:39:37 2005
+   
+ */
 
   class NeuMinEkineCuts : public NeuCuts {
    public:

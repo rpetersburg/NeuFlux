@@ -35,7 +35,7 @@ void NeuFlux::NeuCosmicGenerator::SetInitialValues() {
 	//global radius, distance from origin of world to starting position.
 	//make sure this is larger than any object you want cosmic rays to interact with.
 	//smaller objects
-	fGlobalRadius2 = 100 * 100 * m2;
+	fGlobalRadius2 = 1000 * 1000 * m2;
 	fPlaneHalfLengthZ = 10 * m;
 	fPlaneHalfLengthY = 10 * m;
 	fPlaneOffsetZ = 0 * cm;

@@ -2,9 +2,12 @@
 #ifndef NeuRunAction_hh_
 #define NeuRunAction_hh_ 
 
+#include "NeuRootOutput.hh"
+
 #include "G4UserRunAction.hh"
 #include "globals.hh"
 #include "G4Run.hh"
+
 
 namespace NeuFlux
 {
@@ -32,7 +35,7 @@ namespace NeuFlux
       
     */
 
-   class NeuRunAction : public G4UserRunAction {
+   class NeuRunAction : public G4UserRunAction , public NeuOutputtingComponent {
 
    public:
       NeuRunAction(G4int);
@@ -41,6 +44,8 @@ namespace NeuFlux
    public:
       void BeginOfRunAction(const G4Run *);
       void EndOfRunAction(const G4Run *);
+
+      void OnNewFileCreate();
 
    private:
       G4int fID;

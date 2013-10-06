@@ -6,6 +6,7 @@
 #include "G4ThreeVector.hh"
 #include "G4Event.hh"
 
+#include "NeuRootOutput.hh"
 
 namespace NeuFlux
 {
@@ -27,24 +28,26 @@ namespace NeuFlux
     \contact kwierman@email.unc.edu
   
  */
-  class NeuEventAction : public G4UserEventAction {
+  class NeuEventAction : public G4UserEventAction, public  NeuOutputtingComponent 
+  {
 
-  public:
-    NeuEventAction();
-    ~NeuEventAction();
+    public:
+      NeuEventAction();
+      ~NeuEventAction();
 
- public:
-   void BeginOfEventAction(const G4Event *);
-   void EndOfEventAction(const G4Event *);
+   public:
+     void BeginOfEventAction(const G4Event *);
+     void EndOfEventAction(const G4Event *);
+     void OnNewFileCreate();
 
- private:
-  G4int fEventID;
-  G4double fPrimaryX;
-  G4double fPrimaryY;
-  G4double fPrimaryZ;
-  G4double fPrimaryT;
-  G4int fPrimaryN;
-};
+   private:
+    G4int fEventID;
+    G4double fPrimaryX;
+    G4double fPrimaryY;
+    G4double fPrimaryZ;
+    G4double fPrimaryT;
+    G4int fPrimaryN;
+  };
 
 }
 #endif

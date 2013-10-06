@@ -1,7 +1,8 @@
-
-
 #ifndef NeuSteppingAction_hh_
 #define NeuSteppingAction_hh_ 
+
+#include "NeuRootOutput.hh"
+
 
 #include "G4UserSteppingAction.hh"
 #include "G4UserEventAction.hh"
@@ -29,12 +30,13 @@ namespace NeuFlux
 
      
   */
-   class NeuSteppingAction : public G4UserSteppingAction 
+   class NeuSteppingAction : public G4UserSteppingAction , public NeuOutputtingComponent
    {
 
     public:
       NeuSteppingAction();
       ~NeuSteppingAction();
+      void OnNewFileCreate();
 
       void UserSteppingAction(const G4Step * theStep);
 

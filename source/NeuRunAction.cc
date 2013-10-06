@@ -7,9 +7,8 @@
 
 #include "NeuRunAction.hh"
 
-#include "NeuRootOutput.hh"
 
-NeuFlux::NeuRunAction::NeuRunAction(G4int time) : fTimeSeed(time)
+NeuFlux::NeuRunAction::NeuRunAction(G4int time) : fTimeSeed(time), NeuOutputtingComponent(), G4UserRunAction()
 {
 }
 
@@ -35,13 +34,7 @@ void NeuFlux::NeuRunAction::BeginOfRunAction(const G4Run * aRun)
   
    G4cout<<"Output Title: "<<ss.str()<<std::endl;
 
-   NeuFlux::NeuRootOutput* output = NeuFlux::NeuRootOutput::GetInstance();
-
-   output->CreateNewFile( ss.str() );
-   output->AddTree("RunAction");
-   output->AddBranch<G4int>("RunAction", "TimeSeed", &fTimeSeed);
-   output->AddBranch<G4int>("RunAction", "ID", &fID);
-   output->FillTree("RunAction");
+   NeuFlux::NeuRootOutput::GetInstance()->CreateNewFile( ss.str() );
 
    G4cout<<"---------------------------------------"<<std::endl;
 }
@@ -62,4 +55,13 @@ void NeuFlux::NeuRunAction::EndOfRunAction(const G4Run * aRun)
    G4cout<<"---------------------------------------"<<std::endl;
 }
 
+void NeuFlux::NeuRunAction::OnNewFileCreate()
+{
+
+  NeuFlux::NeuRootOutput* output = NeuFlux::NeuRootOutput::GetInstance();
+  output->AddTree("RunAction");
+  output->AddBranch<G4int>("RunAction", "TimeSeed", &fTimeSeed);
+  output->AddBranch<G4int>("RunAction", "ID", &fID);
+  output->FillTree("RunAction");
+}
 

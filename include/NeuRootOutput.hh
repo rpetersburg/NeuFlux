@@ -12,6 +12,22 @@
 namespace NeuFlux
 {
 	/*!
+		\class NeuOutputtingComponent
+		\brief Virtual Class for defining methods to be called on new output file creation
+
+		\warning This class makes it impossible to output to multiple files at once
+		\note The importance of using this in tandem with the NeuRootOutput class makes output isolated to each Simulation component
+	*/
+	class NeuOutputtingComponent
+	{
+	public:
+		NeuOutputtingComponent();
+		
+		virtual ~NeuOutputtingComponent(){}
+		virtual void OnNewFileCreate() =0;
+	};
+
+	/*!
 		\class NeuRootOutput
 		\brief Singleton Root Output Manager
 		\group NeuFlux
@@ -65,9 +81,14 @@ namespace NeuFlux
 	    */
 	    bool CreateNewFile(std::string name)
 	    {
+	    	fTrees.clear();
 	    	fOutput = new TFile(name.c_str(), "RECREATE");
 	    	if(fOutput->IsZombie())
 	    		return false;
+
+	    	for(std::vector<NeuOutputtingComponent*>::iterator it = fComponents.begin(); it!= fComponents.end(); ++it)
+	    		(*it)->OnNewFileCreate();
+
 	    	return true;
 	    }
 
@@ -99,7 +120,7 @@ namespace NeuFlux
 	    {
 	    	for(std::vector<TTree*>::iterator it = fTrees.begin(); it!= fTrees.end(); ++it )
 	    	{
-	    		if( std::strcmp ( (*it)->GetName() , treeName.c_str() ) )
+	    		if( std::string( (*it)->GetName() ) == treeName )//std::strcmp ( (*it)->GetName() , treeName.c_str() ) )
 	    		{
 	    			(*it)->Branch(branchName.c_str(), address, branchName.c_str());
 	    			return true;
@@ -118,7 +139,7 @@ namespace NeuFlux
 	    {
 	    	for(std::vector<TTree*>::iterator it = fTrees.begin(); it!= fTrees.end(); ++it )
 	    	{
-	    		if( std::strcmp ( (*it)->GetName() , name.c_str() ) )
+	    		if( std::string( (*it)->GetName() ) == name )
 	    		{
 	    			(*it)->Fill();
 	    			return true;
@@ -148,6 +169,15 @@ namespace NeuFlux
 	    	if(fOutput)
 		    	fOutput->Close();
 	    	fOutput=NULL;
+	    }
+
+	    std::vector<NeuFlux::NeuOutputtingComponent*> fComponents;
+
+	    //!Registers a new file component
+	    void RegisterNewFileComponent( NeuFlux::NeuOutputtingComponent* component )
+	    {
+	    	fComponents.push_back(component);
+
 	    }
 	};
 

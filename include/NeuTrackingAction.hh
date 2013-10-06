@@ -1,7 +1,7 @@
-
-
 #ifndef NeuTrackingAction_hh_
 #define NeuTrackingAction_hh_
+
+#include "NeuRootOutput.hh"
 
 #include "G4UserTrackingAction.hh"
 #include "globals.hh"
@@ -30,13 +30,15 @@ namespace NeuFlux
     \contact kwierman@email.unc.edu
    
    */
-   class NeuTrackingAction : public G4UserTrackingAction 
+   class NeuTrackingAction : public G4UserTrackingAction , public NeuOutputtingComponent
    {
    public:
       NeuTrackingAction();
       ~NeuTrackingAction();
       void PreUserTrackingAction(const G4Track *);
       //void PostUserTrackingAction(const G4Track*);//Not Used.
+
+      void OnNewFileCreate();
 
     private:
       double fTrackID ;

@@ -13,6 +13,18 @@ NeuFlux::NeuEventAction::~NeuEventAction()
 {
 }
 
+void NeuFlux::NeuEventAction::OnNewFileCreate()
+{
+	NeuFlux::NeuRootOutput* output = NeuFlux::NeuRootOutput::GetInstance();
+	output->AddTree("NeuEventAction");
+	output->AddBranch<G4int>("NeuEventAction", "EventID", &fEventID);
+	output->AddBranch<G4double>("NeuEventAction", "PrimaryEventX",		&fPrimaryX );
+	output->AddBranch<G4double>("NeuEventAction", "PrimaryEventY",		&fPrimaryY);
+	output->AddBranch<G4double>("NeuEventAction", "PrimaryEventZ",		&fPrimaryZ);
+	output->AddBranch<G4double>("NeuEventAction", "PrimaryEventT",		&fPrimaryT);
+	output->AddBranch<G4int>("NeuEventAction", "PrimaryEventN" ,		&fPrimaryN);
+}
+
 void NeuFlux::NeuEventAction::BeginOfEventAction(const G4Event *event)
 {
 	G4cout<<std::endl;
@@ -40,18 +52,7 @@ void NeuFlux::NeuEventAction::EndOfEventAction(const G4Event * evt)
 	
 	fPrimaryN = 	evt->GetPrimaryVertex()->GetNumberOfParticle();	
 	NeuFlux::NeuRootOutput* output = NeuFlux::NeuRootOutput::GetInstance();
-	output->FillTree("NeuEventAction");
-	
+	output->FillTree("NeuEventAction");	
 }
 
-void NeuFlux::NeuEventAction::OnNewFileCreate()
-{
-	NeuFlux::NeuRootOutput* output = NeuFlux::NeuRootOutput::GetInstance();
-	output->AddTree("NeuEventAction");
-	output->AddBranch<G4int>("NeuEventAction", "EventID", &fEventID);
-	output->AddBranch<G4double>("NeuEventAction", "PrimaryEventX",		&fPrimaryX );
-	output->AddBranch<G4double>("NeuEventAction", "PrimaryEventY",		&fPrimaryY);
-	output->AddBranch<G4double>("NeuEventAction", "PrimaryEventZ",		&fPrimaryZ);
-	output->AddBranch<G4double>("NeuEventAction", "PrimaryEventT",		&fPrimaryT);
-	output->AddBranch<G4int>("NeuEventAction", "PrimaryEventN" ,		&fPrimaryN);
-}
+

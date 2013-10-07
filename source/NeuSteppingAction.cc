@@ -64,37 +64,37 @@ void NeuFlux::NeuSteppingAction::OnNewFileCreate()
 {
 	NeuFlux::NeuRootOutput* output =  NeuFlux::NeuRootOutput::GetInstance();
 	output->AddTree("NeuSteppingAction");
-	  output->AddBranch<double>("NeuSteppingAction", "fPreX", &fPreX);
-      output->AddBranch<double>("NeuSteppingAction", "fPreY", &fPreY);
-      output->AddBranch<double>("NeuSteppingAction", "fPreZ", &fPreZ);
-      output->AddBranch<double>("NeuSteppingAction", "fPreLocalT", &fPreLocalT);
-      output->AddBranch<double>("NeuSteppingAction", "fPreGlobalT", &fPreGlobalT);
-      output->AddBranch<double>("NeuSteppingAction", "fPreProperT", &fPreProperT);
-      output->AddBranch<double>("NeuSteppingAction", "fPreMomX", &fPreMomX);
-      output->AddBranch<double>("NeuSteppingAction", "fPreMomY", &fPreMomY);
-      output->AddBranch<double>("NeuSteppingAction", "fPreMomZ", &fPreMomZ);
-      output->AddBranch<double>("NeuSteppingAction", "fPreTotalE", &fPreTotalE);
-      output->AddBranch<double>("NeuSteppingAction", "fPreKinE", &fPreKinE);
+	  output->AddBranch<double>("NeuSteppingAction", "PreX", &fPreX);
+      output->AddBranch<double>("NeuSteppingAction", "PreY", &fPreY);
+      output->AddBranch<double>("NeuSteppingAction", "PreZ", &fPreZ);
+      output->AddBranch<double>("NeuSteppingAction", "PreLocalT", &fPreLocalT);
+      output->AddBranch<double>("NeuSteppingAction", "PreGlobalT", &fPreGlobalT);
+      output->AddBranch<double>("NeuSteppingAction", "PreProperT", &fPreProperT);
+      output->AddBranch<double>("NeuSteppingAction", "PreMomX", &fPreMomX);
+      output->AddBranch<double>("NeuSteppingAction", "PreMomY", &fPreMomY);
+      output->AddBranch<double>("NeuSteppingAction", "PreMomZ", &fPreMomZ);
+      output->AddBranch<double>("NeuSteppingAction", "PreTotalE", &fPreTotalE);
+      output->AddBranch<double>("NeuSteppingAction", "PreKinE", &fPreKinE);
 
-      output->AddBranch<double>("NeuSteppingAction", "fPostX", &fPostX);
-      output->AddBranch<double>("NeuSteppingAction", "fPostY", &fPostY);
-      output->AddBranch<double>("NeuSteppingAction", "fPostZ", &fPostZ);
-      output->AddBranch<double>("NeuSteppingAction", "fPostLocalT", &fPostLocalT);
-      output->AddBranch<double>("NeuSteppingAction", "fPostGlobalT", &fPostGlobalT);
-      output->AddBranch<double>("NeuSteppingAction", "fPostProperT", &fPostProperT);
-      output->AddBranch<double>("NeuSteppingAction", "fPostMomX", &fPostMomX);
-      output->AddBranch<double>("NeuSteppingAction", "fPostMomY", &fPostMomY);
-      output->AddBranch<double>("NeuSteppingAction", "fPostMomZ", &fPostMomZ);
-      output->AddBranch<double>("NeuSteppingAction", "fPostTotalE", &fPostTotalE);
-      output->AddBranch<double>("NeuSteppingAction", "fPostKinE", &fPostKinE);
+      output->AddBranch<double>("NeuSteppingAction", "PostX", &fPostX);
+      output->AddBranch<double>("NeuSteppingAction", "PostY", &fPostY);
+      output->AddBranch<double>("NeuSteppingAction", "PostZ", &fPostZ);
+      output->AddBranch<double>("NeuSteppingAction", "PostLocalT", &fPostLocalT);
+      output->AddBranch<double>("NeuSteppingAction", "PostGlobalT", &fPostGlobalT);
+      output->AddBranch<double>("NeuSteppingAction", "PostProperT", &fPostProperT);
+      output->AddBranch<double>("NeuSteppingAction", "PostMomX", &fPostMomX);
+      output->AddBranch<double>("NeuSteppingAction", "PostMomY", &fPostMomY);
+      output->AddBranch<double>("NeuSteppingAction", "PostMomZ", &fPostMomZ);
+      output->AddBranch<double>("NeuSteppingAction", "PostTotalE", &fPostTotalE);
+      output->AddBranch<double>("NeuSteppingAction", "PostKinE", &fPostKinE);
 
-      output->AddBranch<double>("NeuSteppingAction", "fStepLength", &fStepLength);
-      output->AddBranch<double>("NeuSteppingAction", "fTotalEnergyDeposit", &fTotalEnergyDeposit);
-      output->AddBranch<double>("NeuSteppingAction", "fTotalNonIEnergyDeposit", &fTotalNonIEnergyDeposit);
+      output->AddBranch<double>("NeuSteppingAction", "StepLength", &fStepLength);
+      output->AddBranch<double>("NeuSteppingAction", "TotalEnergyDeposit", &fTotalEnergyDeposit);
+      output->AddBranch<double>("NeuSteppingAction", "TotalNonIEnergyDeposit", &fTotalNonIEnergyDeposit);
 
-      output->AddBranch<double>("NeuSteppingAction", "fDeltaX", &fDeltaX);
-      output->AddBranch<double>("NeuSteppingAction", "fDeltaY", &fDeltaY);
-      output->AddBranch<double>("NeuSteppingAction", "fDeltaZ", &fDeltaZ);
-      output->AddBranch<double>("NeuSteppingAction", "fDeltaT", &fDeltaT);	
+      output->AddBranch<double>("NeuSteppingAction", "DeltaX", &fDeltaX);
+      output->AddBranch<double>("NeuSteppingAction", "DeltaY", &fDeltaY);
+      output->AddBranch<double>("NeuSteppingAction", "DeltaZ", &fDeltaZ);
+      output->AddBranch<double>("NeuSteppingAction", "DeltaT", &fDeltaT);	
 }
 

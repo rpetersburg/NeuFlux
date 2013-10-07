@@ -144,7 +144,6 @@ namespace NeuFlux
 			/*!
 				The only constructor that should be used with this class.
 				This data came from an unknown source
-
 			*/
 			NeuRock() : G4Material( "rock Approximation", 2.4*g/cm3, 2)
 			{

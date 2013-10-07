@@ -43,16 +43,17 @@ void NeuFlux::NeuRunAction::EndOfRunAction(const G4Run * aRun)
 {
 	G4cout<<"---------------------------------------"<<std::endl;
 	G4cout<<"Finishing up Run: "<<aRun->GetNumberOfEvent()<<std::endl;
+  G4cout<<"With output title: "<<"NeuFlux_"<<fTimeSeed<<"_"<<fID<<".root"<<std::endl;
+  
 
   NeuFlux::NeuRootOutput* output = NeuFlux::NeuRootOutput::GetInstance();
   output->FillTree("RunAction");
   output->WriteAllTrees();
   output->Finish();
 
-   if (G4VVisManager::GetConcreteInstance()) {
-      G4UImanager::GetUIpointer()->ApplyCommand("/vis/viewer/update");
-   }
-   G4cout<<"---------------------------------------"<<std::endl;
+  if (G4VVisManager::GetConcreteInstance())
+    G4UImanager::GetUIpointer()->ApplyCommand("/vis/viewer/update");
+  G4cout<<"---------------------------------------"<<std::endl;
 }
 
 void NeuFlux::NeuRunAction::OnNewFileCreate()
@@ -62,6 +63,6 @@ void NeuFlux::NeuRunAction::OnNewFileCreate()
   output->AddTree("RunAction");
   output->AddBranch<G4int>("RunAction", "TimeSeed", &fTimeSeed);
   output->AddBranch<G4int>("RunAction", "ID", &fID);
-  output->FillTree("RunAction");
+  //output->FillTree("RunAction");
 }
 

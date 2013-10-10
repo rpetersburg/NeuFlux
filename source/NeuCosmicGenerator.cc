@@ -84,4 +84,13 @@ void NeuFlux::NeuCosmicGenerator::GeneratePrimaryVertex(G4Event * evt)
 	
 
 	evt->AddPrimaryVertex(vertex);
+	G4cout<<"Particle Parameters: Mass: "<<particle_mass<<std::endl;
+	G4cout<<"                     Energy: "<<particle_energy<<std::endl;
+	G4cout<<"                     Momentum: "<<momentum_magnitude<<std::endl;
+	G4cout<<"                     CosTheta: "<<costheta<<std::endl;
+	G4cout<<"                     Phi: "<<phi<<std::endl;
+	G4cout<<"                     Position: "<<position.x()<<", "<<position.y()<<", "<<position.z()<<std::endl;
+	G4cout<<"                     Momentum: "<<momentum.x()<<", "<<momentum.y()<<", "<<momentum.z()<<std::endl;
+	G4cout<<"                     Charge: "<<mu_definition->GetPDGCharge()<<std::endl;
+
 }

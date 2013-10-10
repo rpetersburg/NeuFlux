@@ -38,7 +38,7 @@ namespace NeuFlux
    class NeuRunAction : public G4UserRunAction , public NeuOutputtingComponent {
 
    public:
-      NeuRunAction(G4int);
+      NeuRunAction();
       ~NeuRunAction();
 
    public:

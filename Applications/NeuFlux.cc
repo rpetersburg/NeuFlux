@@ -32,15 +32,13 @@
 #include "NeuVisManager.hh"
 #endif
 
-#include "TRandom3.h"
 
 
 int main(int argc, char **argv)
 {
-   TRandom3 r3(0);
+    //Setup the Random number singleton
+   NeuFlux::NeuRandom::GetInstance();
 
-   UInt_t rSeed   = static_cast<UInt_t> (2147483647.*r3.Rndm());
-   G4cout << "Randomization Seed: " << rSeed << std::endl;
 
    G4cout<<"  Setting up Run Manager"<<std::endl;
    
@@ -50,9 +48,9 @@ int main(int argc, char **argv)
 
    runManager->SetUserInitialization(geometry);
    
-   //runManager->SetUserInitialization( new QGSP_BIC_HP);
+   runManager->SetUserInitialization( new QGSP_BIC_HP);
    runManager->SetUserInitialization( new QGSP_BERT_HP);
-   //runManager->SetUserInitialization( new QGSP_BERT_EMV);
+   runManager->SetUserInitialization( new QGSP_BERT_EMV);
 
 #ifdef G4VIS_USE
    G4cout<<"  Setting up Visualization Manager"<<std::endl;
@@ -62,7 +60,7 @@ int main(int argc, char **argv)
 #endif
 
    G4cout<<"  Setting up User Action Classes"<<std::endl;
-   NeuFlux::NeuRunAction* runAction = new NeuFlux::NeuRunAction(rSeed);
+   NeuFlux::NeuRunAction* runAction = new NeuFlux::NeuRunAction();
    runManager->SetUserAction(runAction);
    G4cout<<"    done setting run action"<<std::endl;
    NeuFlux::NeuEventAction* eventAction =

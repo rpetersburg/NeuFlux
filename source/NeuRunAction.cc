@@ -6,10 +6,12 @@
 #include "G4ios.hh"
 
 #include "NeuRunAction.hh"
+#include "NeuRandom.hh"
 
 
-NeuFlux::NeuRunAction::NeuRunAction(G4int time) : fTimeSeed(time), NeuOutputtingComponent(), G4UserRunAction()
+NeuFlux::NeuRunAction::NeuRunAction() :  NeuOutputtingComponent(), G4UserRunAction()
 {
+  fTimeSeed = NeuFlux::NeuRandom::GetInstance()->GetRandom();
 }
 
 NeuFlux::NeuRunAction::~NeuRunAction()

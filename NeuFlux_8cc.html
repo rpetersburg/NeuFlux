@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -98,6 +98,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;G4UImanager.hh&quot;</code><br/>
 <code>#include &quot;G4UIterminal.hh&quot;</code><br/>
 <code>#include &quot;G4UItcsh.hh&quot;</code><br/>
+<code>#include &quot;QGSP_BIC_HP.hh&quot;</code><br/>
+<code>#include &quot;QGSP_BERT_HP.hh&quot;</code><br/>
+<code>#include &quot;QGSP_BERT_EMV.hh&quot;</code><br/>
 <code>#include &quot;<a class="el" href="NeuFlux_8hh_source.html">NeuFlux.hh</a>&quot;</code><br/>
 <code>#include &quot;TRandom3.h&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
@@ -105,7 +108,7 @@ Include dependency graph for NeuFlux.cc:</div>
 <div class="dyncontent">
 <div class="center"><img src="NeuFlux_8cc__incl.png" border="0" usemap="#NeuFlux_8cc" alt=""/></div>
 <map name="NeuFlux_8cc" id="NeuFlux_8cc">
-<area shape="rect" id="node6" href="NeuFlux_8hh.html" title="NeuFlux.hh" alt="" coords="1797,80,1888,107"/><area shape="rect" id="node7" href="NeuPrimaryGeneratorAction_8hh_source.html" title="NeuPrimaryGeneratorAction.hh" alt="" coords="599,155,807,181"/><area shape="rect" id="node20" href="NeuRunAction_8hh_source.html" title="NeuRunAction.hh" alt="" coords="1127,155,1253,181"/><area shape="rect" id="node29" href="NeuTrackingAction_8hh_source.html" title="NeuTrackingAction.hh" alt="" coords="1481,155,1633,181"/><area shape="rect" id="node31" href="NeuEventAction_8hh_source.html" title="NeuEventAction.hh" alt="" coords="1683,155,1819,181"/><area shape="rect" id="node34" href="NeuSteppingAction_8hh_source.html" title="NeuSteppingAction.hh" alt="" coords="1856,155,2011,181"/><area shape="rect" id="node37" href="NeuVisManager_8hh_source.html" title="NeuVisManager.hh" alt="" coords="2035,155,2171,181"/><area shape="rect" id="node38" href="NeuWorldGeometry_8hh_source.html" title="NeuWorldGeometry.hh" alt="" coords="2759,155,2917,181"/><area shape="rect" id="node48" href="NeuPhysicsList_8hh_source.html" title="NeuPhysicsList.hh" alt="" coords="3373,155,3504,181"/><area shape="rect" id="node11" href="NeuCosmicGenerator_8hh_source.html" title="NeuCosmicGenerator.hh" alt="" coords="390,229,559,256"/><area shape="rect" id="node21" href="NeuRootOutput_8hh_source.html" title="NeuRootOutput.hh" alt="" coords="1479,229,1612,256"/><area shape="rect" id="node42" href="NeuDetector_8hh_source.html" title="NeuDetector.hh" alt="" coords="3477,229,3592,256"/><area shape="rect" id="node46" href="NeuEarthFields_8hh_source.html" title="NeuEarthFields.hh" alt="" coords="3025,229,3156,256"/><area shape="rect" id="node47" href="NeuGeometryMessenger_8hh_source.html" title="NeuGeometryMessenger.hh" alt="" coords="2404,229,2593,256"/></map>
+<area shape="rect" id="node9" href="NeuFlux_8hh.html" title="NeuFlux.hh" alt="" coords="1915,80,2005,107"/><area shape="rect" id="node10" href="NeuPrimaryGeneratorAction_8hh_source.html" title="NeuPrimaryGeneratorAction.hh" alt="" coords="716,155,924,181"/><area shape="rect" id="node23" href="NeuRunAction_8hh_source.html" title="NeuRunAction.hh" alt="" coords="1245,155,1371,181"/><area shape="rect" id="node32" href="NeuTrackingAction_8hh_source.html" title="NeuTrackingAction.hh" alt="" coords="1598,155,1751,181"/><area shape="rect" id="node34" href="NeuEventAction_8hh_source.html" title="NeuEventAction.hh" alt="" coords="1800,155,1936,181"/><area shape="rect" id="node37" href="NeuSteppingAction_8hh_source.html" title="NeuSteppingAction.hh" alt="" coords="1973,155,2128,181"/><area shape="rect" id="node40" href="NeuVisManager_8hh_source.html" title="NeuVisManager.hh" alt="" coords="2152,155,2288,181"/><area shape="rect" id="node41" href="NeuWorldGeometry_8hh_source.html" title="NeuWorldGeometry.hh" alt="" coords="2877,155,3035,181"/><area shape="rect" id="node48" href="NeuPhysicsList_8hh_source.html" title="NeuPhysicsList.hh" alt="" coords="3490,155,3621,181"/><area shape="rect" id="node14" href="NeuCosmicGenerator_8hh_source.html" title="NeuCosmicGenerator.hh" alt="" coords="507,229,676,256"/><area shape="rect" id="node24" href="NeuRootOutput_8hh_source.html" title="NeuRootOutput.hh" alt="" coords="1596,229,1729,256"/><area shape="rect" id="node45" href="NeuDetector_8hh_source.html" title="NeuDetector.hh" alt="" coords="3594,229,3709,256"/><area shape="rect" id="node46" href="NeuEarthFields_8hh_source.html" title="NeuEarthFields.hh" alt="" coords="3142,229,3273,256"/><area shape="rect" id="node47" href="NeuGeometryMessenger_8hh_source.html" title="NeuGeometryMessenger.hh" alt="" coords="2521,229,2711,256"/></map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -158,7 +161,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 6 2013 10:15:40 for NeutronFlux by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 10 2013 12:16:14 for NeutronFlux by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

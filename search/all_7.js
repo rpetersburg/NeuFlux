@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['registernewfilecomponent',['RegisterNewFileComponent',['../classNeuFlux_1_1NeuRootOutput.html#a0464cb72cb96527a8826215afcf8ce05',1,'NeuFlux::NeuRootOutput']]]
+  ['writealltrees',['WriteAllTrees',['../classNeuFlux_1_1NeuRootOutput.html#abc0575f8f8ec3ee35c77c873b7743f2d',1,'NeuFlux::NeuRootOutput']]]
 ];

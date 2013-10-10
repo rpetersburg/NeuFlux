@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,8 +89,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classNeuFlux_1_1NeuCosmicGenerator-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">NeuFlux::NeuCosmicGenerator Class Reference</div>  </div>
@@ -106,74 +104,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a135408269498bd5e980f80320ca6776b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a135408269498bd5e980f80320ca6776b"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuFlux_1_1NeuCosmicGenerator.html#a135408269498bd5e980f80320ca6776b">GeneratePrimaryVertex</a> (G4Event *evt)</td></tr>
-<tr class="memdesc:a135408269498bd5e980f80320ca6776b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by the Event Manager to Generate a vertex and add to the event. <br/></td></tr>
+<tr class="memitem:a135408269498bd5e980f80320ca6776b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuFlux_1_1NeuCosmicGenerator.html#a135408269498bd5e980f80320ca6776b">GeneratePrimaryVertex</a> (G4Event *evt)</td></tr>
 <tr class="separator:a135408269498bd5e980f80320ca6776b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49e3dd708dd06f0f0a97c77e0f1a3839"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49e3dd708dd06f0f0a97c77e0f1a3839"></a>
-virtual G4double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuFlux_1_1NeuCosmicGenerator.html#a49e3dd708dd06f0f0a97c77e0f1a3839">GetGlobalRadius</a> ()</td></tr>
-<tr class="memdesc:a49e3dd708dd06f0f0a97c77e0f1a3839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the global Radius. <br/></td></tr>
-<tr class="separator:a49e3dd708dd06f0f0a97c77e0f1a3839"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afef084bf84261b0fb26cfbafaf6b797a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afef084bf84261b0fb26cfbafaf6b797a"></a>
-virtual G4ThreeVector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuFlux_1_1NeuCosmicGenerator.html#afef084bf84261b0fb26cfbafaf6b797a">GetParticlePlanePosition</a> ()</td></tr>
-<tr class="memdesc:afef084bf84261b0fb26cfbafaf6b797a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the target plane. <br/></td></tr>
-<tr class="separator:afef084bf84261b0fb26cfbafaf6b797a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39baaf807cc0309dc7a333063b999335"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a39baaf807cc0309dc7a333063b999335"></a>
-virtual G4double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuFlux_1_1NeuCosmicGenerator.html#a39baaf807cc0309dc7a333063b999335">GetPlaneHalfLengthY</a> ()</td></tr>
-<tr class="memdesc:a39baaf807cc0309dc7a333063b999335"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the Incident Plane. <br/></td></tr>
-<tr class="separator:a39baaf807cc0309dc7a333063b999335"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e03bea3b837ed189922d2c0deed7782"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0e03bea3b837ed189922d2c0deed7782"></a>
-virtual G4double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuFlux_1_1NeuCosmicGenerator.html#a0e03bea3b837ed189922d2c0deed7782">GetPlaneHalfLengthZ</a> ()</td></tr>
-<tr class="memdesc:a0e03bea3b837ed189922d2c0deed7782"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the Incident Plane. <br/></td></tr>
-<tr class="separator:a0e03bea3b837ed189922d2c0deed7782"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26012e08fdd3087a0535b3ab3c9ece19"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26012e08fdd3087a0535b3ab3c9ece19"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuFlux_1_1NeuCosmicGenerator.html#a26012e08fdd3087a0535b3ab3c9ece19">SetGlobalRadius</a> (G4double)</td></tr>
-<tr class="memdesc:a26012e08fdd3087a0535b3ab3c9ece19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the radius at which events will be generated. Do not exceed 68.923cm. <br/></td></tr>
-<tr class="separator:a26012e08fdd3087a0535b3ab3c9ece19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d8a2fedd9ed5e567933b9c65ecd59c4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d8a2fedd9ed5e567933b9c65ecd59c4"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuFlux_1_1NeuCosmicGenerator.html#a4d8a2fedd9ed5e567933b9c65ecd59c4">SetParticlePlanePosition</a> (G4ThreeVector vec)</td></tr>
-<tr class="memdesc:a4d8a2fedd9ed5e567933b9c65ecd59c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Target plane via 3Vector. <br/></td></tr>
-<tr class="separator:a4d8a2fedd9ed5e567933b9c65ecd59c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad134e1c8cb8a116d2a86a2fc7de6455c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad134e1c8cb8a116d2a86a2fc7de6455c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuFlux_1_1NeuCosmicGenerator.html#ad134e1c8cb8a116d2a86a2fc7de6455c">SetPlaneHalfLengthY</a> (G4double)</td></tr>
-<tr class="memdesc:ad134e1c8cb8a116d2a86a2fc7de6455c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the incident place half length. <br/></td></tr>
-<tr class="separator:ad134e1c8cb8a116d2a86a2fc7de6455c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a955b12991f4e4e87ec5e10c1451ad7d6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a955b12991f4e4e87ec5e10c1451ad7d6"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuFlux_1_1NeuCosmicGenerator.html#a955b12991f4e4e87ec5e10c1451ad7d6">SetPlaneHalfLengthZ</a> (G4double)</td></tr>
-<tr class="memdesc:a955b12991f4e4e87ec5e10c1451ad7d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the incident plane half width. <br/></td></tr>
-<tr class="separator:a955b12991f4e4e87ec5e10c1451ad7d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24ba33046fa708832b5b35ffd3d739b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a24ba33046fa708832b5b35ffd3d739b5"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuFlux_1_1NeuCosmicGenerator.html#a24ba33046fa708832b5b35ffd3d739b5">SetPlaneOffsetY</a> (G4double)</td></tr>
-<tr class="memdesc:a24ba33046fa708832b5b35ffd3d739b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Y coordinate of the incident plane. <br/></td></tr>
-<tr class="separator:a24ba33046fa708832b5b35ffd3d739b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8ab20cb3a6389deefe9902bfa655e04"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae8ab20cb3a6389deefe9902bfa655e04"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuFlux_1_1NeuCosmicGenerator.html#ae8ab20cb3a6389deefe9902bfa655e04">SetPlaneOffsetZ</a> (G4double)</td></tr>
-<tr class="memdesc:ae8ab20cb3a6389deefe9902bfa655e04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Z coordinate of the incident plane. <br/></td></tr>
-<tr class="separator:ae8ab20cb3a6389deefe9902bfa655e04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd7ef936c4933afa0cb13dc3ec76c585"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd7ef936c4933afa0cb13dc3ec76c585"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuFlux_1_1NeuCosmicGenerator.html#afd7ef936c4933afa0cb13dc3ec76c585">SetSpectrumFlag</a> (G4String)</td></tr>
-<tr class="memdesc:afd7ef936c4933afa0cb13dc3ec76c585"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set to Muon Nucleon Neutron or Gamma to generate corresponding spectra. <br/></td></tr>
-<tr class="separator:afd7ef936c4933afa0cb13dc3ec76c585"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:aeda03cb56ef4cac265963851ebecc8e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeda03cb56ef4cac265963851ebecc8e6"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>InitializeEnergySpectra</b> ()</td></tr>
-<tr class="separator:aeda03cb56ef4cac265963851ebecc8e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fe8a69bd32556047b248dda70f5730a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4fe8a69bd32556047b248dda70f5730a"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetInitialValues</b> ()</td></tr>
-<tr class="separator:a4fe8a69bd32556047b248dda70f5730a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:ae5fb5adb715c1acc97498ae4a14aedc5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae5fb5adb715c1acc97498ae4a14aedc5"></a>
-void(NeuCosmicGenerator::*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuFlux_1_1NeuCosmicGenerator.html#ae5fb5adb715c1acc97498ae4a14aedc5">CosmicRandomizer</a> )()</td></tr>
-<tr class="memdesc:ae5fb5adb715c1acc97498ae4a14aedc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to Randomizer function. Select Neutron, Nucleon, Muon or Gamma. <br/></td></tr>
-<tr class="separator:ae5fb5adb715c1acc97498ae4a14aedc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d2b0b1e2305dd2ffb7536807f00e3dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d2b0b1e2305dd2ffb7536807f00e3dd"></a>
-G4ThreeVector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeuFlux_1_1NeuCosmicGenerator.html#a0d2b0b1e2305dd2ffb7536807f00e3dd">particle_position_on_X_plane</a></td></tr>
-<tr class="memdesc:a0d2b0b1e2305dd2ffb7536807f00e3dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Points to the initial position on the plane the particle lies at. <br/></td></tr>
-<tr class="separator:a0d2b0b1e2305dd2ffb7536807f00e3dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Code for defining the primary vertex of cosmic rays. </p>
@@ -183,19 +115,43 @@ the detector plane_position, then use the zenith angle to pick a
 position outside the detector global_position aimed in to the
 plane_position.
 </pre><dl class="section note"><dt>Note</dt><dd>Defaults to Muon spectrum.</dd></dl>
-<dl class="section author"><dt>Author</dt><dd>Kevin Wierman </dd>
-<dd>
-Michelle Leber</dd></dl>
-<dl class="section version"><dt>Version</dt><dd></dd></dl>
-<dl class="section rcs"><dt>Revision:</dt><dd>1.5 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd></dd></dl>
-<dl class="section rcs"><dt>Date:</dt><dd>Tue Nov 20 12::33:51 2012 </dd></dl>
-<p>Contact: <a href="#" onclick="location.href='mai'+'lto:'+'kwi'+'er'+'man'+'@e'+'mai'+'l.'+'unc'+'.e'+'du'; return false;">kwier<span style="display: none;">.nosp@m.</span>man@<span style="display: none;">.nosp@m.</span>email<span style="display: none;">.nosp@m.</span>.unc<span style="display: none;">.nosp@m.</span>.edu</a></p>
-<p>Created on: Wed Apr 1 18:39:37 2005 </p>
-</div></div><!-- contents -->
+<dl class="section author"><dt>Author</dt><dd>Kevin Wierman</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Oct 1, 2013</dd></dl>
+<p><a href="#" onclick="location.href='mai'+'lto:'+'kwi'+'er'+'man'+'@e'+'mai'+'l.'+'unc'+'.e'+'du'; return false;">kwier<span style="display: none;">.nosp@m.</span>man@<span style="display: none;">.nosp@m.</span>email<span style="display: none;">.nosp@m.</span>.unc<span style="display: none;">.nosp@m.</span>.edu</a> </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a135408269498bd5e980f80320ca6776b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NeuFlux::NeuCosmicGenerator::GeneratePrimaryVertex </td>
+          <td>(</td>
+          <td class="paramtype">G4Event *&#160;</td>
+          <td class="paramname"><em>evt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The order of operations goes as this:</p>
+<ol type="1">
+<li>Generate the energy and position distribution of the particles. </li>
+</ol>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 6 2013 10:15:40 for NeutronFlux by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 10 2013 12:16:14 for NeutronFlux by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

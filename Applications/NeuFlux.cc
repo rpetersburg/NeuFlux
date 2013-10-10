@@ -18,6 +18,10 @@
 #include "G4UIterminal.hh"
 #include "G4UItcsh.hh"
 
+#include "QGSP_BIC_HP.hh"
+#include "QGSP_BERT_HP.hh"
+#include "QGSP_BERT_EMV.hh"
+
 #ifdef G4UI_USE_XM
 #include "G4UIXm.hh"
 #endif
@@ -45,7 +49,12 @@ int main(int argc, char **argv)
    NeuFlux::NeuWorldGeometry* geometry = new NeuFlux::NeuWorldGeometry;
 
    runManager->SetUserInitialization(geometry);
-   runManager->SetUserInitialization(new NeuFlux::NeuPhysicsList);
+   
+   runManager->SetUserInitialization( new QGSP_BIC_HP);
+   runManager->SetUserInitialization( new QGSP_BERT_HP);
+   runManager->SetUserInitialization( new QGSP_BERT_EMV);
+
+   
 
 #ifdef G4VIS_USE
    G4cout<<"  Setting up Visualization Manager"<<std::endl;

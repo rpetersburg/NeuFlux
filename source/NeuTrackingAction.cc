@@ -47,7 +47,12 @@ void NeuFlux::NeuTrackingAction::PreUserTrackingAction(const G4Track* theTrack)
 	else if (nextname == "Detector")
 		fNextVolume = 4;
 
-	NeuFlux::NeuRootOutput::GetInstance()->FillTree("NeuTrackingAction");
+	//NeuFlux::NeuRootOutput::GetInstance()->FillTree("NeuTrackingAction");
+}
+
+void NeuFlux::NeuTrackingAction::PostUserTrackingAction(const G4Track* theTrack)
+{
+	//NeuFlux::NeuRootOutput::GetInstance()->FillTree("NeuTrackingAction");
 }
 
 void NeuFlux::NeuTrackingAction::OnNewFileCreate()

@@ -1,5 +1,4 @@
 /vis/open OGLIX
-/vis/drawVolume 10 10 10
 /vis/drawVolume World   
 /vis/viewer/set/viewpointVector 10 10 10
 /vis/scene/add/trajectories smooth rich

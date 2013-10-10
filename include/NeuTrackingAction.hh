@@ -36,7 +36,7 @@ namespace NeuFlux
       NeuTrackingAction();
       ~NeuTrackingAction();
       void PreUserTrackingAction(const G4Track *);
-      //void PostUserTrackingAction(const G4Track*);//Not Used.
+      void PostUserTrackingAction(const G4Track*);//Not Used.
 
       void OnNewFileCreate();
 

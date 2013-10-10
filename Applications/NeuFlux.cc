@@ -50,11 +50,9 @@ int main(int argc, char **argv)
 
    runManager->SetUserInitialization(geometry);
    
-   runManager->SetUserInitialization( new QGSP_BIC_HP);
+   //runManager->SetUserInitialization( new QGSP_BIC_HP);
    runManager->SetUserInitialization( new QGSP_BERT_HP);
-   runManager->SetUserInitialization( new QGSP_BERT_EMV);
-
-   
+   //runManager->SetUserInitialization( new QGSP_BERT_EMV);
 
 #ifdef G4VIS_USE
    G4cout<<"  Setting up Visualization Manager"<<std::endl;

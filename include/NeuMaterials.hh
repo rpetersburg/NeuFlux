@@ -5,6 +5,8 @@
 #include "G4Isotope.hh"
 #include "G4Element.hh"
 
+#include "NeuElement.hh"
+
 /*!
 	\file NeuMaterials.hh
 	\brief Header file containing the definitions of material compositions used in rock and concrete
@@ -42,58 +44,20 @@ namespace NeuFlux
 			*/
 			NeuConcrete() : G4Material( "concrete Approximation", 2.4*g/cm3, 2)
 			{
-
-				O16 = new G4Isotope( "O16", 8, 16, 15.99491463*g/mole );
-	 			O17 = new G4Isotope( "O17", 8, 17, 16.9991312*g/mole );
-	 			O18 = new G4Isotope( "O18", 8, 18, 17.9991603*g/mole );
-
-   				Si28 = new G4Isotope( "Si28", 14, 28, 27.9769265325*g/mole );
-   				Si29 = new G4Isotope( "Si28", 14, 29, 28.976494700*g/mole );
-   				Si30 = new G4Isotope( "Si28", 14, 30, 29.97377017*g/mole );
-	
-	 			natO = new G4Element( "Natural O", "natO", 3 );
-				natO->AddIsotope( O16, 99.757*perCent );
-				natO->AddIsotope( O17, 0.038*perCent );
-				natO->AddIsotope( O18, 0.205*perCent );
-
-   				natSi = new G4Element( "Natural Si", "natSi", 3 );
-   				natSi->AddIsotope( Si28, 92.223*perCent );
-   				natSi->AddIsotope( Si29, 4.685*perCent );
-   				natSi->AddIsotope( Si30, 3.092*perCent );
-	
-	
-
- 
-		   		this->AddElement( natSi, 1 );
-   				this->AddElement( natO, 2 );
+				natO = new NeuOxygen();
+				natSi = new NeuSilicon();
+		   		this->AddElement( (G4Element*) natSi, 1 );
+   				this->AddElement( (G4Element*) natO, 2 );
 			}
 			virtual ~NeuConcrete()
 			{
-				delete O16;
-				delete O17;
-				delete O18;
-				
-				delete Si28;
-				delete Si29;
-				delete Si30;
-
 				delete natO;
-
 				delete natSi;
 			}
 
 		private:
-			G4Isotope* O16;
-			G4Isotope* O17;
-			G4Isotope* O18;
-			
-			G4Isotope* Si28;
-			G4Isotope* Si29;
-			G4Isotope* Si30;
-
-			G4Element* natO;
-
-			G4Element* natSi;
+			NeuOxygen* natO;
+			NeuSilicon* natSi;
 	};
 
 	/*!
@@ -142,39 +106,66 @@ namespace NeuFlux
 				The only constructor that should be used with this class.
 				This data came from an unknown source
 			*/
-			NeuRock() : G4Material( "rock Approximation", 3200*g/cm3, 2, kStateSolid)
+			NeuRock() : G4Material( "rock Approximation", 3200*g/cm3, 8, kStateSolid)
 			{
+				natO = new NeuOxygen;
+				natSi = new NeuSilicon;
+				natAl = new NeuAluminum;
+				natFe = new NeuIron;
+				natCa = new NeuCalcium;
+				natNa = new NeuSodium;
+				natK = new NeuPotassium;
+				natMg = new NeuMagnesium;
 
-				C12 = new G4Isotope( "C12", 6, 12, 12.0*g/mole );
-	 			C13 = new G4Isotope( "C13", 6, 13, 13.00335*g/mole );
-	 			C14 = new G4Isotope( "C14", 6, 14, 14.003241*g/mole );
-
-   				H1 = new G4Isotope( "Si28", 14, 28, 27.9769265325*g/mole );
-   				H2 = new G4Isotope( "Si28", 14, 29, 28.976494700*g/mole );
-   				H3 = new G4Isotope( "Si28", 14, 30, 29.97377017*g/mole );
-	
-	 			natC = new G4Element( "Natural C", "natC", 3 );
-				natC->AddIsotope( C12, 98.89*perCent-1.0/(1.e12)*perCent );
-				natC->AddIsotope( C13, 1.109*perCent );
-				natC->AddIsotope( C14, 1.0/(1.e12)*perCent );
-
-   				natH = new G4Element( "Natural H", "natH", 3 );
-   				natH->AddIsotope( H1, 99.98*perCent-1.0/(1.e12)*perCent );
-   				natH->AddIsotope( H2, 0.02*perCent );
-   				natH->AddIsotope( H3, 1.0/(1.e12)*perCent );
- 
-		   		this->AddElement( natC, 1 );
-   				this->AddElement( natH, 2 );
+				this->AddElement( (G4Element*) natO,0.466);
+				this->AddElement( (G4Element*) natSi,0.277);
+				this->AddElement( (G4Element*) natAl,0.081);
+				this->AddElement( (G4Element*) natFe,0.050);
+				this->AddElement( (G4Element*) natCa,0.036);
+				this->AddElement( (G4Element*) natNa,0.028);
+				this->AddElement( (G4Element*) natK,0.026);
+				this->AddElement( (G4Element*) natMg,0.021);
 			}
 			virtual ~NeuRock()
 			{
-				delete C12;
-				delete C13;
-				delete C14;
-				
-				delete H1;
-				delete H2;
-				delete H3;
+				delete natO;
+				delete natSi;
+				delete natAl;
+				delete natFe;
+				delete natCa;
+				delete natNa;
+				delete natK;
+				delete natMg;
+			}
+
+		private:
+			NeuOxygen* natO;
+			NeuSilicon* natSi;
+			NeuAluminum* natAl;
+			NeuIron* natFe;
+			NeuCalcium* natCa;
+			NeuSodium* natNa;
+			NeuPotassium* natK;
+			NeuMagnesium* natMg;
+	};
+
+	class NeuHydroCarbon : public G4Material
+	{
+		public:
+			/*!
+				The only constructor that should be used with this class.
+				This data came from an unknown source
+			*/
+			NeuHydroCarbon() : G4Material( "hydrocarbon Approximation", 3200*g/cm3, 2, kStateSolid)
+			{
+				natC = new NeuCarbon();
+				natH = new NeuHydrogen();
+
+		   		this->AddElement( (G4Element*)natC, 2 );
+   				this->AddElement( (G4Element*)natH, 4 );
+			}
+			virtual ~NeuHydroCarbon()
+			{
 
 				delete natC;
 
@@ -182,19 +173,10 @@ namespace NeuFlux
 			}
 
 		private:
-			G4Isotope* C12;
-			G4Isotope* C13;
-			G4Isotope* C14;
-			
-			G4Isotope* H1;
-			G4Isotope* H2;
-			G4Isotope* H3;
+			NeuCarbon* natC;
 
-			G4Element* natC;
-
-			G4Element* natH;
+			NeuHydrogen* natH;
 	};
-
 }
 
 #endif

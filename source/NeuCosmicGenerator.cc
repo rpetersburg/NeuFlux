@@ -16,6 +16,7 @@
 
 NeuFlux::NeuCosmicGenerator::NeuCosmicGenerator() :G4ParticleGun()
 		{
+			r3 = new TRandom3(0.0);
 		}
 
 NeuFlux::NeuCosmicGenerator::~NeuCosmicGenerator() 
@@ -58,7 +59,7 @@ void NeuFlux::NeuCosmicGenerator::GeneratePrimaryVertex(G4Event * evt)
 
 	muonE->GetRandom2(particle_energy, costheta);
 	costheta = TMath::ACos(costheta);
-	G4double phi = r3->Rndm() * 2 * TMath::Pi();
+	G4double phi = r3->Rndm() * 2.0 * TMath::Pi();
 
 	G4ThreeVector position(1000.0*TMath::Cos(costheta)*TMath::Sin(phi),2000.0,1000.0*TMath::Sin(costheta)*TMath::Sin(phi));//remember that y is the "up"
 	G4double pos_magnitude	=1000.0*TMath::Cos(costheta)*TMath::Sin(phi)*1000.0*TMath::Cos(costheta)*TMath::Sin(phi)
@@ -72,16 +73,12 @@ void NeuFlux::NeuCosmicGenerator::GeneratePrimaryVertex(G4Event * evt)
 							momentum_magnitude*TMath::Cos(phi),
 							momentum_magnitude*TMath::Sin(costheta)*TMath::Sin(phi)
 						  );
-
 	G4PrimaryVertex *vertex = new G4PrimaryVertex(position,
 			0.0);
-
 	G4PrimaryParticle *particle = new G4PrimaryParticle(mu_definition,
 				momentum.x(), momentum.y(), momentum.z());
 	particle->SetMass(particle_mass);
 	particle->SetCharge(mu_definition->GetPDGCharge());
 	vertex->SetPrimary(particle);
-	
-
 	evt->AddPrimaryVertex(vertex);
 }

@@ -26,15 +26,12 @@ namespace NeuFlux
 	  \author Kevin Wierman
 	 
 	  \version 1.0 
-	  \revision 0.0 
 	 
-	  \date  Tue Nov 20 12::33:51 2012 $
+	  \date  Oct 1, 2013
 	 
-	  Contact: kwierman@email.unc.edu
+	  \contact kwierman@email.unc.edu
 	 
-	  Created on: Tue Oct 1 8:39:37 2013
-	 
-	 */
+	*/
 	class NeuConcrete : public G4Material
 	{
 		public:
@@ -129,7 +126,7 @@ namespace NeuFlux
 	  \author Kevin Wierman
 	 
 	  \version 1.0 
-	  \revision 0.0 
+	  \revision 1.0 
 	 
 	  \date  Tue Nov 20 12::33:51 2012 $
 	 
@@ -145,57 +142,57 @@ namespace NeuFlux
 				The only constructor that should be used with this class.
 				This data came from an unknown source
 			*/
-			NeuRock() : G4Material( "rock Approximation", 2.4*g/cm3, 2)
+			NeuRock() : G4Material( "rock Approximation", 3200*g/cm3, 2, kStateSolid)
 			{
 
-				O16 = new G4Isotope( "O16", 8, 16, 15.99491463*g/mole );
-	 			O17 = new G4Isotope( "O17", 8, 17, 16.9991312*g/mole );
-	 			O18 = new G4Isotope( "O18", 8, 18, 17.9991603*g/mole );
+				C12 = new G4Isotope( "C12", 6, 12, 12.0*g/mole );
+	 			C13 = new G4Isotope( "C13", 6, 13, 13.00335*g/mole );
+	 			C14 = new G4Isotope( "C14", 6, 14, 14.003241*g/mole );
 
-   				Si28 = new G4Isotope( "Si28", 14, 28, 27.9769265325*g/mole );
-   				Si29 = new G4Isotope( "Si28", 14, 29, 28.976494700*g/mole );
-   				Si30 = new G4Isotope( "Si28", 14, 30, 29.97377017*g/mole );
+   				H1 = new G4Isotope( "Si28", 14, 28, 27.9769265325*g/mole );
+   				H2 = new G4Isotope( "Si28", 14, 29, 28.976494700*g/mole );
+   				H3 = new G4Isotope( "Si28", 14, 30, 29.97377017*g/mole );
 	
-	 			natO = new G4Element( "Natural O", "natO", 3 );
-				natO->AddIsotope( O16, 99.757*perCent );
-				natO->AddIsotope( O17, 0.038*perCent );
-				natO->AddIsotope( O18, 0.205*perCent );
+	 			natC = new G4Element( "Natural C", "natC", 3 );
+				natC->AddIsotope( C12, 98.89*perCent-1.0/(1.e12)*perCent );
+				natC->AddIsotope( C13, 1.109*perCent );
+				natC->AddIsotope( C14, 1.0/(1.e12)*perCent );
 
-   				natSi = new G4Element( "Natural Si", "natSi", 3 );
-   				natSi->AddIsotope( Si28, 92.223*perCent );
-   				natSi->AddIsotope( Si29, 4.685*perCent );
-   				natSi->AddIsotope( Si30, 3.092*perCent );
+   				natH = new G4Element( "Natural H", "natH", 3 );
+   				natH->AddIsotope( H1, 99.98*perCent-1.0/(1.e12)*perCent );
+   				natH->AddIsotope( H2, 0.02*perCent );
+   				natH->AddIsotope( H3, 1.0/(1.e12)*perCent );
  
-		   		this->AddElement( natSi, 1 );
-   				this->AddElement( natO, 2 );
+		   		this->AddElement( natC, 1 );
+   				this->AddElement( natH, 2 );
 			}
 			virtual ~NeuRock()
 			{
-				delete O16;
-				delete O17;
-				delete O18;
+				delete C12;
+				delete C13;
+				delete C14;
 				
-				delete Si28;
-				delete Si29;
-				delete Si30;
+				delete H1;
+				delete H2;
+				delete H3;
 
-				delete natO;
+				delete natC;
 
-				delete natSi;
+				delete natH;
 			}
 
 		private:
-			G4Isotope* O16;
-			G4Isotope* O17;
-			G4Isotope* O18;
+			G4Isotope* C12;
+			G4Isotope* C13;
+			G4Isotope* C14;
 			
-			G4Isotope* Si28;
-			G4Isotope* Si29;
-			G4Isotope* Si30;
+			G4Isotope* H1;
+			G4Isotope* H2;
+			G4Isotope* H3;
 
-			G4Element* natO;
+			G4Element* natC;
 
-			G4Element* natSi;
+			G4Element* natH;
 	};
 
 }

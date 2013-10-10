@@ -13,11 +13,6 @@ NeuFlux::NeuPrimaryGeneratorAction::NeuPrimaryGeneratorAction()
 {
    
    theCosmicRayGun = new NeuCosmicGenerator();
-   theCosmicRayGun->SetPlaneHalfLengthZ(1000.0);
-   theCosmicRayGun->SetPlaneHalfLengthY(1000.0);
-   theCosmicRayGun->SetPlaneOffsetZ(1000.0);
-   theCosmicRayGun->SetPlaneOffsetY(1000.0);
-   theCosmicRayGun->SetGlobalRadius(1000.0);
 
 	//for random numbers
    //setting seed to 0 means using a TUUID to set the seed

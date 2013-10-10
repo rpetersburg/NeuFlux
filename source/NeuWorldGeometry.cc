@@ -16,7 +16,7 @@
 
 NeuFlux::NeuWorldGeometry::NeuWorldGeometry() : G4VUserDetectorConstruction(), 
 												fWorldX(1000.0),fWorldY(1000.0),fWorldZ(1000.0),
-												fRockX(900.0),fRockY(1000.0),fRockZ(1000.0),
+												fRockX(1000.0),fRockY(900.0),fRockZ(1000.0),
 												fConcreteX(150.0),fConcreteY(150.0),fConcreteZ(150.0),
 												fDetectorX(100),fDetectorY(100.0),fDetectorZ(100.0), fDetector(NULL)
 {
@@ -80,7 +80,7 @@ G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructRock()
 	                "Rock");
 
 	fPhysiRock = new G4PVPlacement(0,
-					G4ThreeVector(   (fRockX-fWorldX)*2.0,0.0, 0.0 ),
+					G4ThreeVector(   0.0,(fRockY-fWorldY)*2.0, 0.0 ),
 					fLogicRock, 
 					"Rock", 
 					fLogicWorld, 
@@ -99,7 +99,7 @@ G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructConcrete()
 	                "Concrete");
 
 	fPhysiConcrete = new G4PVPlacement(0,
-					G4ThreeVector(  (fConcreteX-fRockX)*2.0,0.0,  0.0 ),
+					G4ThreeVector(  0.0,(fConcreteY-fRockY)*2.0,  0.0 ),
 					fLogicConcrete, 
 					"Concrete", 
 					fLogicRock, 
@@ -120,7 +120,7 @@ G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructDetector()
 	                "Detector");
 
 	fPhysiDetector = new G4PVPlacement(0,
-					G4ThreeVector( (fDetectorX-fConcreteX)*2.0 ,0.0,   0.0 ),
+					G4ThreeVector( 0.0,(fDetectorY-fConcreteY)*2.0 ,   0.0 ),
 					fLogicDetector, 
 					"Detector", 
 					fLogicConcrete, 

@@ -27,14 +27,11 @@ namespace NeuFlux
 	  \author Kevin Wierman
 	 
 	  \version 1.0 
-	  \revision 0.0 
 	 
 	  \date  Tue Nov 20 12::33:51 2012 $
 	 
-	  Contact: kwierman@email.unc.edu
-	 
-	  Created on: Tue Oct 1 8:39:37 2013
-	 
+	  \contact kwierman@email.unc.edu
+	   
 	 */
 
 	class NeuWorldGeometry : public G4VUserDetectorConstruction

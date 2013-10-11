@@ -1,5 +1,7 @@
 #include "NeuCosmicGenerator.hh"
 
+#include "NeuRandom.hh"
+
 #include "G4Event.hh"
 #include "G4PrimaryParticle.hh"
 #include "G4ParticleTable.hh"
@@ -9,19 +11,15 @@
 #include "G4MuonMinus.hh"
 #include "G4Neutron.hh"
 
-#include "TRandom3.h"
 #include "TMath.h"
 #include "TF1.h"
 #include "TF2.h"
 
 NeuFlux::NeuCosmicGenerator::NeuCosmicGenerator() :G4ParticleGun()
-		{
-			r3 = new TRandom3(0.0);
-		}
+{}
 
 NeuFlux::NeuCosmicGenerator::~NeuCosmicGenerator() 
 {
-	delete r3;
 }
 
 /*!
@@ -58,8 +56,9 @@ void NeuFlux::NeuCosmicGenerator::GeneratePrimaryVertex(G4Event * evt)
 	G4double particle_mass = mu_definition->GetPDGMass();
 
 	muonE->GetRandom2(particle_energy, costheta);
+	particle_energy*=1000;
 	costheta = TMath::ACos(costheta);
-	G4double phi = r3->Rndm() * 2.0 * TMath::Pi();
+	G4double phi = NeuRandom::GetInstance()->GetRandom() * 2.0 * TMath::Pi();
 
 	G4ThreeVector position(1000.0*TMath::Cos(costheta)*TMath::Sin(phi),
 							2000.0,

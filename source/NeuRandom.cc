@@ -10,7 +10,7 @@ NeuFlux::NeuRandom::NeuRandom()
 
 double NeuFlux::NeuRandom::GetRandom()
 {
-	return r3->Rndm();
+	return 2147483647.*r3->Rndm();
 }
 
 void NeuFlux::NeuRandom::ResetSeed()

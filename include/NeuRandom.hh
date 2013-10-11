@@ -33,9 +33,13 @@ namespace NeuFlux
 			return single;
 		}
 
+		/*!
+			The Primary Call for getting random numbers
+			\return A random double between 0 and 1. 
+		*/
 		double GetRandom();
 		/*
-			Sets the seed for an integral number of
+			Resets the seed in a machine predictable way
 		*/
 		void ResetSeed();
 

@@ -12,9 +12,6 @@
 
 #include "G4ParticleGun.hh"
 
-#include "TF2.h"
-#include "TF1.h"
-#include "TMath.h"
 
 class TRandom3;
 class G4Event;
@@ -55,9 +52,6 @@ public:
   
 public:
   virtual void GeneratePrimaryVertex(G4Event * evt);
-  
-private:
-  TRandom3 *r3;                ///< RandomIzer  
 };
 
 }

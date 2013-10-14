@@ -116,6 +116,8 @@ namespace NeuFlux
 				natNa = new NeuSodium;
 				natK = new NeuPotassium;
 				natMg = new NeuMagnesium;
+				natH = new NeuHydrogen;
+				nacC = new NeuCarbon;
 
 				this->AddElement( (G4Element*) natO,0.466);
 				this->AddElement( (G4Element*) natSi,0.277);
@@ -125,6 +127,8 @@ namespace NeuFlux
 				this->AddElement( (G4Element*) natNa,0.028);
 				this->AddElement( (G4Element*) natK,0.026);
 				this->AddElement( (G4Element*) natMg,0.021);
+				this->AddElement( (G4Element*) natH, 0.10);
+				this->AddElement( (G4Element*) natC, 0.05);
 			}
 			virtual ~NeuRock()
 			{
@@ -136,9 +140,13 @@ namespace NeuFlux
 				delete natNa;
 				delete natK;
 				delete natMg;
+				delete natH;
+				delete natC;
 			}
 
 		private:
+			NeuHydrogen* natH
+			NeuCarbon* natC;
 			NeuOxygen* natO;
 			NeuSilicon* natSi;
 			NeuAluminum* natAl;

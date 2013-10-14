@@ -26,13 +26,16 @@ void NeuFlux::NeuTrackingAction::PreUserTrackingAction(const G4Track* theTrack)
 	fGT = theTrack->GetGlobalTime();
 	fPT = theTrack->GetProperTime();
 
+/*
 	const G4ParticleDefinition* def = theTrack->GetParticleDefinition();
 	
+	G4cout<<def->GetParticleType()<<std::endl;
+	G4cout<<"\t"<<def->GetParticleSubType()<<std::endl;
 	if(def->GetPDGEncoding() == 2112)
 	{
 		G4cout<<"Beginning Neutron Track, slowing down"<<std::endl;
 	}
-
+	*/
 
 	std::string name = theTrack->GetVolume()->GetName();
 	if(name == "World")

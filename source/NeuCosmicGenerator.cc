@@ -64,6 +64,7 @@ void NeuFlux::NeuCosmicGenerator::GeneratePrimaryVertex(G4Event * evt)
 							2000.0,
 							1000.0*TMath::Sin(costheta)*TMath::Sin(phi)
 							);//remember that y is the "up"
+	phi = NeuRandom::GetInstance()->GetRandom() * 2.0 * TMath::Pi();
 	G4double pos_magnitude	=1000.0*TMath::Cos(costheta)*TMath::Sin(phi)*1000.0*TMath::Cos(costheta)*TMath::Sin(phi)
 							+2000.0*2000.0
 							+ 1000.0*TMath::Sin(costheta)*TMath::Cos(phi)*1000.0*TMath::Sin(costheta)*TMath::Cos(phi);

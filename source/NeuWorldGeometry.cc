@@ -14,11 +14,11 @@
 #include "G4SDManager.hh"
 
 
-NeuFlux::NeuWorldGeometry::NeuWorldGeometry() : G4VUserDetectorConstruction(), 
+NeuFlux::NeuWorldGeometry::NeuWorldGeometry() : G4VUserDetectorConstruction(), fDetector(NULL), 
 												fWorldX(1000.0),fWorldY(1000.0),fWorldZ(1000.0),
 												fRockX(1000.0),fRockY(900.0),fRockZ(1000.0),
 												fConcreteX(150.0),fConcreteY(150.0),fConcreteZ(150.0),
-												fDetectorX(100),fDetectorY(100.0),fDetectorZ(100.0), fDetector(NULL)
+												fDetectorX(100),fDetectorY(100.0),fDetectorZ(100.0)
 {
 	fMessenger = new NeuFlux::NeuGeometryMessenger(this);	
 }
@@ -39,6 +39,8 @@ G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::Construct()
 	}
 	return ConstructWorld();
 }
+
+/*
 G4int FindVertexVolumeIndex(const G4LogicalVolume * vertexLogicalVolume)
 {
 	return 0;
@@ -51,6 +53,7 @@ G4int NeuFlux::NeuWorldGeometry::FindPhysicalVolumeIndex(G4VPhysicalVolume * whi
 {
 	return 0;
 }
+*/
 
 G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructWorld()
 {

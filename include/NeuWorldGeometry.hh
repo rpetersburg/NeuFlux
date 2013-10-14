@@ -42,9 +42,11 @@ namespace NeuFlux
 
 	 public:
 	   G4VPhysicalVolume * Construct();
+	   /*
 	   G4int FindVertexVolumeIndex(const G4LogicalVolume * vertexLogicalVolume);
 	   G4bool StoreEnteringParticleInfo(G4VPhysicalVolume * postVolume);
 	   G4int FindPhysicalVolumeIndex(G4VPhysicalVolume * whichVolume);
+	   */
 	   void PrintGeometry();
 
 	private:

@@ -251,6 +251,6 @@ private:
 
 }
 
-#endif NeuElement_hh_
+#endif //NeuElement_hh_
 
 

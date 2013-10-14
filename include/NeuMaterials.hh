@@ -106,20 +106,22 @@ namespace NeuFlux
 				The only constructor that should be used with this class.
 				This data came from an unknown source
 			*/
-			NeuRock() : G4Material( "rock Approximation", 3200*g/cm3, 8, kStateSolid)
+			NeuRock() : G4Material( "rock Approximation", 3200*g/cm3, 10, kStateSolid)
 			{
 				natO = new NeuOxygen;
 				natSi = new NeuSilicon;
 				natAl = new NeuAluminum;
 				natFe = new NeuIron;
+
 				natCa = new NeuCalcium;
 				natNa = new NeuSodium;
 				natK = new NeuPotassium;
 				natMg = new NeuMagnesium;
+				
 				natH = new NeuHydrogen;
 				natC = new NeuCarbon;
 
-				this->AddElement( (G4Element*) natO,0.466);
+				this->AddElement( (G4Element*) natO,0.331);
 				this->AddElement( (G4Element*) natSi,0.277);
 				this->AddElement( (G4Element*) natAl,0.081);
 				this->AddElement( (G4Element*) natFe,0.050);
@@ -188,3 +190,4 @@ namespace NeuFlux
 }
 
 #endif
+

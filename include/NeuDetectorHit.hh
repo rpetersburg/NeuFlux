@@ -28,10 +28,12 @@ namespace NeuFlux
   */
   class NeuDetectorHit : public G4VHit {
   private:
+    /*
     G4double fEnergy;
     G4double fGlobalTime;
     G4int fPDG;
     G4int fTrackID;
+    */
 
   public:
 

@@ -16,16 +16,16 @@ NeuFlux::NeuDetectorHit::~NeuDetectorHit()
 {
 }
 
-NeuFlux::NeuDetectorHit::NeuDetectorHit(const NeuDetectorHit & right) : G4VHit()
+NeuFlux::NeuDetectorHit::NeuDetectorHit(const NeuDetectorHit& /*right*/) : G4VHit()
 {
 }
 
-const NeuFlux::NeuDetectorHit & NeuFlux::NeuDetectorHit::operator=(const NeuFlux::NeuDetectorHit & right)
+const NeuFlux::NeuDetectorHit& NeuFlux::NeuDetectorHit::operator=(const NeuFlux::NeuDetectorHit& /*right*/)
 {
    return *this;
 }
 
-G4int NeuFlux::NeuDetectorHit::operator==(const NeuDetectorHit & right) const
+G4int NeuFlux::NeuDetectorHit::operator==(const NeuDetectorHit& /*right*/) const
 {
    return 1;
 }

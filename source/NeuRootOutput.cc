@@ -8,3 +8,5 @@ NeuFlux::NeuOutputtingComponent::NeuOutputtingComponent()
 {
 	NeuRootOutput::GetInstance()->RegisterNewFileComponent(this);
 }
+
+

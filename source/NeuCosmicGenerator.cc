@@ -15,7 +15,7 @@
 #include "TF1.h"
 #include "TF2.h"
 
-NeuFlux::NeuCosmicGenerator::NeuCosmicGenerator() :G4ParticleGun()
+NeuFlux::NeuCosmicGenerator::NeuCosmicGenerator() : G4ParticleGun()
 {}
 
 NeuFlux::NeuCosmicGenerator::~NeuCosmicGenerator() 
@@ -65,9 +65,12 @@ void NeuFlux::NeuCosmicGenerator::GeneratePrimaryVertex(G4Event * evt)
 							1000.0*TMath::Sin(costheta)*TMath::Sin(phi)
 							);//remember that y is the "up"
 	phi = NeuRandom::GetInstance()->GetRandom() * 2.0 * TMath::Pi();
+	/*
 	G4double pos_magnitude	=1000.0*TMath::Cos(costheta)*TMath::Sin(phi)*1000.0*TMath::Cos(costheta)*TMath::Sin(phi)
 							+2000.0*2000.0
 							+ 1000.0*TMath::Sin(costheta)*TMath::Cos(phi)*1000.0*TMath::Sin(costheta)*TMath::Cos(phi);
+	*/
+
 	//From the Energy and mass, get the momentum magnitude
 	G4double momentum_magnitude = TMath::Sqrt((particle_energy*particle_energy -particle_mass*particle_mass ) );
 		//momentum
@@ -94,3 +97,4 @@ void NeuFlux::NeuCosmicGenerator::GeneratePrimaryVertex(G4Event * evt)
 	G4cout<<"                     Momentum: "<<momentum.x()<<", "<<momentum.y()<<", "<<momentum.z()<<std::endl;
 	G4cout<<"                     Charge: "<<mu_definition->GetPDGCharge()<<std::endl;
 }
+

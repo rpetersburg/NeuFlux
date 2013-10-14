@@ -26,7 +26,7 @@ void NeuFlux::NeuTrackingAction::PreUserTrackingAction(const G4Track* theTrack)
 	fGT = theTrack->GetGlobalTime();
 	fPT = theTrack->GetProperTime();
 
-/*
+
 	const G4ParticleDefinition* def = theTrack->GetParticleDefinition();
 	
 	G4cout<<def->GetParticleType()<<std::endl;
@@ -35,7 +35,7 @@ void NeuFlux::NeuTrackingAction::PreUserTrackingAction(const G4Track* theTrack)
 	{
 		G4cout<<"Beginning Neutron Track, slowing down"<<std::endl;
 	}
-	*/
+
 
 	std::string name = theTrack->GetVolume()->GetName();
 	if(name == "World")
@@ -60,7 +60,7 @@ void NeuFlux::NeuTrackingAction::PreUserTrackingAction(const G4Track* theTrack)
 	//NeuFlux::NeuRootOutput::GetInstance()->FillTree("NeuTrackingAction");
 }
 
-void NeuFlux::NeuTrackingAction::PostUserTrackingAction(const G4Track* theTrack)
+void NeuFlux::NeuTrackingAction::PostUserTrackingAction(const G4Track* /*theTrack*/)
 {
 	//NeuFlux::NeuRootOutput::GetInstance()->FillTree("NeuTrackingAction");
 }

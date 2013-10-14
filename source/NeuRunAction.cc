@@ -9,7 +9,7 @@
 #include "NeuRandom.hh"
 
 
-NeuFlux::NeuRunAction::NeuRunAction() :  NeuOutputtingComponent(), G4UserRunAction()
+NeuFlux::NeuRunAction::NeuRunAction() : G4UserRunAction(), NeuOutputtingComponent() 
 {
   fTimeSeed = NeuFlux::NeuRandom::GetInstance()->GetRandom();
 }

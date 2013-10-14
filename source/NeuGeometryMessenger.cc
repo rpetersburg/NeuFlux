@@ -89,7 +89,7 @@ NeuFlux::NeuGeometryMessenger::NeuGeometryMessenger(NeuFlux::NeuWorldGeometry* g
           fConcreteY->AvailableForStates(G4State_PreInit, G4State_Idle);
           fConcreteZ->AvailableForStates(G4State_PreInit, G4State_Idle);
 
-         fDetectorDir = new G4UIdirectory("/NeuFlux/Geometry/Detector");
+         fDetectorDir = new G4UIdirectory("/NeuFlux/Geometry/Detector/");
          fDetectorDir->SetGuidance("Detector Geometry Dimensions");
           fDetectorX = new G4UIcmdWithADoubleAndUnit("/NeuFlux/Geometry/Detector/DetectorX", this);
           fDetectorY = new G4UIcmdWithADoubleAndUnit("/NeuFlux/Geometry/Detector/DetectorY", this);

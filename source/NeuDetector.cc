@@ -55,8 +55,10 @@ G4bool NeuFlux::NeuDetector::ProcessHits(G4Step * aStep,
    }
 
    NeuDetectorHit *newHit = new NeuDetectorHit();
+   /*
   G4TouchableHistory* theTouchable
      = (G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable());
+   */
 
    hitsCollection->insert(newHit);
    return true;

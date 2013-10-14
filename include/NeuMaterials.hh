@@ -117,7 +117,7 @@ namespace NeuFlux
 				natK = new NeuPotassium;
 				natMg = new NeuMagnesium;
 				natH = new NeuHydrogen;
-				nacC = new NeuCarbon;
+				natC = new NeuCarbon;
 
 				this->AddElement( (G4Element*) natO,0.466);
 				this->AddElement( (G4Element*) natSi,0.277);
@@ -145,7 +145,7 @@ namespace NeuFlux
 			}
 
 		private:
-			NeuHydrogen* natH
+			NeuHydrogen* natH;
 			NeuCarbon* natC;
 			NeuOxygen* natO;
 			NeuSilicon* natSi;

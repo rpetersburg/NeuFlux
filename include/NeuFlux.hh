@@ -147,7 +147,6 @@
 #include "NeuSteppingAction.hh"
 #include "NeuVisManager.hh"
 #include "NeuWorldGeometry.hh"
-#include "NeuPhysicsList.hh"
 #include "NeuRandom.hh"
 
 /*!

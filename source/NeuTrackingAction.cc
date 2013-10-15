@@ -27,14 +27,15 @@ void NeuFlux::NeuTrackingAction::PreUserTrackingAction(const G4Track* theTrack)
 	fPT = theTrack->GetProperTime();
 
 
+	#ifdef NeuDebug_tracks	
 	const G4ParticleDefinition* def = theTrack->GetParticleDefinition();
-	
-	G4cout<<def->GetParticleType()<<std::endl;
-	G4cout<<"\t"<<def->GetParticleSubType()<<std::endl;
+
+	G4cout<<def->GetParticleType()<<"\t"<<def->GetParticleSubType()<<"\t"<<def->GetPDGEncoding()<<std::endl;
 	if(def->GetPDGEncoding() == 2112)
 	{
 		G4cout<<"Beginning Neutron Track, slowing down"<<std::endl;
 	}
+	#endif
 
 
 	std::string name = theTrack->GetVolume()->GetName();

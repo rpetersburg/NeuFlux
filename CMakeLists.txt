@@ -13,7 +13,6 @@ endif()
 #----------------------------------------------------------------------------
 #Use the FindRoot Macro to link the executable against ROOT
 include(cmake/FindROOT.cmake)
-#find_package(ROOT REQUIRED)
 include_directories(${ROOT_INCLUDE_DIR})
 link_directories(${ROOT_LIBRARY_DIR})
 #----------------------------------------------------------------------------

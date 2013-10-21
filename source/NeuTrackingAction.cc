@@ -123,7 +123,7 @@ void NeuFlux::NeuTrackingAction::OnNewFileCreate()
 	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPDGMagneticMoment", &fPDGMagneticMoment);
 	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackLeptonNumber", &fLeptonNumber		);
 	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackBaryonNumber", &fBaryonNumber 	);
-	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPDGEncoding", &fPDGEncoding		);
+	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<int>("NeuTrackingAction","TrackPDGEncoding", &fPDGEncoding		);
 
 	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackAtomicNumber", &fAtomicNumber		);
 	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackAtomicMass", &fAtomicMass		);

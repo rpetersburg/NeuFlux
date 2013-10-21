@@ -75,7 +75,7 @@ namespace NeuFlux
       double fPDGMagneticMoment   ;
       double fLeptonNumber;
       double fBaryonNumber  ;
-      double fPDGEncoding ;
+      int fPDGEncoding ;
 
       double fAtomicNumber;
       double fAtomicMass  ;

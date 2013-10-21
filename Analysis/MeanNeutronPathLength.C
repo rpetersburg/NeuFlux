@@ -68,6 +68,8 @@ void MeanNeutronPathLength(TString input="NeuFlux_1392233522_0.root")
 		mean+=value;
 	}
 
+	TCanvas* c1 = new TCanvas("c1","c1",1);
+
 	lengths->Draw();
 	std::cout<<std::setprecision(15)<<"Mean: "<<mean/( (double) length.size())<<std::endl;
 

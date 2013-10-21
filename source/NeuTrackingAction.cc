@@ -13,9 +13,9 @@ NeuFlux::NeuTrackingAction::NeuTrackingAction() : NeuOutputtingComponent(),  fTr
 NeuFlux::NeuTrackingAction::~NeuTrackingAction()
 {}
 
-void NeuFlux::NeuTrackingAction::PreUserTrackingAction(const G4Track* theTrack)
+void NeuFlux::NeuTrackingAction::PreUserTrackingAction(const G4Track* /*theTrack*/)
 {
-	UpdateBranches(theTrack);
+	//UpdateBranches(theTrack);
 
 	//NeuFlux::NeuRootOutput::GetInstance()->FillTree("NeuTrackingAction");
 }

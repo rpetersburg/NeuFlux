@@ -19,7 +19,7 @@ namespace NeuFlux
     a track with it's parent track to find where products come from. This modifies the event
     so that the top track is always pointed at the correct track.
    
-    \note Post Action is still available to be updated.
+    \note Position calculation is still rough, given that paths may curve
    
     \author Kevin Wierman
    
@@ -41,17 +41,44 @@ namespace NeuFlux
       void OnNewFileCreate();
 
     private:
-      void UpdateBranches(const G4Track*);
-
-    private:
       double fTrackID ;
       double fParentID ;
-      double fX ;
-      double fY ;
-      double fZ ;
-      double fLT ;
-      double fGT ;
-      double fPT ;
+      
+      double fPreX ;
+      double fPreY ;
+      double fPreZ ;
+      double fPreLT ;
+      double fPreGT ;
+      double fPrePT ;
+      
+      double fPostX ;
+      double fPostY ;
+      double fPostZ ;
+      double fPostLT ;
+      double fPostGT ;
+      double fPostPT ;
+
+      double fPDGMass    ;
+      double fPDGWidth    ;
+      double fPDGCharge   ;
+      double fPDGSpin   ;
+
+      double fPDGiSpin    ;
+      double fPDGiParity  ;
+      double fPDGiConjugation;
+      double fPDGIsospin  ;
+      double fPDGIsospin3 ;
+      double fPDGiIsospin ;
+      double fPDGiIsospin3  ;
+
+      double fPDGiGParity  ;
+      double fPDGMagneticMoment   ;
+      double fLeptonNumber;
+      double fBaryonNumber  ;
+      double fPDGEncoding ;
+
+      double fAtomicNumber;
+      double fAtomicMass  ;
 
       double fVolume;
       double fNextVolume;

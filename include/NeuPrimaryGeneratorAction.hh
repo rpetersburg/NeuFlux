@@ -4,6 +4,7 @@
 #include "globals.hh"
 #include "G4VUserPrimaryGeneratorAction.hh"
 #include "G4GeneralParticleSource.hh"
+#include "G4ParticleGun.hh"
 
 #include "NeuCosmicGenerator.hh"
 
@@ -41,11 +42,14 @@ namespace NeuFlux
 
 	   void GeneratePrimaries(G4Event *);
 
-	private:
+	   NeuPrimaryGeneratorAction* SetNeutronFun();
 
-	   TRandom3 *r3;
+
 	protected:
 	   NeuFlux::NeuCosmicGenerator *theCosmicRayGun;
+	   G4ParticleGun* fGPS;
+	   bool fUseGPS;
+
 	};
 }
 

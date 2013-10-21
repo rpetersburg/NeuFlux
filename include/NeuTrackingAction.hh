@@ -35,10 +35,13 @@ namespace NeuFlux
    public:
       NeuTrackingAction();
       ~NeuTrackingAction();
-      void PreUserTrackingAction(const G4Track *);
-      void PostUserTrackingAction(const G4Track*);//Not Used.
+      void PreUserTrackingAction(const G4Track*);
+      void PostUserTrackingAction(const G4Track*);
 
       void OnNewFileCreate();
+
+    private:
+      void UpdateBranches(const G4Track*);
 
     private:
       double fTrackID ;

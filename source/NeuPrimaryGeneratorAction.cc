@@ -1,32 +1,48 @@
 #include "NeuPrimaryGeneratorAction.hh"
 
 #include "G4Event.hh"
-#include "G4ParticleGun.hh"
 #include "G4ParticleTable.hh"
 #include "G4ParticleDefinition.hh"
 #include "globals.hh"
 #include "G4UImanager.hh"
 
-#include "TRandom3.h"
 
-NeuFlux::NeuPrimaryGeneratorAction::NeuPrimaryGeneratorAction() 
+NeuFlux::NeuPrimaryGeneratorAction::NeuPrimaryGeneratorAction() : G4VUserPrimaryGeneratorAction(), fUseGPS(false)
 {
    
    theCosmicRayGun = new NeuCosmicGenerator();
+   fGPS = new G4ParticleGun();
 
-	//for random numbers
-   //setting seed to 0 means using a TUUID to set the seed
-	r3 = new TRandom3(0);
-   //output->
+   G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
+   G4String pname = "neutron";
+   G4ParticleDefinition* particle = particleTable->FindParticle(pname);
+   fGPS->SetParticleDefinition(particle);
+   fGPS->SetParticleMomentumDirection(G4ThreeVector(0., 0., -1.));
+   fGPS->SetParticleEnergy(10.0*MeV);
+   fGPS->SetParticlePosition(G4ThreeVector(0.*cm, 0.*cm, 0.0*cm) );
 }
 NeuFlux::NeuPrimaryGeneratorAction::~NeuPrimaryGeneratorAction()
 {
    delete theCosmicRayGun;
+   if(fGPS)
+      delete fGPS;
+}
+
+NeuFlux::NeuPrimaryGeneratorAction* NeuFlux::NeuPrimaryGeneratorAction::SetNeutronFun()
+{
+   fUseGPS = true;
+ return this;  
 }
 
 
 void NeuFlux::NeuPrimaryGeneratorAction::GeneratePrimaries(G4Event* theEvent)
 {
+   if(fUseGPS)
+   {
+      fGPS->GeneratePrimaryVertex(theEvent);
+      return;
+   }
+
    theCosmicRayGun->SetParticleDefinition( G4ParticleTable::GetParticleTable()->FindParticle("mu-") ) ;
    theCosmicRayGun->GeneratePrimaryVertex(theEvent);
 

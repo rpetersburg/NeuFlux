@@ -57,7 +57,7 @@ void NeuFlux::NeuSteppingAction::UserSteppingAction(const G4Step *
 	fDeltaZ = theStep->GetDeltaPosition().z();
 	fDeltaT = theStep->GetDeltaTime();
 
-	//NeuFlux::NeuRootOutput::GetInstance()->FillTree("NeuSteppingAction");
+	NeuFlux::NeuRootOutput::GetInstance()->FillTree("NeuSteppingAction");
 }
 
 void NeuFlux::NeuSteppingAction::OnNewFileCreate()

@@ -30,11 +30,18 @@ void NeuFlux::NeuEventAction::BeginOfEventAction(const G4Event *event)
 	G4cout<<std::endl;
 	G4cout<<"---------------------------------------"<<std::endl;
 	G4cout<<"Beginning Event: "<<event->GetEventID()<<std::endl;
-	
-
-
-	//NeuFlux::NeuRootOutput* output = NeuFlux::NeuRootOutput::GetInstance();
-	//output->FillTree("NeuEventAction");
+	G4cout<<"\tEvent ID:\t"<<event->GetEventID()<<std::endl;
+	G4int nPrimaries = event->GetNumberOfPrimaryVertex();
+	G4cout<<"\tN Events:\t"<<nPrimaries<<std::endl;
+	for(G4int i=0; i<nPrimaries;i++)
+	{
+		G4PrimaryVertex* vertex = event->GetPrimaryVertex(i);
+		G4cout<<"\tVertex:\t"<<i<<std::endl;
+		G4cout<<"\t\t"<<vertex->GetX0()<<std::endl;
+		G4cout<<"\t\t"<<vertex->GetY0()<<std::endl;
+		G4cout<<"\t\t"<<vertex->GetZ0()<<std::endl;
+		G4cout<<"\t\t"<<vertex->GetT0()<<std::endl;
+	}
 }
 
 void NeuFlux::NeuEventAction::EndOfEventAction(const G4Event * evt)

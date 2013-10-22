@@ -15,7 +15,7 @@
 
 
 NeuFlux::NeuPlasticConstruction::NeuPlasticConstruction() : G4VUserDetectorConstruction(),
-												fWorldX(1000.0*m),fWorldY(1000.0*m),fWorldZ(1000.0*m),
+												fWorldX(10000.0*m),fWorldY(10000.0*m),fWorldZ(10000.0*m),
 												fLogicWorld(0),fPhysiWorld(0)
 {}
 

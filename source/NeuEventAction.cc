@@ -37,10 +37,24 @@ void NeuFlux::NeuEventAction::BeginOfEventAction(const G4Event *event)
 	{
 		G4PrimaryVertex* vertex = event->GetPrimaryVertex(i);
 		G4cout<<"\tVertex:\t"<<i<<std::endl;
-		G4cout<<"\t\t"<<vertex->GetX0()<<std::endl;
-		G4cout<<"\t\t"<<vertex->GetY0()<<std::endl;
-		G4cout<<"\t\t"<<vertex->GetZ0()<<std::endl;
-		G4cout<<"\t\t"<<vertex->GetT0()<<std::endl;
+		G4cout<<"\t\tX: "<<vertex->GetX0()<<std::endl;
+		G4cout<<"\t\tY: "<<vertex->GetY0()<<std::endl;
+		G4cout<<"\t\tZ: "<<vertex->GetZ0()<<std::endl;
+		G4cout<<"\t\tT: "<<vertex->GetT0()<<std::endl;
+		G4cout<<"\t\tN: "<<vertex->GetNumberOfParticle()<<std::endl;
+		for(G4int j=0; j<vertex->GetNumberOfParticle(); ++j )
+		{
+			G4PrimaryParticle* particle = vertex->GetPrimary(j);
+			G4cout<<"\t\t\tParticle: "<<j<<std::endl;
+			G4cout<<"\t\t\tPDG:"<<particle->GetPDGcode()<<std::endl;
+			G4cout<<"\t\t\tKE:"<<particle->GetKineticEnergy()<<std::endl;
+			G4cout<<"\t\t\tMomentum:"<<particle->GetTotalMomentum()<<std::endl;
+			G4cout<<"\t\t\tTotalE:"<<particle->GetTotalEnergy()<<std::endl;
+			G4cout<<"\t\t\tGetPx:"<<particle->GetPx()<<std::endl;
+			G4cout<<"\t\t\tGetPy:"<<particle->GetPy()<<std::endl;
+			G4cout<<"\t\t\tGetPz:"<<particle->GetPz()<<std::endl;
+
+		}
 	}
 }
 

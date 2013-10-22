@@ -59,7 +59,8 @@ void NeuFlux::NeuTrackingAction::PostUserTrackingAction(const G4Track* theTrack)
 
 	fAtomicNumber	= def->GetAtomicNumber();
 	fAtomicMass		= def->GetAtomicMass();
-
+	
+	NeuFlux::NeuRootOutput::GetInstance()->FillTree("NeuTrackingAction");
 
 	/*
 	std::string name = theTrack->GetVolume()->GetName();
@@ -81,9 +82,7 @@ void NeuFlux::NeuTrackingAction::PostUserTrackingAction(const G4Track* theTrack)
 		fNextVolume = 3;
 	else if (nextname == "Detector")
 		fNextVolume = 4;
-		*/
-		
-	NeuFlux::NeuRootOutput::GetInstance()->FillTree("NeuTrackingAction");
+		*/	
 }
 
 void NeuFlux::NeuTrackingAction::OnNewFileCreate()

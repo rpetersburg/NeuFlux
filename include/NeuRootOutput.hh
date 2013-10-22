@@ -122,7 +122,7 @@ namespace NeuFlux
 	    	{
 	    		if( std::string( (*it)->GetName() ) == treeName )//std::strcmp ( (*it)->GetName() , treeName.c_str() ) )
 	    		{
-	    			(*it)->Branch(branchName.c_str(), address, branchName.c_str());
+	    			(*it)->Branch(branchName.c_str(), address, "D");//branchName.c_str());
 	    			return true;
 	    		}
 	    	}

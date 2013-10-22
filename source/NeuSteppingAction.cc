@@ -48,7 +48,6 @@ void NeuFlux::NeuSteppingAction::UserSteppingAction(const G4Step *
 	fPostTotalE = theStep->GetPostStepPoint()->GetTotalEnergy();
 	fPostKinE = theStep->GetPostStepPoint()->GetKineticEnergy();
 
-
 	fStepLength = theStep->GetStepLength();
 	fTotalEnergyDeposit = theStep->GetTotalEnergyDeposit();
 	fTotalNonIEnergyDeposit = theStep->GetNonIonizingEnergyDeposit();

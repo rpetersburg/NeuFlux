@@ -1,77 +1,104 @@
-/*
+/*!
 	\file MeanNeutronPathLength.C
 	This is a basic analysis to pull out the mean path length
+
+	Output of this will contain a histogram for every
 */
 
 
-void MeanNeutronPathLength(TString input="NeuFlux_1392233522_0.root")
+void MeanNeutronPathLength(TString input="NeuFlux_1392233522_")
 {
-	TFile* inputFile = new TFile(input,"READ");
-	//pull out the relevent tree
+	//prepare the output file
+	TFile* outputFile = new TFile("analysisOutput.root","RECREATE");
 
-	TTree* trackingTree = (TTree*) inputFile->Get("NeuTrackingAction");
-	if(!trackingTree)
+	double energies[100];//this is in MeV
+	double energyError[100];
+	double decayRate[100];
+	double decayError[100];
+	int n_points=38;
+
+	for(Int_t i=0; i<n_points; i++)
 	{
-		std::cout<<"No Tracking Tree in input File. Exiting..."<<std::endl;
-		exit(-1);
-	}
+		energies[i]=i+1;//keep this in MeV
+		energyError[i]=0;
+		decayRate[i]=0;
+		decayError[i]=0;
+		TString name = input;
+		name+=i;
+		name+=".root";
+		//try
 
-	//declare variables, we want to analyze
-	Double_t preX, preY, preZ, postX, postY, postZ;
-	//Similarly, the cuts need to be delt with
-	Int_t pdgEncoding;
-
-	//Setup some containers to store these in
-	std::vector<double> length;
-	TH1D* lengths = new TH1D("lengthscm","lengthscm", 10000, 0, 100);
-	double mean = 0.0;
-
-	//Get the corresponding branches
-
-	TBranch* PreX = trackingTree->GetBranch("TrackPreX");
-	PreX->SetAddress(&preX);
-	TBranch* PreY = trackingTree->GetBranch("TrackPreY");
-	PreX->SetAddress(&preY);
-	TBranch* PreZ = trackingTree->GetBranch("TrackPreZ");
-	PreX->SetAddress(&preZ);
-
-	TBranch* PostX = trackingTree->GetBranch("TrackPostX");
-	PreX->SetAddress(&postX);
-	TBranch* PostY = trackingTree->GetBranch("TrackPostX");
-	PreX->SetAddress(&postY);
-	TBranch* PostZ = trackingTree->GetBranch("TrackPostX");
-	PreX->SetAddress(&postZ);
-
-	TBranch* PDGBranch = trackingTree->GetBranch("TrackPDGEncoding");
-	PDGBranch->SetAddress(&pdgEncoding);
-
-	//How many of these are there?
-	Int_t nEvents = trackingTree->GetEntries();
+		TFile* inputFile = new TFile(name,"READ");
+		//catch exception e
+		//	continue;
 
 
-	//This is the main analysis loop	
-	for(Int_t i =0; i<nEvents; ++i)
-	{
-		trackingTree->GetEvent(i);//read in the tree branches into memory
-		//now the values are stored in the values given above.
-		if(pdgEncoding !=2112)//cut on non-neutrons
+		//pull out the relevent tree
+		//needs to have the highest cycle, due to ecessively large size		
+		TTree* trackingTree = (TTree*) inputFile->Get("NeuTrackingAction");
+		if(!trackingTree)
 		{
-			//std::cout<<"Not a Neutron"<<std::endl;
+			std::cout<<"No Tracking Tree in input File. Exiting..."<<std::endl;
 			continue;
 		}
-		std::cout<<std::setprecision(15)<<preX<<", "<<preY<<", "<<preZ<<", "<<postX<<", "<<postY<<", "<<postZ<<std::endl;
 
-		double value = TMath::Sqrt( (postX-preX)*(postX-preX) + (postY-preY)*(postY-preY) + (postZ-preZ)*(postZ-preZ)     );
+		//declare variables, we want to analyze
+		Double_t preX, preY, preZ, postX, postY, postZ;
+		//Similarly, the cuts need to be delt with
+		Int_t pdgEncoding;
+		TString outHistName = "lengthscm";
+		outHistName+=energies[i];	
+		TH1D* lengths = new TH1D(outHistName,outHistName, 10000, 0, 2000);
+		//Get the corresponding branches
 
-		length.push_back(value);
-		lengths->Fill(value);
-		mean+=value;
+		TBranch* PreX = trackingTree->GetBranch("TrackPreX");
+		PreX->SetAddress(&preX);
+		TBranch* PreY = trackingTree->GetBranch("TrackPreY");
+		PreX->SetAddress(&preY);
+		TBranch* PreZ = trackingTree->GetBranch("TrackPreZ");
+		PreX->SetAddress(&preZ);
+
+		TBranch* PostX = trackingTree->GetBranch("TrackPostX");
+		PreX->SetAddress(&postX);
+		TBranch* PostY = trackingTree->GetBranch("TrackPostY");
+		PreX->SetAddress(&postY);
+		TBranch* PostZ = trackingTree->GetBranch("TrackPostZ");
+		PreX->SetAddress(&postZ);
+
+		TBranch* PDGBranch = trackingTree->GetBranch("TrackPDGEncoding");
+		PDGBranch->SetAddress(&pdgEncoding);
+
+		//How many of these are there?
+		Int_t nEvents = trackingTree->GetEntries();
+		//This is the main analysis loop	
+		for(Int_t j =0; j<nEvents; ++j)
+		{
+			trackingTree->GetEvent(j);//read in the tree branches into memory
+			//now the values are stored in the values given above.
+			if(pdgEncoding !=2112)//cut on non-neutrons
+			{
+			}
+			else
+			{
+				double value = TMath::Sqrt( (postX-preX)*(postX-preX) + (postY-preY)*(postY-preY) + (postZ-preZ)*(postZ-preZ)     );
+				lengths->Fill(value);
+			}
+		}
+
+		lengths->Fit("expo");
+		TF1* expoFit = lengths->GetFunction("expo");
+		decayRate[i] = expoFit->GetParameter(1)!=0.0 ? -1.0/expoFit->GetParameter(1) : 0.0;
+		decayError[i] = TMath::Abs( decayRate[i] * expoFit->GetParError(1)/expoFit->GetParameter(1) );
+
+		outputFile->cd();
+		lengths->Write();
+
 	}
 
-	TCanvas* c1 = new TCanvas("c1","c1",1);
+	TGraphErrors* graph = new TGraphErrors(n_points, energies, decayRate, energyError, decayError);
+	graph->Write();
 
-	lengths->Draw();
-	std::cout<<std::setprecision(15)<<"Mean: "<<mean/( (double) length.size())<<std::endl;
 
+	outputFile->Close();
 
 }

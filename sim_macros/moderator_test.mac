@@ -1,0 +1,47 @@
+/particle/select neutron
+/gun/particle neutron
+/gun/energy 1 GeV
+/run/beamOn 10000
+
+/gun/energy 2 GeV
+/run/beamOn 10000
+
+/gun/energy 3 GeV
+/run/beamOn 10000
+
+/gun/energy 4 GeV
+/run/beamOn 10000
+
+/gun/energy 5 GeV
+/run/beamOn 10000
+
+/gun/energy 6 GeV
+/run/beamOn 10000
+
+/gun/energy 7 GeV
+/run/beamOn 10000
+
+/gun/energy 8 GeV
+/run/beamOn 10000
+
+/gun/energy 9 GeV
+/run/beamOn 10000
+
+/gun/energy 10 GeV
+/run/beamOn 10000
+
+/gun/energy 11 GeV
+/run/beamOn 10000
+
+/gun/energy 12 GeV
+/run/beamOn 10000
+
+/gun/energy 13 GeV
+/run/beamOn 10000
+
+/gun/energy 14 GeV
+/run/beamOn 10000
+
+/gun/energy 15 GeV
+/run/beamOn 10000
+

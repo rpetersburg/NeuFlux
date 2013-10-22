@@ -63,8 +63,8 @@ void NeuFlux::NeuRunAction::OnNewFileCreate()
 
   NeuFlux::NeuRootOutput* output = NeuFlux::NeuRootOutput::GetInstance();
   output->AddTree("RunAction");
-  output->AddBranch<G4int>("RunAction", "TimeSeed", &fTimeSeed);
-  output->AddBranch<G4int>("RunAction", "ID", &fID);
+  output->AddBranch<G4int>("RunAction", "TimeSeed", &fTimeSeed,"I");
+  output->AddBranch<G4int>("RunAction", "ID", &fID,"I");
   //output->FillTree("RunAction");
 }
 

@@ -41,47 +41,47 @@ namespace NeuFlux
       void OnNewFileCreate();
 
     private:
-      double fTrackID ;
-      double fParentID ;
+      Double_t fTrackID ;
+      Double_t fParentID ;
       
-      double fPreX ;
-      double fPreY ;
-      double fPreZ ;
-      double fPreLT ;
-      double fPreGT ;
-      double fPrePT ;
+      Double_t fPreX ;
+      Double_t fPreY ;
+      Double_t fPreZ ;
+      Double_t fPreLT ;
+      Double_t fPreGT ;
+      Double_t fPrePT ;
       
-      double fPostX ;
-      double fPostY ;
-      double fPostZ ;
-      double fPostLT ;
-      double fPostGT ;
-      double fPostPT ;
+      Double_t fPostX ;
+      Double_t fPostY ;
+      Double_t fPostZ ;
+      Double_t fPostLT ;
+      Double_t fPostGT ;
+      Double_t fPostPT ;
 
-      double fPDGMass    ;
-      double fPDGWidth    ;
-      double fPDGCharge   ;
-      double fPDGSpin   ;
+      Double_t fPDGMass    ;
+      Double_t fPDGWidth    ;
+      Double_t fPDGCharge   ;
+      Double_t fPDGSpin   ;
 
-      double fPDGiSpin    ;
-      double fPDGiParity  ;
-      double fPDGiConjugation;
-      double fPDGIsospin  ;
-      double fPDGIsospin3 ;
-      double fPDGiIsospin ;
-      double fPDGiIsospin3  ;
+      Double_t fPDGiSpin    ;
+      Double_t fPDGiParity  ;
+      Double_t fPDGiConjugation;
+      Double_t fPDGIsospin  ;
+      Double_t fPDGIsospin3 ;
+      Double_t fPDGiIsospin ;
+      Double_t fPDGiIsospin3  ;
 
-      double fPDGiGParity  ;
-      double fPDGMagneticMoment   ;
-      double fLeptonNumber;
-      double fBaryonNumber  ;
-      int fPDGEncoding ;
+      Double_t fPDGiGParity  ;
+      Double_t fPDGMagneticMoment   ;
+      Double_t fLeptonNumber;
+      Double_t fBaryonNumber  ;
+      Int_t fPDGEncoding ;
 
-      double fAtomicNumber;
-      double fAtomicMass  ;
+      Double_t fAtomicNumber;
+      Double_t fAtomicMass  ;
 
-      double fVolume;
-      double fNextVolume;
+      Double_t fVolume;
+      Double_t fNextVolume;
    };
 
 }

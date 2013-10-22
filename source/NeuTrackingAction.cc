@@ -88,44 +88,44 @@ void NeuFlux::NeuTrackingAction::PostUserTrackingAction(const G4Track* theTrack)
 void NeuFlux::NeuTrackingAction::OnNewFileCreate()
 {
 	NeuFlux::NeuRootOutput::GetInstance()->AddTree("NeuTrackingAction");
-    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackID", &fTrackID );              
-    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","ParentID", &fParentID);               
-    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPreX", &fPreX       );        
-    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPreY", &fPreY       );        
-    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPreZ", &fPreZ       );        
-    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPreLT", &fPreLT      );         
-    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPreGT", &fPreGT      );         
-    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPrePT", &fPrePT      );
-    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPostX", &fPostX       );        
-    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPostY", &fPostY       );        
-    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPostZ", &fPostZ       );        
-    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPostLT", &fPostLT      );         
-    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPostGT", &fPostGT      );         
-    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPostPT", &fPostPT      );
-    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackVolume", &fVolume      );
-    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackVolumeNextVolume", &fNextVolume      );
+    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackID", &fTrackID ,"D");              
+    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","ParentID", &fParentID,"D");               
+    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPreX", &fPreX       ,"D");        
+    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPreY", &fPreY       ,"D");        
+    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPreZ", &fPreZ       ,"D");        
+    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPreLT", &fPreLT      ,"D");         
+    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPreGT", &fPreGT      ,"D");         
+    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPrePT", &fPrePT      ,"D");
+    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPostX", &fPostX       ,"D");        
+    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPostY", &fPostY       ,"D");        
+    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPostZ", &fPostZ       ,"D");        
+    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPostLT", &fPostLT      ,"D");         
+    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPostGT", &fPostGT      ,"D");         
+    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPostPT", &fPostPT      ,"D");
+    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackVolume", &fVolume      ,"D");
+    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackVolumeNextVolume", &fNextVolume      ,"D");
 
-    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPDGMass", &fPDGMass 			);
-	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPDGWidth", &fPDGWidth 		);
-	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPDGCharge", &fPDGCharge 		);
-	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPDGSpin", &fPDGSpin 			);
+    NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPDGMass", &fPDGMass 			,"D");
+	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPDGWidth", &fPDGWidth 		,"D");
+	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPDGCharge", &fPDGCharge 		,"D");
+	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPDGSpin", &fPDGSpin 			,"D");
 
-	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPDGiSpin", &fPDGiSpin 		);
-	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPDGiParity", &fPDGiParity 		);
-	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPDGiConjugation", &fPDGiConjugation	);
-	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPDGIsoSpin", &fPDGIsospin		);
-	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPDGIsospin3", &fPDGIsospin3 		);
-	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPDGiIsospin", &fPDGiIsospin 		);
-	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPDGiIsospin3", &fPDGiIsospin3 	);
+	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPDGiSpin", &fPDGiSpin 		,"D");
+	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPDGiParity", &fPDGiParity 		,"D");
+	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPDGiConjugation", &fPDGiConjugation	,"D");
+	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPDGIsoSpin", &fPDGIsospin		,"D");
+	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPDGIsospin3", &fPDGIsospin3 		,"D");
+	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPDGiIsospin", &fPDGiIsospin 		,"D");
+	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPDGiIsospin3", &fPDGiIsospin3 	,"D");
 
-	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPDGiParity", &fPDGiGParity		);
-	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackPDGMagneticMoment", &fPDGMagneticMoment);
-	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackLeptonNumber", &fLeptonNumber		);
-	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackBaryonNumber", &fBaryonNumber 	);
-	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<int>("NeuTrackingAction","TrackPDGEncoding", &fPDGEncoding		);
+	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPDGiParity", &fPDGiGParity		,"D");
+	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackPDGMagneticMoment", &fPDGMagneticMoment,"D");
+	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackLeptonNumber", &fLeptonNumber		,"D");
+	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackBaryonNumber", &fBaryonNumber 	,"D");
+	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Int_t>("NeuTrackingAction","TrackPDGEncoding", &fPDGEncoding		,"I");
 
-	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackAtomicNumber", &fAtomicNumber		);
-	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<double>("NeuTrackingAction","TrackAtomicMass", &fAtomicMass		);
+	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackAtomicNumber", &fAtomicNumber		,"D");
+	NeuFlux::NeuRootOutput::GetInstance()->AddBranch<Double_t>("NeuTrackingAction","TrackAtomicMass", &fAtomicMass		,"D");
 }
 
 

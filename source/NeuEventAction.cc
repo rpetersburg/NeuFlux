@@ -17,12 +17,12 @@ void NeuFlux::NeuEventAction::OnNewFileCreate()
 {
 	NeuFlux::NeuRootOutput* output = NeuFlux::NeuRootOutput::GetInstance();
 	output->AddTree("NeuEventAction");
-	output->AddBranch<G4int>("NeuEventAction", "EventID", &fEventID);
-	output->AddBranch<G4double>("NeuEventAction", "PrimaryEventX",		&fPrimaryX );
-	output->AddBranch<G4double>("NeuEventAction", "PrimaryEventY",		&fPrimaryY);
-	output->AddBranch<G4double>("NeuEventAction", "PrimaryEventZ",		&fPrimaryZ);
-	output->AddBranch<G4double>("NeuEventAction", "PrimaryEventT",		&fPrimaryT);
-	output->AddBranch<G4int>("NeuEventAction", "PrimaryEventN" ,		&fPrimaryN);
+	output->AddBranch<G4int>("NeuEventAction", "EventID", &fEventID,"I");
+	output->AddBranch<G4double>("NeuEventAction", "PrimaryEventX",		&fPrimaryX,"D" );
+	output->AddBranch<G4double>("NeuEventAction", "PrimaryEventY",		&fPrimaryY,"D");
+	output->AddBranch<G4double>("NeuEventAction", "PrimaryEventZ",		&fPrimaryZ,"D");
+	output->AddBranch<G4double>("NeuEventAction", "PrimaryEventT",		&fPrimaryT,"D");
+	output->AddBranch<G4int>("NeuEventAction", "PrimaryEventN" ,		&fPrimaryN,"D");
 }
 
 void NeuFlux::NeuEventAction::BeginOfEventAction(const G4Event *event)

@@ -116,13 +116,13 @@ namespace NeuFlux
 	    */
 
 		template<typename XType>
-	    bool AddBranch(std::string treeName, std::string branchName, XType* address )
+	    bool AddBranch(std::string treeName, std::string branchName, XType* address,std::string variable )
 	    {
 	    	for(std::vector<TTree*>::iterator it = fTrees.begin(); it!= fTrees.end(); ++it )
 	    	{
 	    		if( std::string( (*it)->GetName() ) == treeName )//std::strcmp ( (*it)->GetName() , treeName.c_str() ) )
 	    		{
-	    			(*it)->Branch(branchName.c_str(), address, "D");//branchName.c_str());
+	    			(*it)->Branch(branchName.c_str(), address, variable.c_str());//branchName.c_str());
 	    			return true;
 	    		}
 	    	}
@@ -177,7 +177,6 @@ namespace NeuFlux
 	    void RegisterNewFileComponent( NeuFlux::NeuOutputtingComponent* component )
 	    {
 	    	fComponents.push_back(component);
-
 	    }
 	};
 

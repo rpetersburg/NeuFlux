@@ -15,9 +15,9 @@ void MeanNeutronPathLength(TString input="NeuFlux_1392233522_")
 	double energyError[100];
 	double decayRate[100];
 	double decayError[100];
-	int n_points=38;
+	int n_points=0;
 
-	for(Int_t i=0; i<n_points; i++)
+	for(Int_t i=0; i<100; i++)
 	{
 		energies[i]=i+1;//keep this in MeV
 		energyError[i]=0;
@@ -29,6 +29,8 @@ void MeanNeutronPathLength(TString input="NeuFlux_1392233522_")
 		//try
 
 		TFile* inputFile = new TFile(name,"READ");
+		if( inputFile->IsZombie() )
+			continue;
 		//catch exception e
 		//	continue;
 
@@ -81,18 +83,28 @@ void MeanNeutronPathLength(TString input="NeuFlux_1392233522_")
 			else
 			{
 				double value = TMath::Sqrt( (postX-preX)*(postX-preX) + (postY-preY)*(postY-preY) + (postZ-preZ)*(postZ-preZ)     );
+				if( TMath::IsNaN(value) ) continue;
 				lengths->Fill(value);
 			}
 		}
 
-		lengths->Fit("expo");
+		lengths->Fit("expo","Q");
+		std::cout<<"Fitting Energy: "<<energies[i]<<std::endl;
 		TF1* expoFit = lengths->GetFunction("expo");
 		decayRate[i] = expoFit->GetParameter(1)!=0.0 ? -1.0/expoFit->GetParameter(1) : 0.0;
 		decayError[i] = TMath::Abs( decayRate[i] * expoFit->GetParError(1)/expoFit->GetParameter(1) );
 
+		if( TMath::IsNaN( decayRate[i] ) )
+			decayRate[i]=0;
+		if( TMath::IsNaN( decayError[i] ) )
+			decayError[i] = 100;
+
+
+		decayError[i] *=decayError[i];
 		outputFile->cd();
 		lengths->Write();
-
+		n_points++;
+		std::cout<<"\t\tValue: "<<decayRate[i]<<" +/-"<<decayError[i]<<std::endl;
 	}
 
 	TGraphErrors* graph = new TGraphErrors(n_points, energies, decayRate, energyError, decayError);

@@ -1,12 +1,4 @@
-/*!
-	\file MeanNeutronPathLength.C
-	This is a basic analysis to pull out the mean path length
-
-	Output of this will contain a histogram for every
-*/
-
-
-void MeanNeutronPathLength(TString input="NeuFlux_1392233522_")
+void NeutrondEdX(TString pattern = "NeuFlux_XXXX_")
 {
 	//prepare the output file
 	TFile* outputFile = new TFile("analysisOutput.root","RECREATE");

@@ -6,7 +6,7 @@
 */
 
 
-void MeanNeutronPathLength(TString input="NeuFlux_1392233522_")
+void MeanNeutronPathLength(TString input="NeuFlux_XXXX_")
 {
 	//prepare the output file
 	TFile* outputFile = new TFile("analysisOutput.root","RECREATE");

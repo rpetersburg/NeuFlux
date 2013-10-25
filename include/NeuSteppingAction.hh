@@ -74,6 +74,8 @@ namespace NeuFlux
       Double_t fDeltaZ;
       Double_t fDeltaT;
 
+      Int_t fTrackID;
+
    };
 
 }

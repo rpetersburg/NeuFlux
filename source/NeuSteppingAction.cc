@@ -10,7 +10,7 @@
 NeuFlux::NeuSteppingAction::NeuSteppingAction() : NeuOutputtingComponent(), fPreX(0), fPreY(0), fPreZ(0), fPreLocalT(0), fPreGlobalT(0), fPreProperT(0), fPreMomX(0), fPreMomY(0), fPreMomZ(0), fPreTotalE(0), fPreKinE(0),
  fPostX(0), fPostY(0), fPostZ(0), fPostLocalT(0), fPostGlobalT(0), fPostProperT(0), fPostMomX(0), fPostMomY(0), fPostMomZ(0), fPostTotalE(0), fPostKinE(0),
  fStepLength(0), fTotalEnergyDeposit(0), fTotalNonIEnergyDeposit(0),
- fDeltaX(0), fDeltaY(0), fDeltaZ(0), fDeltaT(0)
+ fDeltaX(0), fDeltaY(0), fDeltaZ(0), fDeltaT(0), fTrackID(0)
 {
 
 }
@@ -56,6 +56,8 @@ void NeuFlux::NeuSteppingAction::UserSteppingAction(const G4Step *
 	fDeltaZ = theStep->GetDeltaPosition().z();
 	fDeltaT = theStep->GetDeltaTime();
 
+	fTrackID = theStep->GetTrack()->GetTrackID();
+
 	NeuFlux::NeuRootOutput::GetInstance()->FillTree("NeuSteppingAction");
 }
 
@@ -95,5 +97,6 @@ void NeuFlux::NeuSteppingAction::OnNewFileCreate()
       output->AddBranch<Double_t>("NeuSteppingAction", "DeltaY", &fDeltaY,"D");
       output->AddBranch<Double_t>("NeuSteppingAction", "DeltaZ", &fDeltaZ,"D");
       output->AddBranch<Double_t>("NeuSteppingAction", "DeltaT", &fDeltaT,"D");	
+      output->AddBranch<Int_t>("NeuSteppingAction", "TrackID", &fTrackID,"I");	
 }
 

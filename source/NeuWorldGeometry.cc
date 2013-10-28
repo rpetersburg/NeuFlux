@@ -28,8 +28,8 @@ NeuFlux::NeuWorldGeometry::~NeuWorldGeometry()
 	delete fMessenger;
 }
 
-G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::Construct()
-{
+G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::Construct(){
+
 	if (fPhysiWorld) 
 	{
 	  G4GeometryManager::GetInstance()->OpenGeometry();

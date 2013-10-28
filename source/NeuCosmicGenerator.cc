@@ -97,4 +97,3 @@ void NeuFlux::NeuCosmicGenerator::GeneratePrimaryVertex(G4Event * evt)
 	G4cout<<"                     Momentum: "<<momentum.x()<<", "<<momentum.y()<<", "<<momentum.z()<<std::endl;
 	G4cout<<"                     Charge: "<<mu_definition->GetPDGCharge()<<std::endl;
 }
-

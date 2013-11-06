@@ -1,5 +1,3 @@
-
-
 #ifndef NeuCosmicGenerator_hh_
 #define NeuCosmicGenerator_hh_
 

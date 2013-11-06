@@ -27,7 +27,7 @@ NeuFlux::NeuCosmicGenerator::~NeuCosmicGenerator()
 		1. Generate the energy and position distribution of the particles.
 
 */
-void NeuFlux::NeuCosmicGenerator::GeneratePrimaryVertex(G4Event * evt) 
+void NeuFlux::NeuCosmicGenerator::GeneratePrimaryVertex(G4Event * evt)
 {
 
 	// _________________energy spectrum for muons_______________________

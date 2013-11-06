@@ -39,7 +39,7 @@ G4VPhysicalVolume* NeuFlux::NeuPlasticConstruction::Construct()
 	                    fWorldX/2.0,
 	                    fWorldY/2.0, fWorldZ/2.0),
 	                //man->FindOrBuildMaterial("G4_POLYETHYLENE"),
-					man->FindOrBuildMaterial("G4_WATER"),s
+					man->FindOrBuildMaterial("G4_WATER"),
 	                "World");
 
 	fPhysiWorld = new G4PVPlacement(0,

@@ -107,6 +107,12 @@ namespace NeuFlux
 	    	return true;
 	    }
 
+		template<typename XType>
+	    bool AddBranch(std::string treeName, std::string branchName, XType* address, std::string )
+	    {
+	    	return this->AddBranch<XType>(treeName, branchName, address);
+	    }
+
 	    //!	Adds a Branch to the Current File
 	    /*!
 	    	\param std::string treeName The Name of the mother tree
@@ -116,7 +122,7 @@ namespace NeuFlux
 	    */
 
 		template<typename XType>
-	    bool AddBranch(std::string treeName, std::string branchName, XType* address,std::string variable )
+	    bool AddBranch(std::string treeName, std::string branchName, XType* address )
 	    {
 	    	for(std::vector<TTree*>::iterator it = fTrees.begin(); it!= fTrees.end(); ++it )
 	    	{

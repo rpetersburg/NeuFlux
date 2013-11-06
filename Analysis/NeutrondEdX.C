@@ -69,7 +69,7 @@ void NeutrondEdX(TString pattern = "NeuFlux_XXXX_")
 
 		TBranch* lengthBranch = trackingTree->GetBranch("StepLength");
 		lengthBranch->SetAddress(&stepLength);
-		TBranch* preEnergyBranch = trackingTree->GetBranch("PreKinE");
+		TBranch* preEnergyBranch = trackingTree->GetBranch("TotalEnergyDeposit");
 		preEnergyBranch->SetAddress(&preE);
 		TBranch* postEnergyBranch = trackingTree->GetBranch("PostKinE");
 		postEnergyBranch->SetAddress(&postE);
@@ -79,18 +79,24 @@ void NeutrondEdX(TString pattern = "NeuFlux_XXXX_")
 		//How many of these are there?
 		Int_t nEvents = trackingTree->GetEntries();
 		//This is the main analysis loop	
+		//std::vector<Int_t>:iterator neutronIDIt = neutronTrackIDs.begin();
 		for(Int_t j =0; j<nEvents; ++j)
 		{
 			trackingTree->GetEvent(j);//read in the tree branches into memory
 			//now the values are stored in the values given above.
-			bool isNeutron=false;
-			for(std::vector<Int_t>::iterator it = neutronTrackIDs.begin(); it!= neutronTrackIDs.end();++it)
-				if( (*it) == trackID)
-					isNeutron=true;
 
-			if(isNeutron)
+			//if the track id is the same as the 
+			/*
+			Int_t theNextID = neutronIDIt++;
+			if(trackID != neutronTrackIDs.front()  && trackID== theNextID )
+				neutronTrackIDs.pop_front();
+			if(trackID !=  neutronTrackIDs.front()  )
+				continue;
+				*/
+
+			if(trackID==0)
 			{
-				double value = TMath::Abs(postE-preE) ;
+				double value = TMath::Abs(preE);//TMath::Abs(postE-preE) ;
 				if( TMath::IsNaN(value) ) continue;
 				lengths->Fill(stepLength);
 				energies->Fill(value);

@@ -121,6 +121,8 @@ namespace NeuFlux
 				natH = new NeuHydrogen;
 				natC = new NeuCarbon;
 
+				/*
+
 				this->AddElement( (G4Element*) natO,0.331);
 				this->AddElement( (G4Element*) natSi,0.277);
 				this->AddElement( (G4Element*) natAl,0.081);
@@ -131,6 +133,21 @@ namespace NeuFlux
 				this->AddElement( (G4Element*) natMg,0.021);
 				this->AddElement( (G4Element*) natH, 0.10);
 				this->AddElement( (G4Element*) natC, 0.05);
+
+				*/
+				G4NistManager* man = G4NistManager::Instance();
+				G4bool isotopes = false;
+
+				this->AddElement( man->FindOrBuildElement("O" , isotopes),0.331);
+				this->AddElement( man->FindOrBuildElement("Si" , isotopes),0.277);
+				this->AddElement( man->FindOrBuildElement("Al" , isotopes),0.081);
+				this->AddElement( man->FindOrBuildElement("Fe" , isotopes),0.050);
+				this->AddElement( man->FindOrBuildElement("Ca" , isotopes),0.036);
+				this->AddElement( man->FindOrBuildElement("Na" , isotopes),0.028);
+				this->AddElement( man->FindOrBuildElement("K" , isotopes),0.026);
+				this->AddElement( man->FindOrBuildElement("Mg" , isotopes),0.021);
+				this->AddElement( man->FindOrBuildElement("H" , isotopes), 0.10);
+				this->AddElement( man->FindOrBuildElement("C" , isotopes), 0.05);
 			}
 			virtual ~NeuRock()
 			{

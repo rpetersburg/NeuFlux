@@ -15,7 +15,7 @@
 
 
 NeuFlux::NeuPlasticConstruction::NeuPlasticConstruction() : G4VUserDetectorConstruction(),
-												fWorldX(1000.0),fWorldY(1000.0),fWorldZ(1000.0),
+												fWorldX(100000.0*m),fWorldY(100000.0*m),fWorldZ(100000.0*m),
 												fLogicWorld(0),fPhysiWorld(0)
 {}
 
@@ -38,7 +38,8 @@ G4VPhysicalVolume* NeuFlux::NeuPlasticConstruction::Construct()
 						new G4Box("World",
 	                    fWorldX/2.0,
 	                    fWorldY/2.0, fWorldZ/2.0),
-	                man->FindOrBuildMaterial("G4_POLYTRIFLUOROCHLOROETHYLENE"),
+	                //man->FindOrBuildMaterial("G4_POLYETHYLENE"),
+					man->FindOrBuildMaterial("G4_WATER"),
 	                "World");
 
 	fPhysiWorld = new G4PVPlacement(0,

@@ -41,38 +41,40 @@ namespace NeuFlux
       void UserSteppingAction(const G4Step * theStep);
 
     private:
-      double fPreX;
-      double fPreY;
-      double fPreZ;
-      double fPreLocalT;
-      double fPreGlobalT;
-      double fPreProperT;
-      double fPreMomX;
-      double fPreMomY;
-      double fPreMomZ;
-      double fPreTotalE;
-      double fPreKinE;
+      Double_t fPreX;
+      Double_t fPreY;
+      Double_t fPreZ;
+      Double_t fPreLocalT;
+      Double_t fPreGlobalT;
+      Double_t fPreProperT;
+      Double_t fPreMomX;
+      Double_t fPreMomY;
+      Double_t fPreMomZ;
+      Double_t fPreTotalE;
+      Double_t fPreKinE;
 
-      double fPostX;
-      double fPostY;
-      double fPostZ;
-      double fPostLocalT;
-      double fPostGlobalT;
-      double fPostProperT;
-      double fPostMomX;
-      double fPostMomY;
-      double fPostMomZ;
-      double fPostTotalE;
-      double fPostKinE;
+      Double_t fPostX;
+      Double_t fPostY;
+      Double_t fPostZ;
+      Double_t fPostLocalT;
+      Double_t fPostGlobalT;
+      Double_t fPostProperT;
+      Double_t fPostMomX;
+      Double_t fPostMomY;
+      Double_t fPostMomZ;
+      Double_t fPostTotalE;
+      Double_t fPostKinE;
 
-      double fStepLength;
-      double fTotalEnergyDeposit;
-      double fTotalNonIEnergyDeposit;
+      Double_t fStepLength;
+      Double_t fTotalEnergyDeposit;
+      Double_t fTotalNonIEnergyDeposit;
 
-      double fDeltaX;
-      double fDeltaY;
-      double fDeltaZ;
-      double fDeltaT;
+      Double_t fDeltaX;
+      Double_t fDeltaY;
+      Double_t fDeltaZ;
+      Double_t fDeltaT;
+
+      Int_t fTrackID;
 
    };
 

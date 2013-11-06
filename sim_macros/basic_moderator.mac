@@ -1,0 +1,8 @@
+/vis/open OGLIX
+/vis/drawVolume World   
+/vis/viewer/set/viewpointVector 10 10 10
+/vis/scene/add/trajectories smooth rich
+/vis/scene/add/hits
+/vis/scene/endOfRunAction accumulate
+/particle/select mu-
+/run/beamOn 1000

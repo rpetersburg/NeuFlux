@@ -1,0 +1,11 @@
+#!/usr/bin/python
+
+output = open("moderator_test.mac","w")
+
+
+
+output.write("/particle/select neutron")
+output.write("/gun/particle neutron")
+for i in range(1,16) :
+    output.write("/gun/energy "+str(i)+" GeV")
+    output.write("/run/beamOn 10000")

@@ -94,11 +94,13 @@ G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructRock()
 }
 G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructConcrete()
 {
+	G4NistManager* man = G4NistManager::Instance();
 	fLogicConcrete = new G4LogicalVolume(
 						new G4Box("Concrete",
 	                    fConcreteX*2.0,
 	                    fConcreteY*2.0, fConcreteZ*2.0),
-	                new NeuConcrete(),
+	                //new NeuConcrete(),
+						man->FindOrBuildMaterial("G4_CONCRETE"),
 	                "Concrete");
 
 	fPhysiConcrete = new G4PVPlacement(0,

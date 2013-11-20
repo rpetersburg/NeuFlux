@@ -15,10 +15,10 @@
 
 
 NeuFlux::NeuWorldGeometry::NeuWorldGeometry() : G4VUserDetectorConstruction(), fDetector(NULL), 
-												fWorldX(1000.0),fWorldY(1000.0),fWorldZ(1000.0),
-												fRockX(1000.0),fRockY(900.0),fRockZ(1000.0),
-												fConcreteX(150.0),fConcreteY(150.0),fConcreteZ(150.0),
-												fDetectorX(100),fDetectorY(100.0),fDetectorZ(100.0)
+												fWorldX(5000.0),fWorldY(5000.0),fWorldZ(5000.0),
+												fRockX(fWorldX),fRockY(3900.0),fRockZ(fWorldZ),
+												fConcreteX(20.0),fConcreteY(5.0),fConcreteZ(20.0),
+												fDetectorLength(3.0),fDetectorDiameter(0.05)
 {
 	fMessenger = new NeuFlux::NeuGeometryMessenger(this);	
 }
@@ -60,8 +60,8 @@ G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructWorld()
 	G4NistManager* man = G4NistManager::Instance();
 	fLogicWorld = new G4LogicalVolume(
 						new G4Box("World",
-	                    fWorldX*2.0,
-	                    fWorldY*2.0, fWorldZ*2.0),
+	                    fWorldX*0.5,
+	                    fWorldY*0.5, fWorldZ*0.5),
 	                man->FindOrBuildMaterial("G4_AIR"),
 	                "World");
 
@@ -77,13 +77,13 @@ G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructRock()
 {
 	fLogicRock = new G4LogicalVolume(
 						new G4Box("Rock",
-	                    fRockX*2.0,
-	                    fRockY*2.0, fRockZ*2.0),
+	                    fRockX*0.5,
+	                    fRockY*0.5, fRockZ*0.5),
 	                new NeuRock(),
 	                "Rock");
 
 	fPhysiRock = new G4PVPlacement(0,
-					G4ThreeVector(   0.0,(fRockY-fWorldY)*2.0, 0.0 ),
+					G4ThreeVector(   0.0,(fRockY-fWorldY)*0.5, 0.0 ),
 					fLogicRock, 
 					"Rock", 
 					fLogicWorld, 
@@ -97,14 +97,14 @@ G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructConcrete()
 	G4NistManager* man = G4NistManager::Instance();
 	fLogicConcrete = new G4LogicalVolume(
 						new G4Box("Concrete",
-	                    fConcreteX*2.0,
-	                    fConcreteY*2.0, fConcreteZ*2.0),
+	                    fConcreteX*0.5,
+	                    fConcreteY*0.5, fConcreteZ*0.5),
 	                //new NeuConcrete(),
 						man->FindOrBuildMaterial("G4_CONCRETE"),
 	                "Concrete");
 
 	fPhysiConcrete = new G4PVPlacement(0,
-					G4ThreeVector(  0.0,(fConcreteY-fRockY)*2.0,  0.0 ),
+					G4ThreeVector(  0.0,(fConcreteY-fRockY)*0.5,  0.0 ),
 					fLogicConcrete, 
 					"Concrete", 
 					fLogicRock, 
@@ -118,14 +118,17 @@ G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructDetector()
 	G4NistManager* man = G4NistManager::Instance();
 
 	fLogicDetector = new G4LogicalVolume(
-						new G4Box("Detector",
-	                    fDetectorX*2.0,
-	                    fDetectorY*2.0, fDetectorZ*2.0),
-	                man->FindOrBuildMaterial("G4_POLYTRIFLUOROCHLOROETHYLENE"),
+						new G4Tubs("Detector",
+						0,
+						fDetectorDiameter*0.5;
+	                    fDetectorLength*0.5,
+						0,
+						3.141*2.0),
+	                man->FindOrBuildMaterial("G4_He"),
 	                "Detector");
 
 	fPhysiDetector = new G4PVPlacement(0,
-					G4ThreeVector( 0.0,(fDetectorY-fConcreteY)*2.0 ,   0.0 ),
+					G4ThreeVector( 0.0,(fDetectorLength-fConcreteY)*0.5 ,   0.0 ),
 					fLogicDetector, 
 					"Detector", 
 					fLogicConcrete, 

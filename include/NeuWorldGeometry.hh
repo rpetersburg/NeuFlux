@@ -71,9 +71,8 @@ namespace NeuFlux
 		G4double fConcreteY;					/*!< Concrete X Dimension */
 		G4double fConcreteZ;					/*!< Concrete X Dimension */
 
-		G4double fDetectorX;					/*!< Detector X Dimension */
-		G4double fDetectorY;					/*!< Detector Y Dimension */
-		G4double fDetectorZ;					/*!< Detector Z Dimension */
+		G4double fDetectorLength;					/*!< Detector Length Dimension */
+		G4double fDetectorDiamter;					/*!< Detector Diameter Dimension */
 
 		G4LogicalVolume* fLogicWorld;						/*!< an integer value */
    		G4VPhysicalVolume* fPhysiWorld;						/*!< an integer value */
@@ -109,12 +108,10 @@ public:
    		void SetConcreteZ(G4double Z)
    			{fWorldZ = Z;}
 
-   		void SetDetectorX(G4double X)
-   			{fDetectorX = X;}
-   		void SetDetectorY(G4double Y)
-   			{fDetectorY = Y;}
-   		void SetDetectorZ(G4double Z)
-   			{fDetectorZ = Z;}
+   		void SetDetectorLength(G4double Length)
+   			{fDetectorLength = Length;}
+   		void SetDetectorDiameter(G4double Diameter)
+   			{fDetectorDiameter = Diameter;}
 
 	};
 

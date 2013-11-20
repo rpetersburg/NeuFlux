@@ -28,9 +28,9 @@ NeuFlux::NeuGeometryMessenger::NeuGeometryMessenger(NeuFlux::NeuWorldGeometry* g
           fWorldX->SetParameterName("WorldX",false);
           fWorldY->SetParameterName("WorldY",false);
           fWorldZ->SetParameterName("WorldZ",false);
-          fWorldX->SetDefaultUnit("cm");
-          fWorldY->SetDefaultUnit("cm");
-          fWorldZ->SetDefaultUnit("cm");
+          fWorldX->SetDefaultUnit("m");
+          fWorldY->SetDefaultUnit("m");
+          fWorldZ->SetDefaultUnit("m");
           fWorldX->SetUnitCategory("Length");
           fWorldY->SetUnitCategory("Length");
           fWorldZ->SetUnitCategory("Length");
@@ -52,9 +52,9 @@ NeuFlux::NeuGeometryMessenger::NeuGeometryMessenger(NeuFlux::NeuWorldGeometry* g
           fRockX->SetParameterName("RockX",false);
           fRockY->SetParameterName("RockY",false);
           fRockZ->SetParameterName("RockZ",false);
-          fRockX->SetDefaultUnit("cm");
-          fRockY->SetDefaultUnit("cm");
-          fRockZ->SetDefaultUnit("cm");
+          fRockX->SetDefaultUnit("m");
+          fRockY->SetDefaultUnit("m");
+          fRockZ->SetDefaultUnit("m");
           fRockX->SetUnitCategory("Length");
           fRockY->SetUnitCategory("Length");
           fRockZ->SetUnitCategory("Length");
@@ -76,9 +76,9 @@ NeuFlux::NeuGeometryMessenger::NeuGeometryMessenger(NeuFlux::NeuWorldGeometry* g
           fConcreteX->SetParameterName("ConcreteX",false);
           fConcreteY->SetParameterName("ConcreteY",false);
           fConcreteZ->SetParameterName("ConcreteZ",false);
-          fConcreteX->SetDefaultUnit("cm");
-          fConcreteY->SetDefaultUnit("cm");
-          fConcreteZ->SetDefaultUnit("cm");
+          fConcreteX->SetDefaultUnit("m");
+          fConcreteY->SetDefaultUnit("m");
+          fConcreteZ->SetDefaultUnit("m");
           fConcreteX->SetUnitCategory("Length");
           fConcreteY->SetUnitCategory("Length");
           fConcreteZ->SetUnitCategory("Length");
@@ -91,27 +91,20 @@ NeuFlux::NeuGeometryMessenger::NeuGeometryMessenger(NeuFlux::NeuWorldGeometry* g
 
          fDetectorDir = new G4UIdirectory("/NeuFlux/Geometry/Detector/");
          fDetectorDir->SetGuidance("Detector Geometry Dimensions");
-          fDetectorX = new G4UIcmdWithADoubleAndUnit("/NeuFlux/Geometry/Detector/DetectorX", this);
-          fDetectorY = new G4UIcmdWithADoubleAndUnit("/NeuFlux/Geometry/Detector/DetectorY", this);
-          fDetectorZ = new G4UIcmdWithADoubleAndUnit("/NeuFlux/Geometry/Detector/DetectorZ", this);
-          fDetectorX->SetGuidance("Detector Geometry Dimension");
-          fDetectorY->SetGuidance("Detector Geometry Dimension");
-          fDetectorZ->SetGuidance("Detector Geometry Dimension");
-          fDetectorX->SetParameterName("DetectorX",false);
-          fDetectorY->SetParameterName("DetectorY",false);
-          fDetectorZ->SetParameterName("DetectorZ",false);
-          fDetectorX->SetDefaultUnit("cm");
-          fDetectorY->SetDefaultUnit("cm");
-          fDetectorZ->SetDefaultUnit("cm");
-          fDetectorX->SetUnitCategory("Length");
-          fDetectorY->SetUnitCategory("Length");
-          fDetectorZ->SetUnitCategory("Length");
-          fDetectorX->SetUnitCategory("Length");
-          fDetectorY->SetUnitCategory("Length");
-          fDetectorZ->SetUnitCategory("Length");
-          fDetectorX->AvailableForStates(G4State_PreInit, G4State_Idle);
-          fDetectorY->AvailableForStates(G4State_PreInit, G4State_Idle);
-          fDetectorZ->AvailableForStates(G4State_PreInit, G4State_Idle);
+          fDetectorLength = new G4UIcmdWithADoubleAndUnit("/NeuFlux/Geometry/Detector/DetectorLength", this);
+          fDetectorDiameter = new G4UIcmdWithADoubleAndUnit("/NeuFlux/Geometry/Detector/DetectorDiameter", this);
+          fDetectorLength->SetGuidance("Detector Geometry Dimension");
+          fDetectorDiameter->SetGuidance("Detector Geometry Dimension");
+          fDetectorLength->SetParameterName("DetectorLength",false);
+          fDetectorDiameter->SetParameterName("DetectorDiameter",false);
+          fDetectorX->SetDefaultUnit("m");
+          fDetectorY->SetDefaultUnit("m");
+          fDetectorLength->SetUnitCategory("Length");
+          fDetectorDiameter->SetUnitCategory("Length");
+          fDetectorLength->SetUnitCategory("Length");
+          fDetectorDiameter->SetUnitCategory("Length");
+          fDetectorLength->AvailableForStates(G4State_PreInit, G4State_Idle);
+          fDetectorDiameter->AvailableForStates(G4State_PreInit, G4State_Idle);
 }
 
 NeuFlux::NeuGeometryMessenger::~NeuGeometryMessenger()
@@ -131,9 +124,8 @@ NeuFlux::NeuGeometryMessenger::~NeuGeometryMessenger()
   delete fConcreteY;
   delete fConcreteZ;
   delete fDetectorDir;
-  delete fDetectorX;
-  delete fDetectorY;
-  delete fDetectorZ;
+  delete fDetectorLength;
+  delete fDetectorDiameter;
 
 }
 
@@ -157,12 +149,10 @@ void NeuFlux::NeuGeometryMessenger::SetNewValue(G4UIcommand * command, G4String 
     fGeometry->SetConcreteY(fConcreteY->GetNewDoubleValue(newValue));
   else if(command == fConcreteZ)
     fGeometry->SetConcreteZ(fConcreteZ->GetNewDoubleValue(newValue));
-  else if(command == fDetectorX)
-    fGeometry->SetDetectorX(fDetectorX->GetNewDoubleValue(newValue));
-  else if(command == fDetectorY)
-    fGeometry->SetDetectorY(fDetectorY->GetNewDoubleValue(newValue));
-  else if(command == fDetectorZ)
-    fGeometry->SetDetectorZ(fDetectorZ->GetNewDoubleValue(newValue));
+  else if(command == fDetectorLength)
+    fGeometry->SetDetectorLength(fDetectorLength->GetNewDoubleValue(newValue));
+  else if(command == fDetectorDiameter)
+    fGeometry->SetDetectorDiameter(fDetectorDiameter->GetNewDoubleValue(newValue));
   else if(command == fDumpGeometry)
     fGeometry->PrintGeometry();
 

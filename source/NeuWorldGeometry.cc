@@ -120,10 +120,10 @@ G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructDetector()
 	fLogicDetector = new G4LogicalVolume(
 						new G4Tubs("Detector",
 						0,
-						fDetectorDiameter*0.5;
+						fDetectorDiameter*0.5,
 	                    fDetectorLength*0.5,
 						0,
-						3.141*2.0),
+						6.282),
 	                man->FindOrBuildMaterial("G4_He"),
 	                "Detector");
 

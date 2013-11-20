@@ -60,9 +60,8 @@ namespace NeuFlux
 					G4UIcmdWithADoubleAndUnit* fConcreteY;
 					G4UIcmdWithADoubleAndUnit* fConcreteZ;
 				G4UIdirectory* fDetectorDir;
-					G4UIcmdWithADoubleAndUnit* fDetectorX;
-					G4UIcmdWithADoubleAndUnit* fDetectorY;
-					G4UIcmdWithADoubleAndUnit* fDetectorZ;
+					G4UIcmdWithADoubleAndUnit* fDetectorLength;
+					G4UIcmdWithADoubleAndUnit* fDetectorDiameter;
 
 	};
 

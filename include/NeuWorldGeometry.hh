@@ -72,7 +72,7 @@ namespace NeuFlux
 		G4double fConcreteZ;					/*!< Concrete X Dimension */
 
 		G4double fDetectorLength;					/*!< Detector Length Dimension */
-		G4double fDetectorDiamter;					/*!< Detector Diameter Dimension */
+		G4double fDetectorDiameter;					/*!< Detector Diameter Dimension */
 
 		G4LogicalVolume* fLogicWorld;						/*!< an integer value */
    		G4VPhysicalVolume* fPhysiWorld;						/*!< an integer value */

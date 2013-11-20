@@ -16,8 +16,8 @@
 
 
 NeuFlux::NeuWorldGeometry::NeuWorldGeometry() : G4VUserDetectorConstruction(), fDetector(NULL), 
-												fWorldX(5000.0),fWorldY(5000.0),fWorldZ(5000.0),
-												fRockX(fWorldX),fRockY(3900.0),fRockZ(fWorldZ),
+												fWorldX(50.0),fWorldY(50.0),fWorldZ(50.0),
+												fRockX(fWorldX),fRockY(39.0),fRockZ(fWorldZ),
 												fConcreteX(20.0),fConcreteY(5.0),fConcreteZ(20.0),
 												fDetectorLength(3.0),fDetectorDiameter(0.05)
 {

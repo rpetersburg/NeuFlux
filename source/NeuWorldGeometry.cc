@@ -5,6 +5,7 @@
 #include "G4LogicalVolumeStore.hh"
 #include "G4SolidStore.hh"
 #include "G4Box.hh"
+#include "G4Tubs.hh"
 #include "G4NistManager.hh"
 #include "G4PVPlacement.hh"
 

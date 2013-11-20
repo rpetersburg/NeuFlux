@@ -97,8 +97,8 @@ NeuFlux::NeuGeometryMessenger::NeuGeometryMessenger(NeuFlux::NeuWorldGeometry* g
           fDetectorDiameter->SetGuidance("Detector Geometry Dimension");
           fDetectorLength->SetParameterName("DetectorLength",false);
           fDetectorDiameter->SetParameterName("DetectorDiameter",false);
-          fDetectorX->SetDefaultUnit("m");
-          fDetectorY->SetDefaultUnit("m");
+          fDetectorLength->SetDefaultUnit("m");
+          fDetectorDiameter->SetDefaultUnit("m");
           fDetectorLength->SetUnitCategory("Length");
           fDetectorDiameter->SetUnitCategory("Length");
           fDetectorLength->SetUnitCategory("Length");

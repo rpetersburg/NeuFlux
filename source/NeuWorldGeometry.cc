@@ -164,8 +164,7 @@ void NeuFlux::NeuWorldGeometry::PrintGeometry()
 		 <<fConcreteY<<" , "		
 		 <<fConcreteZ<<std::endl;	
 	G4cout<<"Detector Geometry: "
-		 <<fDetectorX<<" , "		
-		 <<fDetectorY<<" , "		
-		 <<fDetectorZ<<std::endl;		
+		 <<fDetectorLength<<" , "		
+		 <<fDetectorDiameter<<std::endl;		
 }
 
